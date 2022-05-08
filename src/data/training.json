@@ -1,0 +1,19 @@
+[
+    {
+        "id":"1.1",
+        "fen":"r2n1rk1/1p2R2p/1q1p4/2bP1bp1/p1P2p2/3B1N2/2P2PPP/Q5K1 w - - 0 1",
+        "subtext":"Lerne wie man Bauern zieht"
+    },
+    {   
+        "id":"1.2",
+        "fen":"r2n1rk1/1p2R2p/1q1p4/2bP1bp1/p1P2p2/3B1N2/2P2PPP/Q5K1 w - - 0 1",
+        "subtext":"Lerne wie man einen Läufer bewegt"
+    },
+    {   
+        "id":"1.3",
+        "fen":"r2n1rk1/1p2R2p/1q1p4/2bP1bp1/p1P2p2/3B1N2/2P2PPP/Q5K1 w - - 0 1",
+        "subtext":"Lerne wie man einen König bewegt"
+    }
+
+]
+   

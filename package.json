@@ -1,0 +1,49 @@
+{
+  "name": "einfach-schach",
+  "version": "0.0.1",
+  "description": "Einfach Schach halt",
+  "author": "MTI-SchachAPP Projektgruppe",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint": "eslint src/**/*.ts* --fix",
+    "prettier": "prettier ./**/*.ts --config .prettierrc.json",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc"
+  },
+  "dependencies": {
+    "@emotion/cache": "latest",
+    "@emotion/react": "latest",
+    "@emotion/server": "latest",
+    "@emotion/styled": "latest",
+    "@mui/icons-material": "latest",
+    "@mui/material": "latest",
+    "axios": "^0.27.2",
+    "chess.js": "^0.13.2",
+    "next": "latest",
+    "next-pwa": "^5.5.2",
+    "react": "^17.0.2",
+    "react-chessboard": "^1.2.3",
+    "react-dom": "^17.0.2",
+    "swr": "^1.3.0",
+    "zustand": "^4.0.0-rc.1"
+  },
+  "devDependencies": {
+    "@types/chess.js": "0.11.2",
+    "@types/node": "^12.12.21",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "eslint": "^8.12.0",
+    "eslint-config-prettier": "^8.5.0",
+    "prettier": "^2.6.1",
+    "typescript": "4.0"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false
+  }
+}
