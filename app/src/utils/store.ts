@@ -6,6 +6,7 @@ export const useStore = create<UserState>((set) => ({
     loggedInUser: {
       id:0,
       name:'None',
+      displayName: 'None',
       currentGame: '',
       currentCourse: '',
       level:0,
@@ -17,6 +18,13 @@ export const useStore = create<UserState>((set) => ({
     setLoggedInState: (user:User) => {
       set(() => ({
         loggedInUser: user,
+      }));
+    },
+    currentScreenshot:''
+    ,
+    setCurrentScreenshot: (hash:string) => {
+      set(() => ({
+        currentScreenshot: hash,
       }));
     },
   }));

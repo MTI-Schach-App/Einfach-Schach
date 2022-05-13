@@ -21,7 +21,7 @@ export default function MainMenu(store:UserState) {
     >
 
     <Typography variant="h4" component="h1" gutterBottom>
-      Hi {user.name}, you're Level {user.level}
+      Hi {user.displayName}, you're Level {user.level}
     </Typography>
         <Link href="/game" >
           <Button fullWidth sx={{marginTop:5, height:100, fontSize:30}} variant="contained" >

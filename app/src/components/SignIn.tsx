@@ -13,39 +13,47 @@ import { useStore } from '../utils/store';
 import { User } from '../interfaces/user';
 import {fetchWrapper} from '../utils/fetch-wrapper';
 import { useRouter } from 'next/router';
-
+import Webcam from "react-webcam";
+import { useState } from 'react';
+const videoConstraints = {
+    facingMode: "user"
+  };
 
 const theme = createTheme();
 
 export default function SignIn() {
 
-  const { setLoggedInState } = useStore();
+  const { setLoggedInState, currentScreenshot, setCurrentScreenshot } = useStore();
   const router = useRouter();
+  const verify = async ()=> {
+    console.log(currentScreenshot);
+        const data = await fetchWrapper.post('api/users/verify',{img:currentScreenshot});
+        if (data.success != true){
+          console.log(data.error);
+          if (data.error === "No face detect"){
+
+          router.push('/'); 
+          setCurrentScreenshot('')
+          }
+          else{
+
+            router.push('/signup'); 
+          }
+      } 
+      else{
+        const usersRepo:User[] = await fetchWrapper.get('api/users/all');
+        const name = data.username.toString();
+        setLoggedInState(usersRepo.filter((user) => user.name === name)[0]);
+      }
+  }
+    if (currentScreenshot){
+        verify()
+    }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     
-    const data = new FormData(event.currentTarget);
-    const usersRepo:User[] = await fetchWrapper.get('api/users/all');
-    const name = data.get('name').toString();
-
-    if (usersRepo.flatMap(user => user.name).includes(data.get('name').toString())){
-      setLoggedInState(usersRepo.filter((user) => user.name === name)[0]);
-    }
-    else{
-      setLoggedInState({
-        id:0,
-        name:name,
-        level:0,
-        currentGame: '',
-        currentCourse: '',
-        dateUpdated:'0',
-        dateCreated:'0',
-        coursesFinished: [],
-        wantsToClick: false,
-    });
-      router.push('/signup'); 
-    }
+    
   };
 
   return (
@@ -68,27 +76,27 @@ export default function SignIn() {
           />
           </Link>
           <Divider/>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="name"
-              label="Dein Name"
-              name="name"
-              autoComplete="name"
-              autoFocus
-            />
+          
+              <Webcam
+          screenshotFormat="image/jpeg"
+          videoConstraints={videoConstraints}
+        >
+          {({ getScreenshot }) => (
             <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2, height:100, fontSize:30 }}
-            >
-              Los gehts!
-            </Button>
+            onClick={() => {
+              const imageSrc = getScreenshot()
+              setCurrentScreenshot(imageSrc)
+            }}
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2, height:100, fontSize:30 }}
+          >
+            Los gehts!
+          </Button>
+          )}
+        </Webcam>
             
-          </Box>
+            
         </Box>
       </Container>
     </ThemeProvider>

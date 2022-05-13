@@ -4,11 +4,9 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 
 export default function register(req: NextApiRequest, res: NextApiResponse):void {
-    const user = req.body;
+    const user = req.body.user;
+    const img = req.body.screenshot;
 
-    if (usersRepo.find(x => x.name === user.name))
-        throw `User with the username "${user.name}" already exists`;
-
-    const resp = usersRepo.create(user);
+    const resp = usersRepo.create(user,img);
     return res.status(200).json(resp);
 }

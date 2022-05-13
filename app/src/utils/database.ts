@@ -21,10 +21,26 @@ export const trainingRepo = {
     find: x => courses.find(x),
 };
 
-function create(user:User):User {
+function create(user:User, img:string):User {
     // generate new user id
+    
     user.id = users.length ? Math.max(...users.map(x => x.id)) + 1 : 1;
+    user.name = user.name+user.id.toString();
 
+    (async () => {
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({'img':[img],"username":user.name})
+        };
+        const response = await fetch('http://127.0.0.1:5000/register', requestOptions);
+        const data = await response.json();
+        console.log(data)
+        if (data.success != true){
+            console.log(data.error)
+        } 
+    })();
+            
     // set date created and updated
     user.dateCreated = new Date().toISOString();
     user.dateUpdated = new Date().toISOString();
@@ -63,5 +79,5 @@ function _delete(id:number) {
 }
 
 function saveData() {
-    fs.writeFileSync(process.cwd()+'/src/data/training.json', JSON.stringify(users, null, 4));
+    fs.writeFileSync(process.cwd()+'/src/data/users.json', JSON.stringify(users, null, 4));
 }

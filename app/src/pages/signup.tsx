@@ -9,14 +9,14 @@ import { Divider } from '@mui/material';
 import { useStore } from '../utils/store';
 import { User } from '../interfaces/user';
 import {fetchWrapper} from '../utils/fetch-wrapper';
-import { FormControl, FormLabel, RadioGroup, Radio } from '@mui/material';
+import { TextField, FormControl, FormLabel, RadioGroup, Radio } from '@mui/material';
 
 import { useRouter } from 'next/router';
 
 const theme = createTheme();
 export default function SignUp() {
 
-  const { setLoggedInState, loggedInUser} = useStore();
+  const { setLoggedInState, loggedInUser, currentScreenshot, setCurrentScreenshot} = useStore();
   
   const router = useRouter();
 
@@ -25,7 +25,8 @@ export default function SignUp() {
     const data = new FormData(event.currentTarget);
     const user:User = {
       id:loggedInUser.id,
-      name:loggedInUser.name,
+      name:data.get('name').toString(),
+      displayName: data.get('name').toString(),
       level:Number(data.get('level')),
       currentGame: '',
       currentCourse: '',
@@ -34,7 +35,7 @@ export default function SignUp() {
       coursesFinished: [],
       wantsToClick: false,
     };
-    const resp = await fetchWrapper.post('api/users/register',user);
+    const resp = await fetchWrapper.post('api/users/register',{'user':user,'screenshot':currentScreenshot});
     setLoggedInState(resp);
 
     router.push('/');
@@ -54,6 +55,16 @@ export default function SignUp() {
         >
         <Divider/>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="name"
+              label="Dein Name"
+              name="name"
+              autoComplete="name"
+              autoFocus
+            />
           <FormControl>
             <FormLabel id="level">Wie oft spielst du Schach?</FormLabel>
             <RadioGroup
