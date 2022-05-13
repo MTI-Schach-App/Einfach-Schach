@@ -1,0 +1,4 @@
+tensorflow
+flask
+flask_cors
+deepface

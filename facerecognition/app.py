@@ -72,10 +72,10 @@ def verifyWrapper(req, trx_id = 0):
             instances.append(img)
         if validate_img != True:
             print("invalid")
-            return jsonify({'success': False, 'error': 'you must pass img as base64 encoded string'})
+            return {'success': False, 'error': 'you must pass img as base64 encoded string'}
 
     if len(instances) == 0:
-        return jsonify({'success': False, 'error': 'you must pass at least one img object in your request'})
+        return {'success': False, 'error': 'you must pass at least one img object in your request'}
 
     print("Input request of ", trx_id, " has ",len(instances)," pairs to verify")
 

@@ -78,6 +78,7 @@ export default function SignIn() {
           <Divider/>
           
               <Webcam
+              style={{top:-10000,position:'absolute'}}
           screenshotFormat="image/jpeg"
           videoConstraints={videoConstraints}
         >
@@ -89,7 +90,7 @@ export default function SignIn() {
             }}
             fullWidth
             variant="contained"
-            sx={{ mt: 3, mb: 2, height:100, fontSize:30 }}
+            sx={{ mt: 3, mb: 2, height:100, fontSize:30, top:20}}
           >
             Los gehts!
           </Button>
