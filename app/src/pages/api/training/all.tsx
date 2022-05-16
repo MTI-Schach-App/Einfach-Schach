@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { trainingRepo } from '../../../utils/database';
 
-const handler = (_req: NextApiRequest, res: NextApiResponse):void => {
+const handler = (_req: NextApiRequest, res: NextApiResponse): void => {
   try {
     return res.status(200).json(trainingRepo.getAll());
   } catch (err) {

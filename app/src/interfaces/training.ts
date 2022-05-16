@@ -1,5 +1,5 @@
 export interface Course {
-    id: number;
-    fen: string;
-    subtext: string;
-  }
+  id: number;
+  fen: string;
+  subtext: string;
+}

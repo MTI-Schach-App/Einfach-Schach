@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import {Chess} from 'chess.js';
+import { Chess } from 'chess.js';
 import { Chessboard } from 'react-chessboard';
 import { fetchWrapper } from '../utils/fetch-wrapper';
 import { useStore } from '../utils/store';
 
 export default function DragToMove({ boardWidth, startPos }) {
   const [game, setGame] = useState(new Chess(startPos));
-  
+
   const store = useStore((state) => state.loggedInUser);
   const setUser = useStore((state) => state.setLoggedInState);
-  
-  function safeGameMutate(modify) { 
+
+  function safeGameMutate(modify) {
     setGame((g) => {
       const update = { ...g };
       modify(update);
@@ -18,8 +18,8 @@ export default function DragToMove({ boardWidth, startPos }) {
     });
   }
 
-  function updateUser(){
-    fetchWrapper.post('api/game/set_game',{id:store.id,fen:game.fen()});
+  function updateUser() {
+    fetchWrapper.post('api/game/set_game', { id: store.id, fen: game.fen() });
     const newUser = store;
     newUser.currentGame = game.fen();
     setUser(newUser);
@@ -42,7 +42,7 @@ export default function DragToMove({ boardWidth, startPos }) {
       move = game.move({
         from: sourceSquare,
         to: targetSquare,
-        promotion: 'q', // always promote to a queen for example simplicity
+        promotion: 'q' // always promote to a queen for example simplicity
       });
     });
     if (move === null) return false; // illegal move
@@ -50,7 +50,7 @@ export default function DragToMove({ boardWidth, startPos }) {
     return true;
   }
 
-  return(
+  return (
     <div>
       <Chessboard
         id={7}
@@ -60,11 +60,9 @@ export default function DragToMove({ boardWidth, startPos }) {
         onPieceDrop={onDrop}
         customBoardStyle={{
           borderRadius: '4px',
-          boxShadow: '0 5px 15px rgba(0, 0, 0, 0.5)',
+          boxShadow: '0 5px 15px rgba(0, 0, 0, 0.5)'
         }}
       />
-      
-      
     </div>
   );
 }
