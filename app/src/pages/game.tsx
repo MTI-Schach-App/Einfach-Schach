@@ -64,7 +64,7 @@ function GamePage() {
 
   return (
     <>
-      <BackButton />
+      <BackButton/>
       <Button
         variant="contained"
         sx={{

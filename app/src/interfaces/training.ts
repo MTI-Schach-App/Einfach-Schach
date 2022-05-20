@@ -1,5 +1,7 @@
 export interface Course {
   id: number;
-  fen: string;
+  start: string;
+  end: string;
+  moves: string[];
   subtext: string;
 }
