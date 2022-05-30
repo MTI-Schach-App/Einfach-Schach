@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useWindowSize } from '../utils/helper';
 import { Container, Box, CircularProgress } from '@mui/material';
-import ClickToMove from '../components/ClickToMove';
+import TrainPlay from '../components/TrainPlay';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -14,10 +14,17 @@ import { useRouter } from 'next/router';
 import { useStore } from '../utils/store';
 import BackButton from '../components/BackButton';
 
+const defaultCourse:Course = {
+  id: 0,
+  start: '123',
+  end: '321',
+  moves: [],
+  subtext: 'default',
+}
 function TrainPage() {
   const router = useRouter();
   const loggedUser = useStore((state) => state.loggedInUser);
-  const [course, setCourse] = useState('');
+  const [course, setCourse] = useState(defaultCourse);
 
   const { data: courses } = useSWR(
     ['api/training/all'],
@@ -26,11 +33,11 @@ function TrainPage() {
   );
 
   const changeState = (event) => {
-    const selection = event.target.innerText.toString().split(' ')[1];
+    const selection = event.target.innerText.toString().split(' ')[1].split('\n')[0];
     const courseSelect = courses.find(
       (x) => x.id.toString() === selection.toString()
     );
-    setCourse(courseSelect.fen);
+    setCourse(courseSelect);
   };
 
   if (process.browser && loggedUser.id === 0) {
@@ -47,7 +54,7 @@ function TrainPage() {
       </Container>
     );
 
-  if (course === '') {
+  if (course.id === 0) {
     return (
       <>
         <BackButton />
@@ -85,9 +92,9 @@ function TrainPage() {
     );
   }
 
-  let prop = { boardWidth: size.width * 0.9, startPos: course };
+  let prop = { boardWidth: size.width * 0.9, startPos: course.start, legalMoves: course.moves };
   if (size.height < size.width) {
-    prop = { boardWidth: size.height * 0.85, startPos: course };
+    prop = { boardWidth: size.height * 0.85, startPos: course.start, legalMoves: course.moves };
   }
 
   return (
@@ -102,7 +109,7 @@ function TrainPage() {
             alignItems: 'center'
           }}
         >
-          <ClickToMove {...prop} />
+          <TrainPlay {...prop} />
         </Box>
       </Container>
     </>

@@ -3,7 +3,7 @@ import { Course } from '../interfaces/training';
 import { User } from '../interfaces/user';
 // users in JSON file for simplicity, store in a db for production applications
 let users: User[] = require('../data/users.json');
-const courses: Course[] = require('../data/training.json');
+const courses: Course[] = require('../data/training.json')['Kapitel 1'];
 
 export const usersRepo = {
   getAll: () => users,
@@ -18,7 +18,7 @@ export const usersRepo = {
 export const trainingRepo = {
   getAll: () => courses,
   getById: (id) => courses.find((x) => x.id.toString() === id.toString()),
-  find: (x) => courses.find(x)
+  find: (x):Course => courses.find(x)
 };
 
 function create(user: User, img: string): User {
