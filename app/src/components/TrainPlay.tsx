@@ -5,8 +5,12 @@ import { fetchWrapper } from '../utils/fetch-wrapper';
 import AlertDialog from './modals/AlertModal';
 import SuccessDialog from './modals/SuccessModal';
 import { useStore } from '../utils/store';
+import { Typography } from '@mui/material';
+import SuccessTrainingDialog from './modals/SuccessTrainingModal';
 
-export default function TrainPlay({ boardWidth, startPos, legalMoves }) {
+export default function TrainPlay({ boardWidth, course, setCourse }) {
+  const startPos = course.start
+  const legalMoves = course.moves
   const store = useStore((state) => state.loggedInUser);
   const setUser = useStore((state) => state.setLoggedInState);
   const chessboardRef = useRef();
@@ -84,6 +88,13 @@ export default function TrainPlay({ boardWidth, startPos, legalMoves }) {
     setCurrentLegal(currentLegal+2);
   }
 
+  function undoTurnAndNotify(){
+    setMoveFrom('');
+    setOptionSquares({});
+    setTimeout(() => {game.undo()}, 500);
+    setModal(true);
+  }
+
   function onSquareClick(square) {
     setRightClickedSquares({});
 
@@ -91,6 +102,8 @@ export default function TrainPlay({ boardWidth, startPos, legalMoves }) {
       setMoveFrom(square);
       getMoveOptions(square);
     }
+
+    
 
     
 
@@ -103,18 +116,22 @@ export default function TrainPlay({ boardWidth, startPos, legalMoves }) {
     // attempt to make move
     const gameCopy = { ...game };
     const moddedMoveFrom: Square = moveFrom as Square;
-    if (moddedMoveFrom.concat(square) != legalMoves[currentLegal]){
-      setMoveFrom('');
-      setOptionSquares({});
-      setModal(true);
-      return;
-    }
 
     const move = gameCopy.move({
       from: moddedMoveFrom,
       to: square,
       promotion: 'q' // always promote to a queen for example simplicity
     });
+
+    if (moddedMoveFrom.concat(square) != legalMoves[currentLegal]){
+      undoTurnAndNotify()
+      return;
+    }
+
+    if (currentLegal+2 >= legalMoves.length){ 
+      setWin(true);
+      return;
+    }
     
 
     // if invalid, setMoveFrom and getMoveOptions
@@ -125,16 +142,14 @@ export default function TrainPlay({ boardWidth, startPos, legalMoves }) {
         
     setGame(gameCopy);
 
-    if (currentLegal+2 >= legalMoves.length){
-      setWin(true);
-      return;
-    }
-    
-    
-
     setTimeout(makeNextMove, 500);
     setMoveFrom('');
     setOptionSquares({});
+  }
+
+  function cleanTurn(){
+    if (game.turn() == 'b') return 'schwarz'
+    else return 'weiß'
   }
 
   function onSquareRightClick(square) {
@@ -150,12 +165,6 @@ export default function TrainPlay({ boardWidth, startPos, legalMoves }) {
   }
 
   function onDrop(sourceSquare, targetSquare) {
-    if (sourceSquare.concat(targetSquare) != legalMoves[currentLegal]){
-      setMoveFrom('');
-      setOptionSquares({});
-      setModal(true);
-      return;
-    }
     let move = null;
     safeGameMutate((game) => {
       move = game.move({
@@ -164,6 +173,12 @@ export default function TrainPlay({ boardWidth, startPos, legalMoves }) {
         promotion: 'q' // always promote to a queen for example simplicity
       });
     });
+
+    if (sourceSquare.concat(targetSquare) != legalMoves[currentLegal]){
+      undoTurnAndNotify()
+      return;
+    }
+
     if (currentLegal+2 >= legalMoves.length){
       setWin(true);
       return;
@@ -178,8 +193,10 @@ export default function TrainPlay({ boardWidth, startPos, legalMoves }) {
     return (
       <div>
         <AlertDialog open={modal} setOpen={setModal} text={'Probier es doch noch einmal'} />
-        <SuccessDialog open={win} setOpen={setWin} text={'Du hast alle richtigen Züge gefunden!'} />
-
+        <SuccessTrainingDialog open={win} setOpen={setWin} course={course} setCourse={setCourse} text={'Du hast alle richtigen Züge gefunden!'} />
+        <Typography variant="h4" sx={{textAlign: 'center', marginTop:-5, marginBottom:1}}>
+        Am Zug: {cleanTurn()}
+      </Typography>
         <Chessboard
           id={7}
           animationDuration={200}
@@ -206,7 +223,11 @@ export default function TrainPlay({ boardWidth, startPos, legalMoves }) {
     return (
       <div>
         <AlertDialog open={modal} setOpen={setModal} text={'Probier es doch noch einmal'} />
-        <SuccessDialog open={win} setOpen={setWin} text={'Du hast alle richtigen Züge gefunden!'} />
+        <SuccessTrainingDialog open={win} setOpen={setWin} course={course} setCourse={setCourse} text={'Du hast alle richtigen Züge gefunden!'} />
+        <Typography variant="h4" sx={{textAlign: 'center', marginTop:-5, marginBottom:1}}>
+        Am Zug: {cleanTurn()}
+      </Typography>
+        
         <Chessboard
           id={7}
           animationDuration={200}
@@ -218,6 +239,7 @@ export default function TrainPlay({ boardWidth, startPos, legalMoves }) {
             boxShadow: '0 5px 15px rgba(0, 0, 0, 0.5)'
           }}
         />
+        
       </div>
     );
 

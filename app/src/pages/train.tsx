@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useWindowSize } from '../utils/helper';
 import { Container, Box, CircularProgress } from '@mui/material';
 import TrainPlay from '../components/TrainPlay';
@@ -29,17 +29,33 @@ function TrainPage() {
   const { data: courses } = useSWR(
     ['api/training/all'],
     (url) => axios.get(url).then((res) => res.data),
-    { refreshInterval: 6000 }
+    { refreshInterval: 60000 }
   );
 
   const changeState = (event) => {
-    const selection = event.target.innerText.toString().split(' ')[1].split('\n')[0];
+    const selection = event.target.innerText.toString().split(' ')[1];
     const courseSelect = courses.find(
-      (x) => x.id.toString() === selection.toString()
+      (x) => x.id.toString() === '1_'.concat(selection.toString())
     );
     setCourse(courseSelect);
   };
 
+  const jumpToNextCourse = () => {
+    const newCourse = parseInt(course.id.toString().split('_')[1]) +1
+    const courseSelect = courses.find(
+      (x) => x.id.toString() === '1_'.concat(newCourse.toString())
+    );
+    //setCourse(defaultCourse);
+    console.log(course)
+    setCourse(courseSelect)
+    setTimeout(()=>{console.log(course)},1500);
+    
+    router.push('/train');
+  }
+
+  
+  
+  
   if (process.browser && loggedUser.id === 0) {
     router.push('/');
   }
@@ -80,8 +96,7 @@ function TrainPage() {
               {courses.map((course: Course) => (
                 <ListItemButton key={course.id} onClick={changeState}>
                   <ListItemText
-                    primary={`Übung ${course.id}`}
-                    secondary={course.subtext}
+                    primary={`Übung ${course.id.toString().split('_')[1]}`}
                   />
                 </ListItemButton>
               ))}
@@ -92,9 +107,9 @@ function TrainPage() {
     );
   }
 
-  let prop = { boardWidth: size.width * 0.9, startPos: course.start, legalMoves: course.moves };
+  let prop = { boardWidth: size.width * 0.9, course: course, setCourse: jumpToNextCourse };
   if (size.height < size.width) {
-    prop = { boardWidth: size.height * 0.85, startPos: course.start, legalMoves: course.moves };
+    prop = { boardWidth: size.height * 0.85, course: course, setCourse: jumpToNextCourse };
   }
 
   return (
