@@ -124,6 +124,11 @@ export default function TrainPlay({ boardWidth, startPos, legalMoves }) {
     }
         
     setGame(gameCopy);
+
+    if (currentLegal+2 >= legalMoves.length){
+      setWin(true);
+      return;
+    }
     
     
 
