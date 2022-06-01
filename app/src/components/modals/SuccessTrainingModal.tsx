@@ -8,7 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import { useRouter } from 'next/router';
 import { fetchWrapper } from '../../utils/fetch-wrapper';
 
-export default function SuccessTrainingDialog({open,setOpen,course,setCourse,text}) {
+export default function SuccessTrainingDialog({open,setOpen,course,text}) {
   
   const router = useRouter();
 
@@ -19,7 +19,7 @@ export default function SuccessTrainingDialog({open,setOpen,course,setCourse,tex
 
   const handleNext = () => {
     setOpen(false);
-    setCourse();    
+    router.push(`/train/${'1_'.concat((parseInt(course.id.split('_')[1])+1).toString())}`)   
   };
 
 
@@ -33,7 +33,7 @@ export default function SuccessTrainingDialog({open,setOpen,course,setCourse,tex
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Geschafft!"}
+          {"Geschafft"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">

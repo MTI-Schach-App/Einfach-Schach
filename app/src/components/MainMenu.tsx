@@ -20,7 +20,10 @@ export default function MainMenu(store: UserState) {
         }}
       >
         <Typography variant="h4" component="h1" gutterBottom>
-          Hi {user.displayName}, you're Level {user.level}
+          Hallo {user.displayName} {':)'}
+        </Typography>
+        <Typography variant="h6" component="h1" gutterBottom>
+          Übungen abgeschlossen: {user.coursesFinished.length}!
         </Typography>
         <Link href="/game">
           <Button

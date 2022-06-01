@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useWindowSize } from '../utils/helper';
+import { useWindowSize } from '../../utils/helper';
 import { Container, Box, CircularProgress } from '@mui/material';
-import TrainPlay from '../components/TrainPlay';
+import TrainPlay from '../../components/TrainPlay';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -9,10 +9,10 @@ import ListItemText from '@mui/material/ListItemText';
 
 import axios from 'axios';
 import useSWR from 'swr';
-import { Course } from '../interfaces/training';
+import { Course } from '../../interfaces/training';
 import { useRouter } from 'next/router';
-import { useStore } from '../utils/store';
-import BackButton from '../components/BackButton';
+import { useStore } from '../../utils/store';
+import BackButton from '../../components/BackButton';
 
 const defaultCourse:Course = {
   id: 0,
@@ -39,22 +39,6 @@ function TrainPage() {
     );
     setCourse(courseSelect);
   };
-
-  const jumpToNextCourse = () => {
-    const newCourse = parseInt(course.id.toString().split('_')[1]) +1
-    const courseSelect = courses.find(
-      (x) => x.id.toString() === '1_'.concat(newCourse.toString())
-    );
-    //setCourse(defaultCourse);
-    console.log(course)
-    setCourse(courseSelect)
-    setTimeout(()=>{console.log(course)},1500);
-    
-    router.push('/train');
-  }
-
-  
-  
   
   if (process.browser && loggedUser.id === 0) {
     router.push('/');
@@ -107,9 +91,9 @@ function TrainPage() {
     );
   }
 
-  let prop = { boardWidth: size.width * 0.9, course: course, setCourse: jumpToNextCourse };
+  let prop = { boardWidth: size.width * 0.9, course: course };
   if (size.height < size.width) {
-    prop = { boardWidth: size.height * 0.85, course: course, setCourse: jumpToNextCourse };
+    prop = { boardWidth: size.height * 0.85, course: course };
   }
 
   return (

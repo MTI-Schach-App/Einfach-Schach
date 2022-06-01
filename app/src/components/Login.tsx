@@ -10,7 +10,6 @@ import SignInFace from '../components/SignInFace';
 import { toast } from 'react-toastify';
 import { useState } from 'react';
 
-import logo from '../../public/logo.png';
 import Image from 'next/image';
 
 import SignIn from '../components/SignIn';
@@ -24,6 +23,9 @@ const signInTypes = {
 export default function LoginMenu() {
   const [loginType, setLoginType] = useState(
     <div>
+      <Typography variant="h6" component="h1" gutterBottom>
+          Wie möchtest du dich anmelden?
+        </Typography>
       <Button
         fullWidth
         sx={{ marginTop: 5, height: 100, fontSize: 30 }}
@@ -32,7 +34,7 @@ export default function LoginMenu() {
         }}
         variant="contained"
       >
-        with face
+        Gesicht
       </Button>
 
       <Button
@@ -43,7 +45,7 @@ export default function LoginMenu() {
         }}
         variant="contained"
       >
-        with name
+        Name
       </Button>
     </div>
   );
@@ -59,10 +61,9 @@ export default function LoginMenu() {
           alignItems: 'center'
         }}
       >
-        <Link href="/">
-          <Image src={logo} alt="logo by ben " width="350px" height="300px" />
-        </Link>
         <Divider />
+        
+        
         {loginType}
       </Box>
     </Container>

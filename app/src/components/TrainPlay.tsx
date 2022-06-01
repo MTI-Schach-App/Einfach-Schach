@@ -8,7 +8,8 @@ import { useStore } from '../utils/store';
 import { Typography } from '@mui/material';
 import SuccessTrainingDialog from './modals/SuccessTrainingModal';
 
-export default function TrainPlay({ boardWidth, course, setCourse }) {
+
+export default function TrainPlay({ boardWidth, course }) {
   const startPos = course.start
   const legalMoves = course.moves
   const store = useStore((state) => state.loggedInUser);
@@ -104,10 +105,6 @@ export default function TrainPlay({ boardWidth, course, setCourse }) {
     }
 
     
-
-    
-
-    // from square
     if (!moveFrom) {
       resetFirstMove(square);
       return;
@@ -193,12 +190,12 @@ export default function TrainPlay({ boardWidth, course, setCourse }) {
     return (
       <div>
         <AlertDialog open={modal} setOpen={setModal} text={'Probier es doch noch einmal'} />
-        <SuccessTrainingDialog open={win} setOpen={setWin} course={course} setCourse={setCourse} text={'Du hast alle richtigen Züge gefunden!'} />
+        <SuccessTrainingDialog open={win} setOpen={setWin} course={course} text={'Du hast alle richtigen Züge gefunden!'} />
         <Typography variant="h4" sx={{textAlign: 'center', marginTop:-5, marginBottom:1}}>
         Am Zug: {cleanTurn()}
       </Typography>
         <Chessboard
-          id={7}
+          id={course.id}
           animationDuration={200}
           arePiecesDraggable={false}
           boardWidth={boardWidth}
@@ -214,7 +211,7 @@ export default function TrainPlay({ boardWidth, course, setCourse }) {
             ...optionSquares,
             ...rightClickedSquares
           }}
-          ref={chessboardRef}
+          
         />
       </div>
     );
@@ -223,13 +220,13 @@ export default function TrainPlay({ boardWidth, course, setCourse }) {
     return (
       <div>
         <AlertDialog open={modal} setOpen={setModal} text={'Probier es doch noch einmal'} />
-        <SuccessTrainingDialog open={win} setOpen={setWin} course={course} setCourse={setCourse} text={'Du hast alle richtigen Züge gefunden!'} />
+        <SuccessTrainingDialog open={win} setOpen={setWin} course={course} text={'Du hast alle richtigen Züge gefunden!'} />
         <Typography variant="h4" sx={{textAlign: 'center', marginTop:-5, marginBottom:1}}>
         Am Zug: {cleanTurn()}
       </Typography>
         
         <Chessboard
-          id={7}
+          id={course.id}
           animationDuration={200}
           boardWidth={boardWidth}
           position={game.fen()}
