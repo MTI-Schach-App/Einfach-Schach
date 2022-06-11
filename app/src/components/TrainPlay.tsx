@@ -8,13 +8,11 @@ import { useStore } from '../utils/store';
 import { Typography } from '@mui/material';
 import SuccessTrainingDialog from './modals/SuccessTrainingModal';
 
-
-export default function TrainPlay({ boardWidth, course }) {
+export default function TrainPlay({ boardWidth, course, ref }) {
   const startPos = course.start
   const legalMoves = course.moves
   const store = useStore((state) => state.loggedInUser);
   const setUser = useStore((state) => state.setLoggedInState);
-  const chessboardRef = useRef();
   const [game, setGame] = useState(new Chess(startPos));
 
   const [moveFrom, setMoveFrom] = useState('');
@@ -26,7 +24,15 @@ export default function TrainPlay({ boardWidth, course }) {
   const [modal, setModal] = useState(false);
   const [win, setWin] = useState(false);
 
-  
+  function clearBoard(){
+    
+  }
+
+  const winHandler = () => {
+    game.clear()
+    setWin(true)
+    
+  }
 
   function safeGameMutate(modify) {
     setGame((g) => {
@@ -97,6 +103,7 @@ export default function TrainPlay({ boardWidth, course }) {
   }
 
   function onSquareClick(square) {
+    console.log(course)
     setRightClickedSquares({});
 
     function resetFirstMove(square) {
@@ -186,11 +193,12 @@ export default function TrainPlay({ boardWidth, course }) {
     return true;
   }
 
+  
   if (store.wantsToClick) {
     return (
       <div>
         <AlertDialog open={modal} setOpen={setModal} text={'Probier es doch noch einmal'} />
-        <SuccessTrainingDialog open={win} setOpen={setWin} course={course} text={'Du hast alle richtigen Züge gefunden!'} />
+        <SuccessTrainingDialog open={win} setOpen={winHandler} course={course} text={'Du hast alle richtigen Züge gefunden!'} />
         <Typography variant="h4" sx={{textAlign: 'center', marginTop:-5, marginBottom:1}}>
         Am Zug: {cleanTurn()}
       </Typography>
@@ -206,11 +214,13 @@ export default function TrainPlay({ boardWidth, course }) {
             borderRadius: '4px',
             boxShadow: '0 5px 15px rgba(0, 0, 0, 0.5)'
           }}
+          
           customSquareStyles={{
             ...moveSquares,
             ...optionSquares,
             ...rightClickedSquares
           }}
+          ref={ref}
           
         />
       </div>
@@ -220,7 +230,7 @@ export default function TrainPlay({ boardWidth, course }) {
     return (
       <div>
         <AlertDialog open={modal} setOpen={setModal} text={'Probier es doch noch einmal'} />
-        <SuccessTrainingDialog open={win} setOpen={setWin} course={course} text={'Du hast alle richtigen Züge gefunden!'} />
+        <SuccessTrainingDialog open={win} setOpen={winHandler} course={course} text={'Du hast alle richtigen Züge gefunden!'} />
         <Typography variant="h4" sx={{textAlign: 'center', marginTop:-5, marginBottom:1}}>
         Am Zug: {cleanTurn()}
       </Typography>
@@ -235,6 +245,8 @@ export default function TrainPlay({ boardWidth, course }) {
             borderRadius: '4px',
             boxShadow: '0 5px 15px rgba(0, 0, 0, 0.5)'
           }}
+          
+          ref={ref}
         />
         
       </div>

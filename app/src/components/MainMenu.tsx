@@ -9,21 +9,21 @@ import CssBaseline from '@mui/material/CssBaseline';
 export default function MainMenu(store: UserState) {
   const user = store.loggedInUser;
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="sm">
       <CssBaseline />
       <Box
         sx={{
           marginTop: '5rem',
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'center'
+          alignItems: 'center',
         }}
       >
         <Typography variant="h4" component="h1" gutterBottom>
-          Hallo {user.displayName} {':)'}
+          Hallo {user.displayName}
         </Typography>
         <Typography variant="h6" component="h1" gutterBottom>
-          Übungen abgeschlossen: {user.coursesFinished.length}!
+          Übungen abgeschlossen: {user.coursesFinished.length}
         </Typography>
         <Link href="/game">
           <Button

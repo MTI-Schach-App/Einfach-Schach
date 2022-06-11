@@ -1,21 +1,11 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Image from 'next/image';
-import logo from '../../public/logo.png';
-import { Divider } from '@mui/material';
-import { useStore } from '../utils/store';
-import { User } from '../interfaces/user';
-import { fetchWrapper } from '../utils/fetch-wrapper';
+import { useStore } from '../../utils/store';
+import { User } from '../../interfaces/user';
+import { fetchWrapper } from '../../utils/fetch-wrapper';
 import { useRouter } from 'next/router';
-import BackButton from './BackButton';
-
-const theme = createTheme();
 
 export default function SignIn() {
   const { setLoggedInState } = useStore();

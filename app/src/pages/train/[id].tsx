@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useWindowSize } from '../../utils/helper';
 import { Container, Box, CircularProgress } from '@mui/material';
 import TrainPlay from '../../components/TrainPlay';
@@ -25,6 +25,7 @@ function TrainIdPage() {
   const router = useRouter();
   const loggedUser = useStore((state) => state.loggedInUser);
 
+  const chessboardRef = useRef();
 
   const [course, setCourse] = useState(defaultCourse);
   const forceUpdate = useForceUpdate();
@@ -35,19 +36,23 @@ function TrainIdPage() {
     { refreshInterval: 60000 }
   );  
 
+  useEffect(() => {
+    setCourse(defaultCourse)
+  }, [router.query.id])
+
   if (process.browser && loggedUser.id === 0) {
     router.push('/');
   }
 
   const { id } = router.query;
-    if (courses && course.id.toString() != id) {
-        console.log([id,course.id.toString()])
-        const courseSelect = courses.find(
-            (x) => x.id.toString() === id
-        );
-        setCourse(courseSelect)
-        console.log(course)
-    }
+  if (courses && course.id.toString() != id) {
+    console.log([id,course.id.toString()])
+    const courseSelect = courses.find(
+        (x) => x.id.toString() === id
+    );
+    setCourse(courseSelect)
+    console.log(course)
+}
      
 
   const size = useWindowSize();
@@ -59,10 +64,10 @@ function TrainIdPage() {
         </div>
       </Container>
     );
-
-    let prop = { boardWidth: size.width * 0.9, course: course };
+    
+    let prop = { boardWidth: size.width * 0.9, course: course, ref:chessboardRef };
     if (size.height < size.width) {
-      prop = { boardWidth: size.height * 0.85, course: course };
+      prop = { boardWidth: size.height * 0.85, course: course, ref:chessboardRef };
     }
   
     return (

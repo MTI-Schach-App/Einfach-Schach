@@ -18,37 +18,38 @@ function IndexPage() {
     setLanding('landed');
   };
 
-  if (landing === 'land'){
-    return(
-      <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <Box
-        sx={{
-          marginTop: '5rem',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center'
-        }}
-      >
-        
-      <Link href="/">
-      <Image src={logo} alt="logo by ben " width="350px" height="300px" style={{marginBottom:50}} />
-    </Link>
-    <Divider/>
-    <Button
-    fullWidth
-    sx={{ marginTop: 5, height: 100, fontSize: 30 }}
-    variant="contained"
-    onClick={handleClick}
-  >
-    Los gehts!
-  </Button>
-      </Box>
-    </Container>
-      
-    )
-  }
+  
   if (store.loggedInUser.name === 'None') {
+    if (landing === 'land'){
+      return(
+        <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: '5rem',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center'
+          }}
+        >
+          
+        <Link href="/">
+        <Image src={logo} alt="logo by ben " width="350px" height="300px" style={{marginBottom:50}} />
+      </Link>
+      <Divider/>
+      <Button
+      fullWidth
+      sx={{ marginTop: 5, height: 100, fontSize: 30 }}
+      variant="contained"
+      onClick={handleClick}
+    >
+      Los gehts!
+    </Button>
+        </Box>
+      </Container>
+        
+      )
+    }
     return (
     <LoginMenu />
     );

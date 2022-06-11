@@ -7,10 +7,12 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useRouter } from 'next/router';
 import { fetchWrapper } from '../../utils/fetch-wrapper';
+import Link from 'next/link';
 
 export default function SuccessTrainingDialog({open,setOpen,course,text}) {
   
   const router = useRouter();
+  const nextCourse = `/train/${'1_'.concat((parseInt(course.id.split('_')[1])+1).toString())}`;
 
   const handleClose = () => {
     setOpen(false);
@@ -19,7 +21,7 @@ export default function SuccessTrainingDialog({open,setOpen,course,text}) {
 
   const handleNext = () => {
     setOpen(false);
-    router.push(`/train/${'1_'.concat((parseInt(course.id.split('_')[1])+1).toString())}`)   
+    router.push(nextCourse)   
   };
 
 
@@ -44,6 +46,7 @@ export default function SuccessTrainingDialog({open,setOpen,course,text}) {
           <Button onClick={handleClose}>
             Zurück
           </Button>
+          
           <Button onClick={handleNext} autoFocus>
             nächste Aufgabe
           </Button>

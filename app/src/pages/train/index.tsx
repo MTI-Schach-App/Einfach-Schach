@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useWindowSize } from '../../utils/helper';
 import { Container, Box, CircularProgress } from '@mui/material';
 import TrainPlay from '../../components/TrainPlay';
@@ -25,6 +25,8 @@ function TrainPage() {
   const router = useRouter();
   const loggedUser = useStore((state) => state.loggedInUser);
   const [course, setCourse] = useState(defaultCourse);
+
+  const chessboardRef = useRef();
 
   const { data: courses } = useSWR(
     ['api/training/all'],
@@ -91,9 +93,9 @@ function TrainPage() {
     );
   }
 
-  let prop = { boardWidth: size.width * 0.9, course: course };
+  let prop = { boardWidth: size.width * 0.9, course: course, ref:chessboardRef };
   if (size.height < size.width) {
-    prop = { boardWidth: size.height * 0.85, course: course };
+    prop = { boardWidth: size.height * 0.85, course: course, ref:chessboardRef };
   }
 
   return (

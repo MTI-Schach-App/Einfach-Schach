@@ -6,16 +6,18 @@ import { UserState } from '../interfaces/user';
 import Link from 'next/link';
 import CssBaseline from '@mui/material/CssBaseline';
 
-import SignInFace from '../components/SignInFace';
+import SignInFace from '../components/logins/SignInFace';
 import { toast } from 'react-toastify';
 import { useState } from 'react';
 
 import Image from 'next/image';
 
-import SignIn from '../components/SignIn';
+import QRSignIn from '../components/logins/QRSignIn';
+import SignIn from '../components/logins/SignIn';
 import { Divider } from '@mui/material';
 
 const signInTypes = {
+  qr: <QRSignIn/>,
   face: <SignInFace />,
   legacy: <SignIn />
 };
@@ -26,6 +28,17 @@ export default function LoginMenu() {
       <Typography variant="h6" component="h1" gutterBottom>
           Wie möchtest du dich anmelden?
         </Typography>
+
+        <Button
+        fullWidth
+        sx={{ marginTop: 5, height: 100, fontSize: 30 }}
+        onClick={() => {
+          setLoginType(signInTypes.qr);
+        }}
+        variant="contained"
+      >
+        QR Code
+      </Button>
       <Button
         fullWidth
         sx={{ marginTop: 5, height: 100, fontSize: 30 }}
