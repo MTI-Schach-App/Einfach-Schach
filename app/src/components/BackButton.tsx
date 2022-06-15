@@ -7,7 +7,7 @@ export default function BackButton() {
     <Button
       variant="contained"
       aria-label={'Zurück'}
-      sx={{ marginTop: 1, marginLeft: 1, marginBottom: -4 }}
+      sx={{ marginTop: 1, marginLeft: 2, marginBottom: -4 }}
       onClick={() => router.back()}
     >
       Zurück

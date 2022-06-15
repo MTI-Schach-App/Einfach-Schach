@@ -56,7 +56,8 @@ function TrainIdPage() {
      
 
   const size = useWindowSize();
-  if (course.id === 0 || course.id.toString() != id)
+  if (course.id === 0 || course.id.toString() != id){
+
     return (
       <Container>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -64,6 +65,7 @@ function TrainIdPage() {
         </div>
       </Container>
     );
+  }
     
     let prop = { boardWidth: size.width * 0.9, course: course, ref:chessboardRef };
     if (size.height < size.width) {

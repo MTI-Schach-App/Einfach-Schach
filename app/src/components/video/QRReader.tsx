@@ -19,11 +19,11 @@ function QRReader(){
     const usersRepo: User[] = await fetchWrapper.get('api/users/all');
     if (
       usersRepo
-        .flatMap((user) => user.displayName)
+        .flatMap((user) => user.name)
         .includes(name)
     ) {
       setLoggedInState(
-        usersRepo.filter((user) => user.displayName === name)[0]
+        usersRepo.filter((user) => user.name === name)[0]
       );
     } else {
       setLoggedInState({

@@ -1,3 +1,7 @@
 facerecognition/data
 app/src/data/users.json
 app/package-lock.json
+app/src/.DS_Store
+facerecognition/.DS_Store
+scripts/.DS_Store
+.DS_Store

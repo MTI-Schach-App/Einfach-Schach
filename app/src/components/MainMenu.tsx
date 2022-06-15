@@ -5,12 +5,25 @@ import Button from '@mui/material/Button';
 import { UserState } from '../interfaces/user';
 import Link from 'next/link';
 import CssBaseline from '@mui/material/CssBaseline';
+import SettingsIcon from '@mui/icons-material/Settings';
+import { Fab } from '@mui/material';
+
+import Image from 'next/image';
+import pawn from '../../public/pawn.png';
 
 export default function MainMenu(store: UserState) {
   const user = store.loggedInUser;
   return (
+    <>   
+<Link href="/settings">
+    <Fab color="primary" aria-label="settings" sx={{float:'right', marginTop:'-4rem', marginRight:'1rem'}}>
+    <SettingsIcon fontSize='large' ></SettingsIcon>
+       
+</Fab>
+           </Link>
     <Container component="main" maxWidth="sm">
       <CssBaseline />
+      
       <Box
         sx={{
           marginTop: '5rem',
@@ -19,7 +32,7 @@ export default function MainMenu(store: UserState) {
           alignItems: 'center',
         }}
       >
-        <Typography variant="h4" component="h1" gutterBottom>
+        <Typography variant="h3" component="h1" gutterBottom>
           Hallo {user.displayName}
         </Typography>
         <Typography variant="h6" component="h1" gutterBottom>
@@ -31,7 +44,7 @@ export default function MainMenu(store: UserState) {
             sx={{ marginTop: 5, height: 100, fontSize: 30 }}
             variant="contained"
           >
-            Spielen
+            Partie spielen
           </Button>
         </Link>
 
@@ -44,16 +57,10 @@ export default function MainMenu(store: UserState) {
             Übungen
           </Button>
         </Link>
-        <Link href="/settings">
-          <Button
-            fullWidth
-            sx={{ marginTop: 5, height: 100, fontSize: 30 }}
-            variant="contained"
-          >
-            Einstellungen
-          </Button>
-        </Link>
+        
       </Box>
     </Container>
-  );
+
+    </>
+      );
 }

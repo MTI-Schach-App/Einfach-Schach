@@ -25,7 +25,7 @@ const signInTypes = {
 export default function LoginMenu() {
   const [loginType, setLoginType] = useState(
     <div>
-      <Typography variant="h6" component="h1" gutterBottom>
+      <Typography variant="h4" component="h3" gutterBottom>
           Wie möchtest du dich anmelden?
         </Typography>
 
@@ -64,7 +64,7 @@ export default function LoginMenu() {
   );
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="sm">
       <CssBaseline />
       <Box
         sx={{
