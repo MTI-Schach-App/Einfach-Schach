@@ -53,11 +53,11 @@ function GamePage() {
   let width = size.width * 0.9;
   if (size.height < size.width) {
     width = size.height * 0.85;
-  };
+  }
 
   return (
     <>
-      <BackButton/>
+      <BackButton />
       <Button
         variant="contained"
         sx={{

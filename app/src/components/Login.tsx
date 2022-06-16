@@ -17,7 +17,7 @@ import SignIn from '../components/logins/SignIn';
 import { Divider } from '@mui/material';
 
 const signInTypes = {
-  qr: <QRSignIn/>,
+  qr: <QRSignIn />,
   face: <SignInFace />,
   legacy: <SignIn />
 };
@@ -26,10 +26,10 @@ export default function LoginMenu() {
   const [loginType, setLoginType] = useState(
     <div>
       <Typography variant="h4" component="h3" gutterBottom>
-          Wie möchtest du dich anmelden?
-        </Typography>
+        Wie möchtest du dich anmelden?
+      </Typography>
 
-        <Button
+      <Button
         fullWidth
         sx={{ marginTop: 5, height: 100, fontSize: 30 }}
         onClick={() => {
@@ -75,8 +75,7 @@ export default function LoginMenu() {
         }}
       >
         <Divider />
-        
-        
+
         {loginType}
       </Box>
     </Container>

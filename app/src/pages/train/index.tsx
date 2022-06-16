@@ -14,13 +14,13 @@ import { useRouter } from 'next/router';
 import { useStore } from '../../utils/store';
 import BackButton from '../../components/BackButton';
 
-const defaultCourse:Course = {
+const defaultCourse: Course = {
   id: 0,
   start: '123',
   end: '321',
   moves: [],
-  subtext: 'default',
-}
+  subtext: 'default'
+};
 function TrainPage() {
   const router = useRouter();
   const loggedUser = useStore((state) => state.loggedInUser);
@@ -41,7 +41,7 @@ function TrainPage() {
     );
     setCourse(courseSelect);
   };
-  
+
   if (process.browser && loggedUser.id === 0) {
     router.push('/');
   }
@@ -93,9 +93,17 @@ function TrainPage() {
     );
   }
 
-  let prop = { boardWidth: size.width * 0.9, course: course, ref:chessboardRef };
+  let prop = {
+    boardWidth: size.width * 0.9,
+    course: course,
+    ref: chessboardRef
+  };
   if (size.height < size.width) {
-    prop = { boardWidth: size.height * 0.85, course: course, ref:chessboardRef };
+    prop = {
+      boardWidth: size.height * 0.85,
+      course: course,
+      ref: chessboardRef
+    };
   }
 
   return (

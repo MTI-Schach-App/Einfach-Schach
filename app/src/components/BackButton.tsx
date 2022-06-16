@@ -10,7 +10,7 @@ export default function BackButton() {
       sx={{ marginTop: 1, marginLeft: 2, marginBottom: -4 }}
       onClick={() => router.back()}
     >
-      Zurück
+      {'< Zurück'}
     </Button>
   );
 }

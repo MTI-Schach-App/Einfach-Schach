@@ -18,7 +18,7 @@ export const usersRepo = {
 export const trainingRepo = {
   getAll: () => courses,
   getById: (id) => courses.find((x) => x.id.toString() === id.toString()),
-  find: (x):Course => courses.find(x)
+  find: (x): Course => courses.find(x)
 };
 
 function create(user: User, img: string): User {

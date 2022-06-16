@@ -7,10 +7,9 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useRouter } from 'next/router';
 
-export default function SuccessDialog({open,setOpen,text}) {
-  
+export default function SuccessDialog({ open, setOpen, text }) {
   const router = useRouter();
-    const handleClose = () => {
+  const handleClose = () => {
     setOpen(false);
     router.push('/');
   };
@@ -23,9 +22,7 @@ export default function SuccessDialog({open,setOpen,text}) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-          {"Gewonnen!"}
-        </DialogTitle>
+        <DialogTitle id="alert-dialog-title">{'Gewonnen!'}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             {text}

@@ -6,8 +6,8 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function AlertDialog({open,setOpen,text}) {
-    const handleClose = () => {
+export default function AlertDialog({ open, setOpen, text }) {
+  const handleClose = () => {
     setOpen(false);
   };
 
@@ -20,7 +20,7 @@ export default function AlertDialog({open,setOpen,text}) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Das war nicht der richtige Zug"}
+          {'Das war nicht der richtige Zug'}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">

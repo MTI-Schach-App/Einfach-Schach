@@ -45,28 +45,26 @@ export default function SignIn() {
 
   return (
     <>
-    <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-      
-      <TextField
-        margin="normal"
-        required
-        fullWidth
-        id="name"
-        label="Dein Name"
-        name="name"
-        autoComplete="name"
-        autoFocus
-      />
-      <Button
-        type="submit"
-        fullWidth
-        variant="contained"
-        sx={{ mt: 3, mb: 2, height: 100, fontSize: 30 }}
-      >
-        Los gehts!
-      </Button>
-    </Box>
+      <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <TextField
+          margin="normal"
+          required
+          fullWidth
+          id="name"
+          label="Dein Name"
+          name="name"
+          autoComplete="name"
+          autoFocus
+        />
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          sx={{ mt: 3, mb: 2, height: 100, fontSize: 30 }}
+        >
+          Los gehts!
+        </Button>
+      </Box>
     </>
-    
   );
 }

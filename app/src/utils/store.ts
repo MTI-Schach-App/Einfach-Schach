@@ -13,7 +13,8 @@ export const useStore = create<UserState>((set) => ({
     dateCreated: '',
     dateUpdated: '',
     coursesFinished: [],
-    wantsToClick: true
+    wantsToClick: true,
+    animationSpeed: 2000
   },
   setLoggedInState: (user: User) => {
     set(() => ({

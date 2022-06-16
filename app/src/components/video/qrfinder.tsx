@@ -14,8 +14,8 @@ export const QRFinder = () => (
         position: 'absolute',
         width: '70%',
         marginLeft: '15%',
-        marginTop:'15%',
-        height: '70%',
+        marginTop: '15%',
+        height: '70%'
       }}
     >
       <path

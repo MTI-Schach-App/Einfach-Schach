@@ -16,7 +16,7 @@ export default function FreePlay({ boardWidth, startPos }) {
   const [rightClickedSquares, setRightClickedSquares] = useState({});
   const moveSquares = {};
   const [optionSquares, setOptionSquares] = useState({});
-  
+
   const [win, setWin] = useState(false);
 
   function safeGameMutate(modify) {
@@ -65,11 +65,10 @@ export default function FreePlay({ boardWidth, startPos }) {
     const possibleMoves = game.moves();
 
     // exit if the game is over
-    if (game.game_over() || game.in_draw() || possibleMoves.length === 0){
+    if (game.game_over() || game.in_draw() || possibleMoves.length === 0) {
       setWin(true);
       return;
     }
-      
 
     const randomIndex = Math.floor(Math.random() * possibleMoves.length);
     safeGameMutate((game) => {
@@ -108,7 +107,7 @@ export default function FreePlay({ boardWidth, startPos }) {
       return;
     }
 
-    setTimeout(makeRandomMove, 300);
+    setTimeout(makeRandomMove, store.animationSpeed + 1000);
     setMoveFrom('');
     setOptionSquares({});
   }
@@ -135,18 +134,22 @@ export default function FreePlay({ boardWidth, startPos }) {
       });
     });
     if (move === null) return false; // illegal move
-    setTimeout(makeRandomMove, 200);
+    setTimeout(makeRandomMove, store.animationSpeed + 1000);
     return true;
   }
 
   if (store.wantsToClick) {
     return (
       <div>
-        <SuccessDialog open={win} setOpen={setWin} text={'Du hast alle richtigen Züge gefunden!'} />
+        <SuccessDialog
+          open={win}
+          setOpen={setWin}
+          text={'Du hast alle richtigen Züge gefunden!'}
+        />
 
         <Chessboard
           id={7}
-          animationDuration={200}
+          animationDuration={store.animationSpeed}
           arePiecesDraggable={false}
           boardWidth={boardWidth}
           position={game.fen()}
@@ -165,15 +168,18 @@ export default function FreePlay({ boardWidth, startPos }) {
         />
       </div>
     );
-  }
-  else{
+  } else {
     return (
       <div>
-        <SuccessDialog open={win} setOpen={setWin} text={'Du hast den Gegner ins Matt gesetzt!'} />
+        <SuccessDialog
+          open={win}
+          setOpen={setWin}
+          text={'Du hast den Gegner ins Matt gesetzt!'}
+        />
 
         <Chessboard
           id={7}
-          animationDuration={200}
+          animationDuration={store.animationSpeed}
           boardWidth={boardWidth}
           position={game.fen()}
           onPieceDrop={onDrop}
@@ -184,7 +190,5 @@ export default function FreePlay({ boardWidth, startPos }) {
         />
       </div>
     );
-
   }
-  
 }

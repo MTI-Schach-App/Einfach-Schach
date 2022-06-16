@@ -9,10 +9,11 @@ import { useRouter } from 'next/router';
 import { fetchWrapper } from '../../utils/fetch-wrapper';
 import Link from 'next/link';
 
-export default function SuccessTrainingDialog({open,setOpen,course,text}) {
-  
+export default function SuccessTrainingDialog({ open, setOpen, course, text }) {
   const router = useRouter();
-  const nextCourse = `/train/${'1_'.concat((parseInt(course.id.split('_')[1])+1).toString())}`;
+  const nextCourse = `/train/${'1_'.concat(
+    (parseInt(course.id.split('_')[1]) + 1).toString()
+  )}`;
 
   const handleClose = () => {
     setOpen(false);
@@ -21,10 +22,8 @@ export default function SuccessTrainingDialog({open,setOpen,course,text}) {
 
   const handleNext = () => {
     setOpen(false);
-    router.push(nextCourse)   
+    router.push(nextCourse);
   };
-
-
 
   return (
     <div>
@@ -34,19 +33,15 @@ export default function SuccessTrainingDialog({open,setOpen,course,text}) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-          {"Geschafft"}
-        </DialogTitle>
+        <DialogTitle id="alert-dialog-title">{'Geschafft'}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             {text}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>
-            Zurück
-          </Button>
-          
+          <Button onClick={handleClose}>Zurück</Button>
+
           <Button onClick={handleNext} autoFocus>
             nächste Aufgabe
           </Button>

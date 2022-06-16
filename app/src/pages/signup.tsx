@@ -43,7 +43,8 @@ export default function SignUp() {
       dateUpdated: '0',
       dateCreated: '0',
       coursesFinished: [],
-      wantsToClick: true
+      wantsToClick: true,
+      animationSpeed: 2000
     };
     const resp = await fetchWrapper.post('api/users/register', {
       user: user,
