@@ -8,9 +8,6 @@ import CssBaseline from '@mui/material/CssBaseline';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Fab } from '@mui/material';
 
-import Image from 'next/image';
-import pawn from '../../public/pawn.png';
-
 export default function MainMenu(store: UserState) {
   const user = store.loggedInUser;
   return (
@@ -19,7 +16,7 @@ export default function MainMenu(store: UserState) {
         <Fab
           color="primary"
           aria-label="settings"
-          sx={{ float: 'right', marginTop: '-4rem', marginRight: '1rem' }}
+          sx={{ float: 'right', marginTop: '-14rem', marginRight: '1rem' }}
         >
           <SettingsIcon fontSize="large"></SettingsIcon>
         </Fab>
@@ -29,7 +26,7 @@ export default function MainMenu(store: UserState) {
 
         <Box
           sx={{
-            marginTop: '5rem',
+            marginTop: '15rem',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center'

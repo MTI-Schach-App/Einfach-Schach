@@ -11,6 +11,7 @@ export interface User {
   dateCreated: string;
   coursesFinished: Course[];
   wantsToClick: boolean;
+  animationSpeed: number;
 }
 
 export interface UserState {

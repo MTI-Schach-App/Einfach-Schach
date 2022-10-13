@@ -19,7 +19,6 @@ import {
 
 import { useRouter } from 'next/router';
 
-const theme = createTheme();
 export default function SignUp() {
   const {
     setLoggedInState,
@@ -27,6 +26,13 @@ export default function SignUp() {
     currentScreenshot,
     setCurrentScreenshot
   } = useStore();
+
+  let nameDisp = ""
+
+  if (loggedInUser.name != "None") {
+    nameDisp = loggedInUser.name
+  }
+
 
   const router = useRouter();
 
@@ -56,7 +62,6 @@ export default function SignUp() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -72,13 +77,13 @@ export default function SignUp() {
             component="form"
             onSubmit={handleSubmit}
             noValidate
-            sx={{ mt: 1 }}
+            sx={{ mt: '5rem' }}
           >
             <TextField
               margin="normal"
               required
               fullWidth
-              defaultValue={loggedInUser.name}
+              defaultValue={nameDisp}
               id="name"
               label="Dein Name"
               name="name"
@@ -109,13 +114,12 @@ export default function SignUp() {
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ mt: 3, mb: 2 }}
+              sx={{ marginTop: 5, height: 100, fontSize: 30 }}
             >
-              Weiter!
+              Registieren!
             </Button>
           </Box>
         </Box>
       </Container>
-    </ThemeProvider>
   );
 }

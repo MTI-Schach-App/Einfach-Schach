@@ -37,7 +37,8 @@ export default function SignIn() {
         dateUpdated: '0',
         dateCreated: '0',
         coursesFinished: [],
-        wantsToClick: false
+        wantsToClick: false,
+        animationSpeed: 2000
       });
       router.push('/signup');
     }

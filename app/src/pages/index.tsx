@@ -1,7 +1,6 @@
 import { useStore } from '../utils/store';
 import MainMenu from '../components/MainMenu';
 import LoginMenu from '../components/Login';
-import BackButton from '../components/BackButton';
 import { useState } from 'react';
 import { Box, Container, CssBaseline, Divider } from '@mui/material';
 import Link from 'next/link';
@@ -9,13 +8,19 @@ import Image from 'next/image';
 import { Button } from '@mui/material';
 
 import logo from '../../public/logo.png';
+import { useRouter } from 'next/router';
 
 function IndexPage() {
   const store = useStore();
+  const router = useRouter();
   const [landing, setLanding] = useState('land');
 
-  const handleClick = () => {
-    setLanding('landed');
+  const login = () => {
+    setLanding('login');
+  };
+
+  const register = () => {
+    router.push('/signup');
   };
 
   if (store.loggedInUser.name === 'None') {
@@ -25,7 +30,7 @@ function IndexPage() {
           <CssBaseline />
           <Box
             sx={{
-              marginTop: '5rem',
+              marginTop: '15rem',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center'
@@ -45,15 +50,25 @@ function IndexPage() {
               fullWidth
               sx={{ marginTop: 5, height: 100, fontSize: 30 }}
               variant="contained"
-              onClick={handleClick}
+              onClick={login}
             >
-              Los gehts!
+              Anmelden
+            </Button>
+            <Button
+              fullWidth
+              sx={{ marginTop: 5, height: 100, fontSize: 30 }}
+              variant="contained"
+              onClick={register}
+            >
+              Registrieren
             </Button>
           </Box>
         </Container>
       );
     }
-    return <LoginMenu />;
+    if (landing === 'login') {
+      return <LoginMenu/>;
+    }
   } else {
     return <MainMenu {...store} />;
   }

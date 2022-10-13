@@ -5,9 +5,6 @@ import {
   Divider,
   FormControl,
   FormLabel,
-  RadioGroup,
-  FormControlLabel,
-  Radio
 } from '@mui/material';
 import { useStore } from '../utils/store';
 import { useRouter } from 'next/router';
@@ -17,7 +14,9 @@ import QRCode from 'react-qr-code';
 import { useRef, useState } from 'react';
 import ReactToPrint from 'react-to-print';
 import MenuItem from '@mui/material/MenuItem';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
+import React from 'react';
+
 
 function Settings() {
   const { setLoggedInState, loggedInUser } = useStore();
@@ -39,21 +38,32 @@ function Settings() {
     setLoggedInState(newUser);
     router.push('/');
   };
+
+  const ComponentToPrint = React.forwardRef((props, ref) => {
+    return (
+      // @ts-ignore
+      <div ref={ref}>
+        <QRCode
+          value={loggedInUser.name}
+        />
+      </div>
+    );
+  });
+
   if (showQR)
     return (
+      <>
+      <BackButton />
       <Container component="main" maxWidth="xs">
         <Box
           sx={{
-            marginTop: 8,
+            marginTop: '10rem',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center'
           }}
         >
-          <QRCode
-            value={loggedInUser.name}
-            ref={(el) => (printRef.current = el)}
-          />
+          <ComponentToPrint ref={printRef} />
           <ReactToPrint
             trigger={() => (
               <Button
@@ -68,6 +78,8 @@ function Settings() {
           />
         </Box>
       </Container>
+      </>
+      
     );
   return (
     <>
