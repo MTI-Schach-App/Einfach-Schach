@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Divider } from '@mui/material';
+import { Checkbox, Divider, FormGroup } from '@mui/material';
 import { useStore } from '../utils/store';
 import { User } from '../interfaces/user';
 import { fetchWrapper } from '../utils/fetch-wrapper';
@@ -13,7 +13,8 @@ import {
   Box,
   FormControlLabel,
   CssBaseline,
-  Button
+  Button,
+  Typography
 } from '@mui/material';
 
 import { useRouter } from 'next/router';
@@ -94,7 +95,7 @@ export default function SignUp() {
               <FormLabel id="level">Wie oft spielst du Schach?</FormLabel>
               <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
-                defaultValue="female"
+                defaultValue="0"
                 name="level"
               >
                 <FormControlLabel value="0" control={<Radio />} label="Nie" />
@@ -110,11 +111,22 @@ export default function SignUp() {
                 />
               </RadioGroup>
             </FormControl>
+            <FormControl 
+            required={true}
+            component="fieldset"
+            variant="standard">
+              <Typography gutterBottom sx={{fontSize:13, marginTop:'1rem'}} component="div">
+              {'Mit der Registierung akzeptiere ich die '} <a target="_blank" href="/legal/privacy" rel="noopener noreferrer"> Datenschutzvereinbarung</a>
+           
+              </Typography>
+               </FormControl>
+           
+            
             <Button
               type="submit"
               fullWidth
               variant="contained"
-              sx={{ marginTop: 5, height: 100, fontSize: 30 }}
+              sx={{ marginTop: 0, height: 80, fontSize: 27 }}
             >
               Registieren!
             </Button>
