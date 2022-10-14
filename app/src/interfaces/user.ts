@@ -6,12 +6,18 @@ export interface User {
   displayName: string;
   level: number;
   currentGame: string;
-  currentCourse: string;
   dateUpdated: string;
   dateCreated: string;
-  coursesFinished: Course[];
   wantsToClick: boolean;
   animationSpeed: number;
+  ep: number;
+  chapterProgression: Record<number,UserChapterProgression>;
+  coursesFinishedTotal: number;
+}
+
+export interface UserChapterProgression {
+  completed: boolean;
+  coursesFinished: number;
 }
 
 export interface UserState {

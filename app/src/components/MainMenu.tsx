@@ -1,15 +1,16 @@
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import { UserState } from '../interfaces/user';
 import Link from 'next/link';
-import CssBaseline from '@mui/material/CssBaseline';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { Fab } from '@mui/material';
+import { Fab, Box, Container, Typography, Button, CssBaseline } from '@mui/material';
 
 export default function MainMenu(store: UserState) {
   const user = store.loggedInUser;
+  let chapterFinished = 0;
+  for (const chapter of Object.keys(user.chapterProgression)){
+    if (user.chapterProgression[chapter].completed){
+      chapterFinished += 1;
+    }
+  };
   return (
     <>
       <Link href="/settings">
@@ -36,8 +37,12 @@ export default function MainMenu(store: UserState) {
             Hallo {user.displayName}
           </Typography>
           <Typography variant="h6" component="h1" gutterBottom>
-            Übungen abgeschlossen: {user.coursesFinished.length}
+            Kapitel abgeschlossen: {chapterFinished}/15
           </Typography>
+          <Typography variant="h6" component="h1" gutterBottom>
+          Übungen abgeschlossen: {user.coursesFinishedTotal}
+          </Typography>
+          
           <Link href="/game">
             <Button
               fullWidth

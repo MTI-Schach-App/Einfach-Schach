@@ -8,13 +8,14 @@ export const useStore = create<UserState>((set) => ({
     name: 'None',
     displayName: 'None',
     currentGame: '',
-    currentCourse: '',
     level: 0,
+    ep: 0,
     dateCreated: '',
     dateUpdated: '',
-    coursesFinished: [],
+    coursesFinishedTotal: 0,
     wantsToClick: true,
-    animationSpeed: 2000
+    animationSpeed: 2000,
+    chapterProgression: {}
   },
   setLoggedInState: (user: User) => {
     set(() => ({

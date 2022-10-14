@@ -40,7 +40,7 @@ export default function TrainPage() {
           <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
             {chapters.map((chapter: Chapter) => (
                 <Grid item xs={2} sm={4} md={4} key={chapter.id}>
-                <ChapterCard {...{chapter}} />
+                <ChapterCard {...{chapter: chapter, user: loggedUser}} />
               </Grid>
             ))
           }

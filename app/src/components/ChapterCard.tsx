@@ -1,12 +1,7 @@
-
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Box, CardActionArea, Collapse, Grid, IconButton, IconButtonProps, styled } from '@mui/material';
+import { Box, Button, Typography, Card, CardContent, CardActionArea, Collapse, Grid, IconButton, IconButtonProps, styled } from '@mui/material';
 import LinearProgressWithLabel from './progress/LinearProgress';
 import { useState } from 'react';
-import InfoIcon from '@mui/icons-material/Info';
+import CheckMark from '@mui/icons-material/Check';
 import Link from 'next/link';
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -22,18 +17,37 @@ interface ExpandMoreProps extends IconButtonProps {
     }),
   }));
 
-export default function ChapterCard({chapter}) {
+export default function ChapterCard({chapter, user}) {
     const [expanded, setExpanded] = useState(false);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
+
+    let progression = 0;
+    let progressionRaw = 0;
+    let completed = false;
+    if (Object.keys(user.chapterProgression).includes(chapter.id.toString())) {
+        progressionRaw = user.chapterProgression[chapter.id].coursesFinished;
+        progression = user.chapterProgression[chapter.id].coursesFinished*10;
+        completed = user.chapterProgression[chapter.id].completed;
+      }
+
+    if (progression > 100) {progression = 100};
+    
+    let finished = <></>;
+    let bgColor = 'white';
+    if (completed) {
+        finished = <CheckMark sx={{ gridRow: '1', gridColumn: '7 / 8', fontSize:30, marginTop:'-0.25rem' }}/>;
+        bgColor = 'lightgreen';
+
+    }
+
     return (
-        <Card sx={{ maxWidth: 345 }}>
-            <Link href={`/train/${chapter.id}`}>
-            <CardActionArea>
-                
-                
+        <Card sx={{ maxWidth: 345, backgroundColor: bgColor }}>
+            
+            <CardActionArea
+             onClick={handleExpandClick}>
                 <CardContent>
                     <Box
                         sx={{
@@ -45,30 +59,39 @@ export default function ChapterCard({chapter}) {
                         <Typography sx={{ fontSize: 14, gridRow: '1', gridColumn: 'span 2' }} color="text.secondary" gutterBottom>
                             Kapitel {chapter.id}
                         </Typography>
-                        <ExpandMore
-                                sx={{ gridRow: '1', gridColumn: '4 / 5', marginTop:'-0.7rem' }}
-                                expand={expanded}
-                                onClick={handleExpandClick}
-                                aria-expanded={expanded}
-                                aria-label="show more {}"
-                                ><InfoIcon/>
-                        </ExpandMore>
+                        {finished}
+                        
                     </Box>
                     <Typography gutterBottom variant="h5" component="div">
                         {chapter.name}
                     </Typography>
-                    <LinearProgressWithLabel value={0} />
+                    <LinearProgressWithLabel value={progression} />
                 </CardContent>
 
             </CardActionArea>
-            </Link>
 
             <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <CardContent>
                     <Typography paragraph>{chapter.subtext}</Typography>
                     <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                        Übungen: {chapter.courses.length}
+                        Übungen verfügbar: {chapter.courses.length}
+                        
                     </Typography>
+                    <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                        Übungen abgeschlossen: {progressionRaw}
+                        
+                    </Typography>
+                   
+                    <Link href={`/train/${chapter.id}`}>
+                        <Button
+                            variant="contained"
+                            aria-label={'Üben'}
+                            fullWidth
+                            sx= {{float:'right', marginBottom:'0.5rem'}}
+                            >
+                            {'Üben'}
+                        </Button>
+                    </Link>
                 </CardContent>
             </Collapse>
         </Card>

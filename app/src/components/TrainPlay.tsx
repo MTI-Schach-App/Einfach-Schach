@@ -7,13 +7,13 @@ import { useStore } from '../utils/store';
 import { Typography } from '@mui/material';
 import SuccessTrainingDialog from './modals/SuccessTrainingModal';
 
-export default function TrainPlay({ boardWidth, course, setSelectedCourse, index}) {
+export default function TrainPlay({ boardWidth, course, setSelectedCourse, index, chapter}) {
   if (!course) {
     return(<>hi</>)
   }
   const startPos = course.start;
   const legalMoves = course.moves;
-  const store = useStore((state) => state.loggedInUser);
+  const user = useStore((state) => state.loggedInUser);
   const setUser = useStore((state) => state.setLoggedInState);
   
   const [game, setGame] = useState(new Chess(startPos));
@@ -28,7 +28,6 @@ export default function TrainPlay({ boardWidth, course, setSelectedCourse, index
   const [modal, setModal] = useState(false);
   const [win, setWin] = useState(false);
   const chessboardRef = useRef();
-  const [oldIndex,setOldIndex] = useState(index);
 
   // REWORK PLEEEEEASE
   useEffect(() => {
@@ -38,16 +37,10 @@ export default function TrainPlay({ boardWidth, course, setSelectedCourse, index
       setOptionSquares({});
       setCurrentLegal(0);
       setMoveFrom('');
-      setOldIndex(index)
 
   }, [index, course])
 
   console.log(course.moves)
-
-  const winHandler = () => {
-    game.clear();
-    setWin(true);
-  };
 
   function safeGameMutate(modify) {
     setGame((g) => {
@@ -84,11 +77,23 @@ export default function TrainPlay({ boardWidth, course, setSelectedCourse, index
     setOptionSquares(newSquares);
   }
 
-  function updateUser() {
-    fetchWrapper.post('api/game/set_game', { id: store.id, fen: game.fen() });
-    const newUser = store;
-    newUser.currentGame = game.fen();
-    setUser(newUser);
+  function updateUserProgression() {
+    
+    if (Object.keys(user.chapterProgression).includes(chapter.id.toString())) {
+      user.chapterProgression[chapter.id].coursesFinished += 1;
+    }
+    else {
+      user.chapterProgression[chapter.id] = {
+        completed: false,
+        coursesFinished: 1,
+      }
+    }
+    if (user.chapterProgression[chapter.id].coursesFinished >= 10) {
+      user.chapterProgression[chapter.id].completed = true;
+    }
+    user.coursesFinishedTotal += 1;
+    fetchWrapper.post('/api/users/update', { ...user });
+    setUser(user);
   }
 
   function makeNextMove() {
@@ -113,7 +118,7 @@ export default function TrainPlay({ boardWidth, course, setSelectedCourse, index
     setOptionSquares({});
     setTimeout(() => {
       game.undo();
-    }, store.animationSpeed + 1000);
+    }, user.animationSpeed + 1000);
     setModal(true);
   }
 
@@ -148,6 +153,7 @@ export default function TrainPlay({ boardWidth, course, setSelectedCourse, index
 
     if (currentLegal + 2 >= legalMoves.length) {
       setWin(true);
+      updateUserProgression();
       return;
     }
 
@@ -157,8 +163,7 @@ export default function TrainPlay({ boardWidth, course, setSelectedCourse, index
     }
 
     setGame(gameCopy);
-
-    setTimeout(makeNextMove, store.animationSpeed + 1000);
+    setTimeout(makeNextMove, user.animationSpeed + 1000);
     setMoveFrom('');
     setOptionSquares({});
   }
@@ -201,11 +206,11 @@ export default function TrainPlay({ boardWidth, course, setSelectedCourse, index
     }
 
     if (move === null) return false; // illegal move
-    setTimeout(makeNextMove, store.animationSpeed + 1000);
+    setTimeout(makeNextMove, user.animationSpeed + 1000);
     return true;
   }
 
-  if (store.wantsToClick) {
+  if (user.wantsToClick) {
     
     return (
       <div>
@@ -229,7 +234,7 @@ export default function TrainPlay({ boardWidth, course, setSelectedCourse, index
         </Typography>
         <Chessboard
           id={course.id+index}
-          animationDuration={store.animationSpeed}
+          animationDuration={user.animationSpeed}
           arePiecesDraggable={false}
           boardWidth={boardWidth}
           position={game.fen()}
@@ -258,7 +263,7 @@ export default function TrainPlay({ boardWidth, course, setSelectedCourse, index
         />
         <SuccessTrainingDialog
           open={win}
-          setOpen={winHandler}
+          setOpen={setWin}
           text={'Du hast alle richtigen Züge gefunden!'}
           setSelectedCourse={setSelectedCourse}
           index={index}
@@ -272,7 +277,7 @@ export default function TrainPlay({ boardWidth, course, setSelectedCourse, index
 
         <Chessboard
           id={course.id+index}
-          animationDuration={store.animationSpeed}
+          animationDuration={user.animationSpeed}
           boardWidth={boardWidth}
           position={game.fen()}
           onPieceDrop={onDrop}

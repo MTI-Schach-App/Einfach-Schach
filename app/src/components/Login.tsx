@@ -1,20 +1,15 @@
-import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import { UserState } from '../interfaces/user';
-import Link from 'next/link';
-import CssBaseline from '@mui/material/CssBaseline';
-
 import SignInFace from '../components/logins/SignInFace';
-import { toast } from 'react-toastify';
 import { useState } from 'react';
-
-import Image from 'next/image';
-
 import QRSignIn from '../components/logins/QRSignIn';
 import SignIn from '../components/logins/SignIn';
-import { Divider } from '@mui/material';
+import { 
+  Divider,
+  Container,
+  Typography,
+  Box,
+  Button,
+  CssBaseline
+ } from '@mui/material';
 
 const signInTypes = {
   qr: <QRSignIn />,

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useWindowSize, getMultipleRandomCourses } from '../../utils/helper';
-import { Container, Box, CircularProgress, Button } from '@mui/material';
+import { Container, Box, CircularProgress, Button, Divider, Typography } from '@mui/material';
 import TrainPlay from '../../components/TrainPlay';
 import axios from 'axios';
 import useSWR from 'swr';
@@ -9,10 +9,14 @@ import { useRouter } from 'next/router';
 import { useStore } from '../../utils/store';
 import BackButton from '../../components/BackButton';
 
+import Image from 'next/image';
+
+import success from '../../../public/success.png';
+
 function buildBoards(chapter:Chapter,size, setSelectedCourse): Record<number,any> {
   let chapterChooser: Record<number,any> = {0:null};
 
-  const courses = getMultipleRandomCourses(chapter.courses,6);
+  const courses = getMultipleRandomCourses(chapter.courses,10);
   
   courses.forEach((course, index) => {
     let prop = {
@@ -20,6 +24,7 @@ function buildBoards(chapter:Chapter,size, setSelectedCourse): Record<number,any
       course: course,
       setSelectedCourse: setSelectedCourse,
       index: index+1,
+      chapter:chapter
     };
     if (size.height < size.width) {
       prop.boardWidth = size.height * 0.85;
@@ -78,10 +83,21 @@ function TrainIdPage() {
               alignItems: 'center'
             }}
           >  
-          Du hast das Kapitel erfolgreich abgeschlossen. Auf zum nächsten! Klicke auf "Weiter"
+          <Image
+                src={success}
+                alt="success ilust "
+                width="612px"
+                height="408px"
+                style={{ marginBottom: 50 }}
+              />
+              <Divider/>
+              <Typography gutterBottom variant="h5" component="div">
+              Du hast das Kapitel erfolgreich abgeschlossen. Auf zum nächsten!
+              </Typography>
+         
           <Button
               fullWidth
-              sx={{ marginTop: 5, height: 100, fontSize: 30 }}
+              sx={{ marginTop: 5, height: 70, fontSize: 20 }}
               variant="contained"
               onClick={()=>(router.push('/train'))}
             >

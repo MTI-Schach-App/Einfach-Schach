@@ -1,10 +1,4 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import CssBaseline from '@mui/material/CssBaseline';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Divider } from '@mui/material';
 import { useStore } from '../utils/store';
 import { User } from '../interfaces/user';
@@ -14,7 +8,12 @@ import {
   FormControl,
   FormLabel,
   RadioGroup,
-  Radio
+  Radio,
+  Container,
+  Box,
+  FormControlLabel,
+  CssBaseline,
+  Button
 } from '@mui/material';
 
 import { useRouter } from 'next/router';
@@ -44,13 +43,14 @@ export default function SignUp() {
       name: data.get('name').toString(),
       displayName: data.get('name').toString(),
       level: Number(data.get('level')),
+      ep:0,
       currentGame: '',
-      currentCourse: '',
       dateUpdated: '0',
       dateCreated: '0',
-      coursesFinished: [],
+      coursesFinishedTotal: 0,
       wantsToClick: true,
-      animationSpeed: 2000
+      animationSpeed: 2000,
+      chapterProgression: {}
     };
     const resp = await fetchWrapper.post('api/users/register', {
       user: user,
