@@ -10,7 +10,7 @@ import { useStore } from '../../utils/store';
 import BackButton from '../../components/BackButton';
 
 function buildBoards(chapter:Chapter,size, setSelectedCourse): Record<number,any> {
-  let chapterChooser: Record<number,any> = {};
+  let chapterChooser: Record<number,any> = {0:null};
 
   const courses = getMultipleRandomCourses(chapter.courses,6);
   
@@ -19,13 +19,13 @@ function buildBoards(chapter:Chapter,size, setSelectedCourse): Record<number,any
       boardWidth: size.width * 0.9,
       course: course,
       setSelectedCourse: setSelectedCourse,
-      index: index,
+      index: index+1,
     };
     if (size.height < size.width) {
       prop.boardWidth = size.height * 0.85;
       };
     
-    chapterChooser[index] = prop;
+    chapterChooser[index+1] = <TrainPlay {...prop}/>;
   });
 
   return chapterChooser;
@@ -35,8 +35,8 @@ function buildBoards(chapter:Chapter,size, setSelectedCourse): Record<number,any
 function TrainIdPage() {
   const router = useRouter();
   const loggedUser = useStore((state) => state.loggedInUser);
-  const [selectedCourse,setSelectedCourse] = useState(0);
-
+  const [selectedCourse,setSelectedCourse] = useState(1);
+  
   const { data: chapters } = useSWR(
     ['/api/training/all'],
     (url) => axios.get(url).then((res) => res.data),
@@ -94,7 +94,7 @@ function TrainIdPage() {
   }
   return (
     <>
-      <BackButton />
+    <BackButton/>
       <Container component="main" maxWidth="xs">
         <Box
           sx={{
@@ -104,7 +104,7 @@ function TrainIdPage() {
             alignItems: 'center'
           }}
         >  
-        <TrainPlay {...chapter[selectedCourse]}/>
+        {chapter[selectedCourse]}
           
         </Box>
       </Container>

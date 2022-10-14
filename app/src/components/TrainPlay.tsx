@@ -1,37 +1,48 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Chess, Square } from 'chess.js';
 import { Chessboard } from 'react-chessboard';
 import { fetchWrapper } from '../utils/fetch-wrapper';
 import AlertDialog from './modals/AlertModal';
-import SuccessDialog from './modals/SuccessModal';
 import { useStore } from '../utils/store';
 import { Typography } from '@mui/material';
 import SuccessTrainingDialog from './modals/SuccessTrainingModal';
 
 export default function TrainPlay({ boardWidth, course, setSelectedCourse, index}) {
+  if (!course) {
+    return(<>hi</>)
+  }
   const startPos = course.start;
   const legalMoves = course.moves;
   const store = useStore((state) => state.loggedInUser);
   const setUser = useStore((state) => state.setLoggedInState);
   
   const [game, setGame] = useState(new Chess(startPos));
-
   const [optionSquares, setOptionSquares] = useState({});
 
   const [moveFrom, setMoveFrom] = useState('');
 
-  if (startPos != game.fen()){
-    setGame(new Chess(startPos))
-    setOptionSquares({});
-    setMoveFrom('');
-  }
+  const [currentLegal, setCurrentLegal] = useState(0);
 
   const [rightClickedSquares, setRightClickedSquares] = useState({});
   const moveSquares = {}
-  const [currentLegal, setCurrentLegal] = useState(0);
   const [modal, setModal] = useState(false);
   const [win, setWin] = useState(false);
   const chessboardRef = useRef();
+  const [oldIndex,setOldIndex] = useState(index);
+
+  // REWORK PLEEEEEASE
+  useEffect(() => {
+    
+      console.log('init')
+      setGame(new Chess(startPos))
+      setOptionSquares({});
+      setCurrentLegal(0);
+      setMoveFrom('');
+      setOldIndex(index)
+
+  }, [index, course])
+
+  console.log(course.moves)
 
   const winHandler = () => {
     game.clear();
@@ -90,7 +101,7 @@ export default function TrainPlay({ boardWidth, course, setSelectedCourse, index
     });
 
     increaseLegal();
-    updateUser();
+    //updateUser();
   }
 
   function increaseLegal() {
@@ -129,7 +140,7 @@ export default function TrainPlay({ boardWidth, course, setSelectedCourse, index
       to: square,
       promotion: 'q' // always promote to a queen for example simplicity
     });
-    
+
     if (moddedMoveFrom.concat(square) != legalMoves[currentLegal]) {
       undoTurnAndNotify();
       return;
@@ -140,7 +151,6 @@ export default function TrainPlay({ boardWidth, course, setSelectedCourse, index
       return;
     }
 
-    // if invalid, setMoveFrom and getMoveOptions
     if (move === null) {
       resetFirstMove(square);
       return;
@@ -196,6 +206,7 @@ export default function TrainPlay({ boardWidth, course, setSelectedCourse, index
   }
 
   if (store.wantsToClick) {
+    
     return (
       <div>
         <AlertDialog
