@@ -8,23 +8,30 @@ import { useStore } from '../utils/store';
 import { Typography } from '@mui/material';
 import SuccessTrainingDialog from './modals/SuccessTrainingModal';
 
-export default function TrainPlay({ boardWidth, course, ref }) {
+export default function TrainPlay({ boardWidth, course, setSelectedCourse, index}) {
   const startPos = course.start;
   const legalMoves = course.moves;
   const store = useStore((state) => state.loggedInUser);
   const setUser = useStore((state) => state.setLoggedInState);
+  
   const [game, setGame] = useState(new Chess(startPos));
+
+  const [optionSquares, setOptionSquares] = useState({});
 
   const [moveFrom, setMoveFrom] = useState('');
 
+  if (startPos != game.fen()){
+    setGame(new Chess(startPos))
+    setOptionSquares({});
+    setMoveFrom('');
+  }
+
   const [rightClickedSquares, setRightClickedSquares] = useState({});
-  const moveSquares = {};
-  const [optionSquares, setOptionSquares] = useState({});
+  const moveSquares = {}
   const [currentLegal, setCurrentLegal] = useState(0);
   const [modal, setModal] = useState(false);
   const [win, setWin] = useState(false);
-
-  function clearBoard() {}
+  const chessboardRef = useRef();
 
   const winHandler = () => {
     game.clear();
@@ -100,7 +107,7 @@ export default function TrainPlay({ boardWidth, course, ref }) {
   }
 
   function onSquareClick(square) {
-    console.log(course);
+    //console.log(course);
     setRightClickedSquares({});
 
     function resetFirstMove(square) {
@@ -122,7 +129,7 @@ export default function TrainPlay({ boardWidth, course, ref }) {
       to: square,
       promotion: 'q' // always promote to a queen for example simplicity
     });
-
+    
     if (moddedMoveFrom.concat(square) != legalMoves[currentLegal]) {
       undoTurnAndNotify();
       return;
@@ -198,9 +205,10 @@ export default function TrainPlay({ boardWidth, course, ref }) {
         />
         <SuccessTrainingDialog
           open={win}
-          setOpen={winHandler}
-          course={course}
+          setOpen={setWin}
           text={'Du hast alle richtigen Züge gefunden!'}
+          setSelectedCourse={setSelectedCourse}
+          index={index}
         />
         <Typography
           variant="h4"
@@ -209,7 +217,7 @@ export default function TrainPlay({ boardWidth, course, ref }) {
           Am Zug: {cleanTurn()}
         </Typography>
         <Chessboard
-          id={course.id}
+          id={course.id+index}
           animationDuration={store.animationSpeed}
           arePiecesDraggable={false}
           boardWidth={boardWidth}
@@ -225,7 +233,7 @@ export default function TrainPlay({ boardWidth, course, ref }) {
             ...optionSquares,
             ...rightClickedSquares
           }}
-          ref={ref}
+          ref={chessboardRef}
         />
       </div>
     );
@@ -240,8 +248,9 @@ export default function TrainPlay({ boardWidth, course, ref }) {
         <SuccessTrainingDialog
           open={win}
           setOpen={winHandler}
-          course={course}
           text={'Du hast alle richtigen Züge gefunden!'}
+          setSelectedCourse={setSelectedCourse}
+          index={index}
         />
         <Typography
           variant="h4"
@@ -251,7 +260,7 @@ export default function TrainPlay({ boardWidth, course, ref }) {
         </Typography>
 
         <Chessboard
-          id={course.id}
+          id={course.id+index}
           animationDuration={store.animationSpeed}
           boardWidth={boardWidth}
           position={game.fen()}
@@ -260,7 +269,7 @@ export default function TrainPlay({ boardWidth, course, ref }) {
             borderRadius: '4px',
             boxShadow: '0 5px 15px rgba(0, 0, 0, 0.5)'
           }}
-          ref={ref}
+          ref={chessboardRef}
         />
       </div>
     );

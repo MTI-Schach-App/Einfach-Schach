@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Course } from '../interfaces/training';
 
 interface windowSize {
   width: number;
@@ -35,4 +36,12 @@ export function useWindowSize(): windowSize {
     return () => window.removeEventListener('resize', handleResize);
   }, []); // Empty array ensures that effect is only run on mount
   return windowSize;
+}
+
+
+
+export function getMultipleRandomCourses(arr:Course[], num:number) {
+  const shuffled = [...arr].sort(() => 0.5 - Math.random());
+
+  return shuffled.slice(0, num);
 }

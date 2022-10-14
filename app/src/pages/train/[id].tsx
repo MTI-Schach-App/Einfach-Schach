@@ -1,59 +1,58 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useWindowSize } from '../../utils/helper';
-import { Container, Box, CircularProgress } from '@mui/material';
+import { useWindowSize, getMultipleRandomCourses } from '../../utils/helper';
+import { Container, Box, CircularProgress, Button } from '@mui/material';
 import TrainPlay from '../../components/TrainPlay';
 import axios from 'axios';
 import useSWR from 'swr';
-import { Course } from '../../interfaces/training';
+import { Chapter, Course } from '../../interfaces/training';
 import { useRouter } from 'next/router';
 import { useStore } from '../../utils/store';
 import BackButton from '../../components/BackButton';
 
-function useForceUpdate() {
-  const [value, setValue] = useState(0); // integer state
-  return () => setValue((value) => value + 1); // update the state to force render
+function buildBoards(chapter:Chapter,size, setSelectedCourse): Record<number,any> {
+  let chapterChooser: Record<number,any> = {};
+
+  const courses = getMultipleRandomCourses(chapter.courses,6);
+  
+  courses.forEach((course, index) => {
+    let prop = {
+      boardWidth: size.width * 0.9,
+      course: course,
+      setSelectedCourse: setSelectedCourse,
+      index: index,
+    };
+    if (size.height < size.width) {
+      prop.boardWidth = size.height * 0.85;
+      };
+    
+    chapterChooser[index] = prop;
+  });
+
+  return chapterChooser;
+  
 }
 
-const defaultCourse: Course = {
-  id: 0,
-  start: '123',
-  end: '321',
-  moves: [],
-  subtext: 'default'
-};
 function TrainIdPage() {
   const router = useRouter();
   const loggedUser = useStore((state) => state.loggedInUser);
+  const [selectedCourse,setSelectedCourse] = useState(0);
 
-  const chessboardRef = useRef();
-
-  const [course, setCourse] = useState(defaultCourse);
-  const forceUpdate = useForceUpdate();
-
-  const { data: courses } = useSWR(
+  const { data: chapters } = useSWR(
     ['/api/training/all'],
     (url) => axios.get(url).then((res) => res.data),
     { refreshInterval: 60000 }
   );
 
-  useEffect(() => {
-    setCourse(defaultCourse);
-  }, [router.query.id]);
 
   if (process.browser && loggedUser.id === 0) {
     router.push('/');
   }
 
   const { id } = router.query;
-  if (courses && course.id.toString() != id) {
-    console.log([id, course.id.toString()]);
-    const courseSelect = courses.find((x) => x.id.toString() === id);
-    setCourse(courseSelect);
-    console.log(course);
-  }
 
   const size = useWindowSize();
-  if (course.id === 0 || course.id.toString() != id) {
+
+  if (!chapters) {
     return (
       <Container>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -63,19 +62,36 @@ function TrainIdPage() {
     );
   }
 
-  let prop = {
-    boardWidth: size.width * 0.9,
-    course: course,
-    ref: chessboardRef
-  };
-  if (size.height < size.width) {
-    prop = {
-      boardWidth: size.height * 0.85,
-      course: course,
-      ref: chessboardRef
-    };
-  }
+  const chapter = buildBoards(chapters[parseInt(id as string)-1],size,setSelectedCourse)
 
+  if (selectedCourse>=Object.keys(chapter).length) {
+
+    return (
+      <>
+        
+        <Container component="main" maxWidth="xs">
+          <Box
+            sx={{
+              marginTop: 8,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center'
+            }}
+          >  
+          Du hast das Kapitel erfolgreich abgeschlossen. Auf zum nächsten! Klicke auf "Weiter"
+          <Button
+              fullWidth
+              sx={{ marginTop: 5, height: 100, fontSize: 30 }}
+              variant="contained"
+              onClick={()=>(router.push('/train'))}
+            >
+              Weiter
+            </Button>
+          </Box>
+        </Container>
+      </>
+    );
+  }
   return (
     <>
       <BackButton />
@@ -87,8 +103,9 @@ function TrainIdPage() {
             flexDirection: 'column',
             alignItems: 'center'
           }}
-        >
-          <TrainPlay {...prop} />
+        >  
+        <TrainPlay {...chapter[selectedCourse]}/>
+          
         </Box>
       </Container>
     </>

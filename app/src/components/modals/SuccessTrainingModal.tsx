@@ -6,14 +6,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useRouter } from 'next/router';
-import { fetchWrapper } from '../../utils/fetch-wrapper';
-import Link from 'next/link';
 
-export default function SuccessTrainingDialog({ open, setOpen, course, text }) {
+export default function SuccessTrainingDialog({ open, setOpen, text, setSelectedCourse, index }) {
   const router = useRouter();
-  const nextCourse = `/train/${'1_'.concat(
-    (parseInt(course.id.split('_')[1]) + 1).toString()
-  )}`;
 
   const handleClose = () => {
     setOpen(false);
@@ -22,7 +17,7 @@ export default function SuccessTrainingDialog({ open, setOpen, course, text }) {
 
   const handleNext = () => {
     setOpen(false);
-    router.push(nextCourse);
+    setSelectedCourse(parseInt(index)+1);
   };
 
   return (
@@ -33,7 +28,7 @@ export default function SuccessTrainingDialog({ open, setOpen, course, text }) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{'Geschafft'}</DialogTitle>
+        <DialogTitle id="alert-dialog-title">{'Richtig!'}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             {text}

@@ -24,11 +24,16 @@ def readTraining(pgn):
 def cleanKapitel(verbose):
     cleaning = True
     kapitel = 1
-    collection = {}
+    collection = []
     while cleaning:
         try:
-            with open(f"input/sammlung_kapitel{kapitel}.pgn", encoding="utf-8") as e:
+            name = input(f"Bitte geben sie den Namen des {kapitel} Kapitel ein:\n")
+            with open(f"input/{name}/{name}.pgn", encoding="utf-8") as e:
                 saml = e.read()
+            with open(f"input/{name}/{name}.txt", encoding="utf-8") as e:
+                desc = e.readlines()
+
+
 
             pgns = saml.split('[Event "')
 
@@ -42,15 +47,21 @@ def cleanKapitel(verbose):
                     start,end,moves = readTraining(io.StringIO('[Event "'+pgn))
                     sammlung_json.append(
                     {
-                        "id":f"{kapitel}_{index}",
+                        "id":index,
                         "start":start,
                         "end":end,
                         "moves":moves,
-                        "subtext": "kein Plan wie wir das fuer alle machen"
                     }       
                     )
             
-            collection[f"Kapitel {kapitel}"] = sammlung_json
+            collection.append(
+                {
+                    "id": kapitel,
+                    "name": name,
+                    "subtext": ". ".join(desc),
+                    "courses": sammlung_json
+                }
+            ) 
 
 
             with open(f"output/sammlung_kapitel{kapitel}.json","w+") as f:

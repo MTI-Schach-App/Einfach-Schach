@@ -5,3 +5,5 @@ app/src/.DS_Store
 facerecognition/.DS_Store
 scripts/.DS_Store
 .DS_Store
+app/package-lock.json
+app/src/data/users.json
