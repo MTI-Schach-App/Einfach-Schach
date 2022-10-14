@@ -24,13 +24,14 @@ function QRReader() {
           name: name,
           displayName: name,
           level: 0,
+          ep:0,
           currentGame: '',
-          currentCourse: '',
           dateUpdated: '0',
           dateCreated: '0',
-          coursesFinished: [],
-          wantsToClick: true,
-          animationSpeed: 2000
+          coursesFinishedTotal: 0,
+          wantsToClick: false,
+          animationSpeed: 2000,
+          chapterProgression: {}
         });
         router.push('/signup');
       }

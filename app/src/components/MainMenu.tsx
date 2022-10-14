@@ -6,11 +6,14 @@ import { Fab, Box, Container, Typography, Button, CssBaseline } from '@mui/mater
 export default function MainMenu(store: UserState) {
   const user = store.loggedInUser;
   let chapterFinished = 0;
-  for (const chapter of Object.keys(user.chapterProgression)){
-    if (user.chapterProgression[chapter].completed){
-      chapterFinished += 1;
-    }
-  };
+  if (user){
+    for (const chapter of Object.keys(user.chapterProgression)){
+      if (user.chapterProgression[chapter].completed){
+        chapterFinished += 1;
+      }
+    };
+  }
+  
   return (
     <>
       <Link href="/settings">

@@ -41,23 +41,26 @@ function TrainIdPage() {
   const router = useRouter();
   const loggedUser = useStore((state) => state.loggedInUser);
   const [selectedCourse,setSelectedCourse] = useState(1);
-  
-  const { data: chapters } = useSWR(
-    ['/api/training/all'],
-    (url) => axios.get(url).then((res) => res.data),
-    { refreshInterval: 60000 }
-  );
 
+  const size = useWindowSize();
+
+  const { id } = router.query;
+
+  const { data: data } = useSWR(
+    ['/api/training/all'],
+    (url) => axios.get(url).then((res) => {
+      const renderedBoards = buildBoards(res.data[parseInt(id as string)-1],size,setSelectedCourse);
+      return {
+        data: res.data,
+        renderedBoards: renderedBoards
+      }},
+  ));
 
   if (process.browser && loggedUser.id === 0) {
     router.push('/');
   }
 
-  const { id } = router.query;
-
-  const size = useWindowSize();
-
-  if (!chapters) {
+  if (!data) {
     return (
       <Container>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -67,9 +70,8 @@ function TrainIdPage() {
     );
   }
 
-  const chapter = buildBoards(chapters[parseInt(id as string)-1],size,setSelectedCourse)
-
-  if (selectedCourse>=Object.keys(chapter).length) {
+  
+  if (selectedCourse>=Object.keys(data.renderedBoards).length) {
 
     return (
       <>
@@ -120,12 +122,13 @@ function TrainIdPage() {
             alignItems: 'center'
           }}
         >  
-        {chapter[selectedCourse]}
+        {data.renderedBoards[selectedCourse]}
           
         </Box>
       </Container>
     </>
   );
 }
+
 
 export default TrainIdPage;

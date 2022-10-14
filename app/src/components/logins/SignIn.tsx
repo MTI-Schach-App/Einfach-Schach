@@ -1,7 +1,5 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
-import Box from '@mui/material/Box';
+import {Button, TextField, Box  } from '@mui/material';
 import { useStore } from '../../utils/store';
 import { User } from '../../interfaces/user';
 import { fetchWrapper } from '../../utils/fetch-wrapper';
@@ -32,13 +30,14 @@ export default function SignIn() {
         name: name,
         displayName: name,
         level: 0,
+        ep:0,
         currentGame: '',
-        currentCourse: '',
         dateUpdated: '0',
         dateCreated: '0',
-        coursesFinished: [],
+        coursesFinishedTotal: 0,
         wantsToClick: false,
-        animationSpeed: 2000
+        animationSpeed: 2000,
+        chapterProgression: {}
       });
       router.push('/signup');
     }

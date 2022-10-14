@@ -3,6 +3,7 @@ import LinearProgressWithLabel from './progress/LinearProgress';
 import { useState } from 'react';
 import CheckMark from '@mui/icons-material/Check';
 import Link from 'next/link';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 interface ExpandMoreProps extends IconButtonProps {
     expand: boolean;
@@ -56,13 +57,13 @@ export default function ChapterCard({chapter, user}) {
                             gap: 1,
                         }}
                         >
-                        <Typography sx={{ fontSize: 14, gridRow: '1', gridColumn: 'span 2' }} color="text.secondary" gutterBottom>
+                        <Typography sx={{ fontSize: 20, gridRow: '1', gridColumn: 'span 2' }} color="text.secondary" gutterBottom>
                             Kapitel {chapter.id}
                         </Typography>
                         {finished}
                         
                     </Box>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography gutterBottom variant="h4" component="div">
                         {chapter.name}
                     </Typography>
                     <LinearProgressWithLabel value={progression} />
@@ -87,9 +88,10 @@ export default function ChapterCard({chapter, user}) {
                             variant="contained"
                             aria-label={'Üben'}
                             fullWidth
-                            sx= {{float:'right', marginBottom:'0.5rem'}}
+                            sx= {{float:'right', marginBottom:'0.5rem', height:60, fontSize:25}}
                             >
-                            {'Üben'}
+                            {'Üben'}<PlayArrowIcon sx={{fontSize:30}}/>
+
                         </Button>
                     </Link>
                 </CardContent>
