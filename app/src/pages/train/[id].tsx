@@ -49,10 +49,10 @@ function TrainIdPage() {
   const { data: data } = useSWR(
     ['/api/training/all'],
     (url) => axios.get(url).then((res) => {
-      const renderedBoards = buildBoards(res.data[parseInt(id as string)-1],size,setSelectedCourse);
+      
       return {
         data: res.data,
-        renderedBoards: renderedBoards
+        chapter: res.data[parseInt(id as string)-1]
       }},
   ));
 
@@ -69,9 +69,9 @@ function TrainIdPage() {
       </Container>
     );
   }
-
+  const renderedBoards = buildBoards(data.chapter,size,setSelectedCourse);
   
-  if (selectedCourse>=Object.keys(data.renderedBoards).length) {
+  if (selectedCourse>=Object.keys(renderedBoards).length) {
 
     return (
       <>
@@ -122,7 +122,7 @@ function TrainIdPage() {
             alignItems: 'center'
           }}
         >  
-        {data.renderedBoards[selectedCourse]}
+        {renderedBoards[selectedCourse]}
           
         </Box>
       </Container>
