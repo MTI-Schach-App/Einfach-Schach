@@ -144,7 +144,7 @@ export default function FreePlay({ boardWidth, startPos }) {
         <SuccessDialog
           open={win}
           setOpen={setWin}
-          text={'Du hast alle richtigen Züge gefunden!'}
+          text={'Du hast den Gegner ins Matt gesetzt!'}
         />
 
         <Chessboard
