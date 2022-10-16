@@ -79,7 +79,7 @@ def cleanKapitel(verbose):
     with open(f"output/training.json","w+") as h:
         json.dump(collection,h,indent=4)
         
-    
+    print('Training erfolgreich erstellt!')
 
 
 if __name__ == '__main__':
