@@ -7,11 +7,12 @@ import useSWR from 'swr';
 import { Chapter, Course } from '../../interfaces/training';
 import { useRouter } from 'next/router';
 import { useStore } from '../../utils/store';
-import BackButton from '../../components/BackButton';
+import BackButton from '../../components/buttons/BackButton';
 
 import Image from 'next/image';
 
 import success from '../../../public/success.png';
+import LongPressButton from '../../components/buttons/LongPressButton';
 
 function buildBoards(chapter:Chapter,size, setSelectedCourse): Record<number,any> {
   let chapterChooser: Record<number,any> = {0:null};
@@ -112,7 +113,14 @@ function TrainIdPage() {
   }
   return (
     <>
-    <BackButton/>
+    <LongPressButton {
+        ...{
+          delayMs: 500,
+          refreshMs: 10,
+          onExecute: () => router.back(),
+          buttonText: '< Zurück',
+        }
+      } />
       <Container component="main" maxWidth="xs">
         <Box
           sx={{

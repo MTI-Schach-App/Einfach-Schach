@@ -5,8 +5,9 @@ import { useStore } from '../utils/store';
 import axios from 'axios';
 import useSWR from 'swr';
 import { useRouter } from 'next/router';
-import BackButton from '../components/BackButton';
+import BackButton from '../components/buttons/BackButton';
 import { fetchWrapper } from '../utils/fetch-wrapper';
+import LongPressButton from '../components/buttons/LongPressButton';
 
 const defaultBoard = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1';
 function GamePage() {
@@ -57,7 +58,15 @@ function GamePage() {
 
   return (
     <>
-      <BackButton />
+      <LongPressButton {
+        ...{
+          delayMs: 500,
+          refreshMs: 10,
+          onExecute: () => router.back(),
+          buttonText: '< Zurück',
+        }
+      } />
+
       <Button
         variant="contained"
         sx={{

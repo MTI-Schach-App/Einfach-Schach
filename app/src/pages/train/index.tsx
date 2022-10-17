@@ -4,8 +4,9 @@ import useSWR from 'swr';
 import { Chapter } from '../../interfaces/training';
 import { useRouter } from 'next/router';
 import { useStore } from '../../utils/store';
-import BackButton from '../../components/BackButton';
+import LongPressButton from '../../components/buttons/LongPressButton';
 import ChapterCard from '../../components/ChapterCard';
+import BackButton from '../../components/buttons/BackButton';
 
 
 export default function TrainPage() {
@@ -34,7 +35,7 @@ export default function TrainPage() {
     
   return (
     <>
-      <BackButton />
+      <BackButton/>
       <Container component="main" maxWidth="md">
         <Box sx={{ width: '100%', marginTop: '5rem' }}>
           <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>

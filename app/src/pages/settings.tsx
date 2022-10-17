@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import { useStore } from '../utils/store';
 import { useRouter } from 'next/router';
-import BackButton from '../components/BackButton';
+import BackButton from '../components/buttons/BackButton';
 import { fetchWrapper } from '../utils/fetch-wrapper';
 import QRCode from 'react-qr-code';
 import { useRef, useState } from 'react';
