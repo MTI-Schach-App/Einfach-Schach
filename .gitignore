@@ -6,6 +6,8 @@ facerecognition/.DS_Store
 scripts/.DS_Store
 .DS_Store
 app/package-lock.json
-app/src/data/users.json
+app/src/data/
+app/node_modules
+app/.next
 scripts/input/*
 scripts/output/*
