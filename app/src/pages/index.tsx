@@ -9,6 +9,7 @@ import { Button } from '@mui/material';
 
 import logo from '../../public/logo.png';
 import { useRouter } from 'next/router';
+import GreenButton from '../components/buttons/GreenButton';
 
 function IndexPage() {
   const store = useStore();
@@ -46,22 +47,8 @@ function IndexPage() {
               />
             </Link>
             <Divider />
-            <Button
-              fullWidth
-              sx={{ marginTop: 5, height: 100, fontSize: 30 }}
-              variant="contained"
-              onClick={login}
-            >
-              Anmelden
-            </Button>
-            <Button
-              fullWidth
-              sx={{ marginTop: 5, height: 100, fontSize: 30 }}
-              variant="contained"
-              onClick={register}
-            >
-              Registrieren
-            </Button>
+            <GreenButton {...{buttonText: 'Anmelden', onClick:login}}/>
+            <GreenButton {...{buttonText: 'Registrieren', onClick:register}}/>
           </Box>
         </Container>
       );
