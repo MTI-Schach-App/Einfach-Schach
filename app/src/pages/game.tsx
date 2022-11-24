@@ -92,7 +92,7 @@ function GamePage() {
         </Box>
       </Container>
     </>
-  );
+  )
 }
 
 export default GamePage;
