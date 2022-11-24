@@ -48,7 +48,7 @@ function IndexPage() {
             </Link>
             <Divider />
             <GreenButton {...{buttonText: 'Anmelden', onClick:login}}/>
-            <GreenButton {...{buttonText: 'Registrieren', onClick:register}}/>
+            <GreenButton {...{buttonText: 'Daniel', onClick:register}}/>
           </Box>
         </Container>
       );
