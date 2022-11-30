@@ -10,6 +10,7 @@ import {
   Button,
   CssBaseline
  } from '@mui/material';
+import GreenButton from './buttons/GreenButton';
 
 const signInTypes = {
   qr: <QRSignIn />,
@@ -17,46 +18,48 @@ const signInTypes = {
   legacy: <SignIn />
 };
 
+
 export default function LoginMenu() {
-  const [loginType, setLoginType] = useState(
-    <div>
+  const [loginType, setLoginType] = useState('init'|| <Button></Button>);
+  
+  const qr = () => {
+    setLoginType(signInTypes.qr);
+  }
+  const face = () => {
+    setLoginType(signInTypes.face);
+  }
+  const legacy = () => {
+    setLoginType(signInTypes.legacy);
+  }
+
+  if (loginType === 'init'){
+    return(
+    
+      <Container component="main" maxWidth="sm">
+      <CssBaseline />
+      <Box
+        sx={{
+          marginTop: '5rem',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center'
+        }}
+      >
+        <Divider />
+
+        <div>
       <Typography variant="h4" component="h3" gutterBottom>
         Wie möchtest du dich anmelden?
       </Typography>
 
-      <Button
-        fullWidth
-        sx={{ marginTop: 5, height: 100, fontSize: 30 }}
-        onClick={() => {
-          setLoginType(signInTypes.qr);
-        }}
-        variant="contained"
-      >
-        QR Code
-      </Button>
-      <Button
-        fullWidth
-        sx={{ marginTop: 5, height: 100, fontSize: 30 }}
-        onClick={() => {
-          setLoginType(signInTypes.face);
-        }}
-        variant="contained"
-      >
-        Gesicht
-      </Button>
-
-      <Button
-        fullWidth
-        sx={{ marginTop: 5, height: 100, fontSize: 30 }}
-        onClick={() => {
-          setLoginType(signInTypes.legacy);
-        }}
-        variant="contained"
-      >
-        Name
-      </Button>
-    </div>
-  );
+      <GreenButton {...{buttonText:"QR CODE", onClick:qr}}/>
+      <GreenButton {...{buttonText:"GESICHT", onClick:face}}/>
+      <GreenButton {...{buttonText:"NAME", onClick:legacy}}/>
+        </div>
+      </Box>
+    </Container>
+    )
+  }
 
   return (
     <Container component="main" maxWidth="sm">

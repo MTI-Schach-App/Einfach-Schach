@@ -2,9 +2,19 @@ import { UserState } from '../interfaces/user';
 import Link from 'next/link';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Fab, Box, Container, Typography, Button, CssBaseline } from '@mui/material';
+import { useRouter } from 'next/router';
+import GreenButton from './buttons/GreenButton';
 
 export default function MainMenu(store: UserState) {
   const user = store.loggedInUser;
+  const router = useRouter();
+  const game = () => {
+    router.push('/game');
+  };
+  const train = () => {
+    router.push('/train');
+  };
+
   let chapterFinished = 0;
   if (user){
     for (const chapter of Object.keys(user.chapterProgression)){
@@ -46,25 +56,9 @@ export default function MainMenu(store: UserState) {
           Übungen abgeschlossen: {user.coursesFinishedTotal}
           </Typography>
           
-          <Link href="/game">
-            <Button
-              fullWidth
-              sx={{ marginTop: 5, height: 100, fontSize: 30 }}
-              variant="contained"
-            >
-              Partie spielen
-            </Button>
-          </Link>
+          <GreenButton {...{buttonText:"PARTIE SPIELEN", onClick:game}}/>
+          <GreenButton {...{buttonText:"ÜBUNGEN", onClick:train}}/>  
 
-          <Link href="/train">
-            <Button
-              fullWidth
-              sx={{ marginTop: 5, height: 100, fontSize: 30 }}
-              variant="contained"
-            >
-              Übungen
-            </Button>
-          </Link>
         </Box>
       </Container>
     </>
