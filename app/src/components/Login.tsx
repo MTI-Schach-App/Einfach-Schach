@@ -10,7 +10,7 @@ import {
   Button,
   CssBaseline
  } from '@mui/material';
-import GreenButton from './buttons/GreenButton';
+import GreenButton from './buttons/GenericButton';
 
 const signInTypes = {
   qr: <QRSignIn />,

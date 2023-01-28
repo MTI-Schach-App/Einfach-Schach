@@ -1,16 +1,13 @@
-import FreePlay from '../components/FreePlay';
-import { Container, Box, CircularProgress, Button } from '@mui/material';
+import { Container, Box, Button } from '@mui/material';
 import { useWindowSize } from '../utils/helper';
 import { useStore } from '../utils/store';
-import axios from 'axios';
-import useSWR from 'swr';
 import { useRouter } from 'next/router';
 import BackButton from '../components/buttons/BackButton';
 import { fetchWrapper } from '../utils/fetch-wrapper';
-import LongPressButton from '../components/buttons/LongPressButton';
+import ChessgroundFree from '../components/chessboards/FreePlay';
+import { defaultBoard } from '../interfaces/constants';
 
-const defaultBoard = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w - - 0 1';
-function GamePage() {
+function FreePlay() {
   const router = useRouter();
 
   const loggedUser = useStore((state) => state.loggedInUser);
@@ -18,13 +15,9 @@ function GamePage() {
   if (process.browser && loggedUser.id === 0) {
     router.push('/');
   }
-  const size = useWindowSize();
 
-  const { data: users } = useSWR(
-    [`api/users/get_by_id?id=${loggedUser.id.toString()}`],
-    (url) => axios.get(url).then((res) => res.data),
-    { refreshInterval: 6000 }
-  );
+  const size = useWindowSize();
+  
   const cancelGame = () => {
     fetchWrapper.post('api/game/set_game', {
       id: loggedUser.id,
@@ -35,21 +28,7 @@ function GamePage() {
     setUser(newUser);
     router.push('/');
   };
-
-  if (!users) {
-    return (
-      <Container>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <CircularProgress />
-        </div>
-      </Container>
-    );
-  }
-
-  let position = defaultBoard;
-  if (loggedUser.currentGame != '') {
-    position = loggedUser.currentGame;
-  }
+  
 
   let width = size.width * 0.9;
   if (size.height < size.width) {
@@ -58,15 +37,7 @@ function GamePage() {
 
   return (
     <>
-      <LongPressButton {
-        ...{
-          delayMs: 500,
-          refreshMs: 10,
-          onExecute: () => router.back(),
-          buttonText: '< Zurück',
-        }
-      } />
-
+      <BackButton/>
       <Button
         variant="contained"
         sx={{
@@ -88,11 +59,16 @@ function GamePage() {
             alignItems: 'center'
           }}
         >
-          <FreePlay {...{ boardWidth: width, startPos: position }} />;
+          <ChessgroundFree
+          width={width}
+          config={{
+            draggable: {enabled:false},
+            
+          }}/>
         </Box>
       </Container>
     </>
   )
 }
 
-export default GamePage;
+export default FreePlay;

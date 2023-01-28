@@ -79,6 +79,7 @@ export default function SignInFace() {
 
     if (detected && !verifying) {
       setLoginState(faceStates.verify);
+      //@ts-ignore
       const imageSrc = webcamRef.current?.getScreenshot();
       setVerifying(true);
       setCurrentScreenshot(imageSrc);

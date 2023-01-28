@@ -1,5 +1,5 @@
 import { Box, Button, Typography, Card, CardContent, CardActionArea, Collapse, Grid, IconButton, IconButtonProps, styled } from '@mui/material';
-import LinearProgressWithLabel from './progress/LinearProgress';
+import LinearProgressWithLabel from '../progress/LinearProgress';
 import { useState } from 'react';
 import CheckMark from '@mui/icons-material/Check';
 import Link from 'next/link';
@@ -57,7 +57,7 @@ export default function ChapterCard({chapter, user}) {
                             gap: 1,
                         }}
                         >
-                        <Typography sx={{ fontSize: 20, gridRow: '1', gridColumn: 'span 2' }} color="text.secondary" gutterBottom>
+                        <Typography sx={{ fontSize: 15, gridRow: '1', gridColumn: 'span 2' }} color="text.secondary" gutterBottom>
                             Kapitel {chapter.id}
                         </Typography>
                         {finished}

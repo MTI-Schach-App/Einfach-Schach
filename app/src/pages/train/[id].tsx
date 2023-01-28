@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useWindowSize, getMultipleRandomCourses } from '../../utils/helper';
 import { Container, Box, CircularProgress, Button, Divider, Typography } from '@mui/material';
-import TrainPlay from '../../components/TrainPlay';
+import TrainPlay from '../../components/chessboards/TrainPlay';
 import axios from 'axios';
 import useSWR from 'swr';
 import { Chapter, Course } from '../../interfaces/training';
@@ -21,14 +21,18 @@ function buildBoards(chapter:Chapter,size, setSelectedCourse): Record<number,any
   
   courses.forEach((course, index) => {
     let prop = {
-      boardWidth: size.width * 0.9,
+      width: size.width * 0.9,
+      config:{
+        draggable: {enabled:false},
+        
+      },
       course: course,
       setSelectedCourse: setSelectedCourse,
       index: index+1,
       chapter:chapter
     };
     if (size.height < size.width) {
-      prop.boardWidth = size.height * 0.85;
+      prop.width = size.height * 0.85;
       };
     
     chapterChooser[index+1] = <TrainPlay {...prop}/>;
@@ -113,14 +117,7 @@ function TrainIdPage() {
   }
   return (
     <>
-    <LongPressButton {
-        ...{
-          delayMs: 500,
-          refreshMs: 10,
-          onExecute: () => router.back(),
-          buttonText: '< Zurück',
-        }
-      } />
+    <BackButton/>
       <Container component="main" maxWidth="xs">
         <Box
           sx={{

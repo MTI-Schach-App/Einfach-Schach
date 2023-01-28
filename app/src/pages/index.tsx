@@ -9,7 +9,7 @@ import { Button } from '@mui/material';
 
 import logo from '../../public/logo.png';
 import { useRouter } from 'next/router';
-import GreenButton from '../components/buttons/GreenButton';
+import GreenButton from '../components/buttons/GenericButton';
 
 function IndexPage() {
   const store = useStore();

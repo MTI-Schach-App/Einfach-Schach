@@ -5,7 +5,7 @@ import { Chapter } from '../../interfaces/training';
 import { useRouter } from 'next/router';
 import { useStore } from '../../utils/store';
 import LongPressButton from '../../components/buttons/LongPressButton';
-import ChapterCard from '../../components/ChapterCard';
+import ChapterCard from '../../components/cards/ChapterCard';
 import BackButton from '../../components/buttons/BackButton';
 
 

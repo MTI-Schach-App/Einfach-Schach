@@ -3,7 +3,7 @@ import Link from 'next/link';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { Fab, Box, Container, Typography, Button, CssBaseline } from '@mui/material';
 import { useRouter } from 'next/router';
-import GreenButton from './buttons/GreenButton';
+import GreenButton from './buttons/GenericButton';
 
 export default function MainMenu(store: UserState) {
   const user = store.loggedInUser;

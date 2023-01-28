@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Course } from '../interfaces/training';
+import { Api } from 'chessground/api';
+import { Color, Key } from 'chessground/types';
+import { SQUARES, Chess, Move } from 'chess.js';
 
 interface windowSize {
   width: number;
@@ -45,3 +48,33 @@ export function getMultipleRandomCourses(arr:Course[], num:number) {
   
   return arr.slice(0, num);
 }
+
+
+export function toDests(chess: Chess): Map<Key, Key[]> {
+  const dests = new Map();
+  SQUARES.forEach(s => {
+    const ms = chess.moves({square: s, verbose: true});
+    if (ms.length) dests.set(s, ms.map(m => m.to));
+  });
+  return dests;
+}
+
+export function toColor(chess: Chess): Color {
+  return (chess.turn() === 'w') ? 'white' : 'black';
+}
+
+export function playOtherSide(cg: Api, chess) {
+  return (orig, dest) => {
+    chess.move({from: orig, to: dest});
+    cg.set({
+      turnColor: toColor(chess),
+      movable: {
+        color: toColor(chess),
+        dests: toDests(chess)
+      }
+    });
+  };
+}
+
+
+
