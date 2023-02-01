@@ -8,7 +8,7 @@ import SuccessTrainingDialog from '../modals/SuccessTrainingModal';
 import { Config } from 'chessground/config';
 import { Chapter, Course } from '../../interfaces/training';
 import { Api } from 'chessground/api';
-import { toColor, toDests } from '../../utils/helper';
+import { toColor, toDests, toGermanColor } from '../../utils/helper';
 import { Chessground as ChessgroundApi } from 'chessground';
 
 import "chessground/assets/chessground.base.css";
@@ -24,7 +24,7 @@ interface TrainPlayProps {
   chapter?: Chapter
 }
 
-export default function TrainPlay({ width, config, course, setSelectedCourse, index, chapter}: TrainPlayProps) {
+export default function TrainPlay({ width = 450, config, course, setSelectedCourse, index, chapter}: TrainPlayProps) {
   const legalMoves = course.moves;
   let currentLegal = 0;
 
@@ -162,7 +162,7 @@ export default function TrainPlay({ width, config, course, setSelectedCourse, in
             variant="h4"
             sx={{ textAlign: 'center', marginTop: -5, marginBottom: 1 }}
           >
-            Am Zug: {api?.state.turnColor}
+            Am Zug: {toGermanColor(api?.state.turnColor)}
       </Typography>
       
       <div style={{ height: width, width: width }}>

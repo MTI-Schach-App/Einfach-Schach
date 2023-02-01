@@ -37,7 +37,10 @@ function FreePlay() {
 
   return (
     <>
-      <BackButton/>
+      <BackButton {...{
+      onClick:() => router.back(),
+      buttonText:'< Zurück'
+      }}/>
       <Button
         variant="contained"
         sx={{

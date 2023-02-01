@@ -5,7 +5,7 @@ import { Chessground as ChessgroundApi } from 'chessground';
 
 import { Api } from 'chessground/api';
 import { Config } from 'chessground/config';
-import { toColor, toDests } from '../../utils/helper';
+import { toColor, toDests, toGermanColor } from '../../utils/helper';
 import { Chess } from 'chess.js';
 import { useStore } from '../../utils/store';
 import { fetchWrapper } from '../../utils/fetch-wrapper';
@@ -121,7 +121,7 @@ function ChessgroundFree({
             variant="h4"
             sx={{ textAlign: 'center', marginTop: -5, marginBottom: 1 }}
           >
-            Am Zug: {api?.state.turnColor}
+            Am Zug: {toGermanColor(api?.state.turnColor)}
       </Typography>
 
       <div style={{ height: width, width: width }}>

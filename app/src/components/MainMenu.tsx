@@ -4,15 +4,31 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import { Fab, Box, Container, Typography, Button, CssBaseline } from '@mui/material';
 import { useRouter } from 'next/router';
 import GreenButton from './buttons/GenericButton';
+import BackButton from './buttons/BackButton';
+import { defaultUserSchema } from '../interfaces/constants';
+import { useStore } from '../utils/store';
 
 export default function MainMenu(store: UserState) {
   const user = store.loggedInUser;
+  const {
+    setLoggedInState,
+  } = useStore();
+  
   const router = useRouter();
   const game = () => {
     router.push('/game');
   };
   const train = () => {
     router.push('/train');
+  };
+  const logout = () => {
+    setLoggedInState({
+      ...defaultUserSchema,
+      id: 0,
+      name: 'None',
+      displayName: ''
+    });
+    router.push('/');
   };
 
   let chapterFinished = 0;
@@ -26,11 +42,16 @@ export default function MainMenu(store: UserState) {
   
   return (
     <>
+    <BackButton {...{
+      onClick:logout,
+      buttonText:'Abmelden',
+      color:'#FF0000'
+      }}/>
       <Link href="/settings">
         <Fab
           color="primary"
           aria-label="settings"
-          sx={{ float: 'right', marginTop: '-14rem', marginRight: '1rem' }}
+          sx={{ float: 'right', marginTop: '1rem', marginRight: '1rem' }}
         >
           <SettingsIcon fontSize="large"></SettingsIcon>
         </Fab>
@@ -40,13 +61,13 @@ export default function MainMenu(store: UserState) {
 
         <Box
           sx={{
-            marginTop: '15rem',
+            marginTop: '10rem',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center'
           }}
         >
-          <Typography variant="h3" component="h1" gutterBottom>
+          <Typography variant="h3" component="h1" sx={{mb:5}} gutterBottom>
             Hallo {user.displayName}
           </Typography>
           <Typography variant="h6" component="h1" gutterBottom>
@@ -57,7 +78,7 @@ export default function MainMenu(store: UserState) {
           </Typography>
           
           <GreenButton {...{buttonText:"PARTIE SPIELEN", onClick:game}}/>
-          <GreenButton {...{buttonText:"ÜBUNGEN", onClick:train}}/>  
+          <GreenButton {...{buttonText:"ÜBUNGEN", onClick:train, color:'#575757'}}/>  
 
         </Box>
       </Container>

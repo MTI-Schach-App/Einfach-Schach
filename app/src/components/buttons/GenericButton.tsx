@@ -1,5 +1,4 @@
 import { Button } from '@mui/material';
-import { useRouter } from 'next/router';
 
 export type ButtonProps = {
   /** Text that will appear within the button */
@@ -8,14 +7,14 @@ export type ButtonProps = {
   /** Color */
   color?: string;
 
+  /** Should have rounded borders */
   isRounded?: boolean;
 
-
-  /** Function to run once delay has been exceeded */
+  /** Function to run on click */
   onClick: () => void;
 };
 
-export default function GreenButton ({
+export default function GenericButton ({
   onClick,
   buttonText,
   color="#287233",
@@ -24,7 +23,7 @@ export default function GreenButton ({
 
   let border : number = 0;
   if (isRounded) {
-    border = 5;
+    border = 25;
   }
   
   return (

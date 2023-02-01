@@ -4,6 +4,7 @@ import { useStore } from '../../utils/store';
 import { User } from '../../interfaces/user';
 import { fetchWrapper } from '../../utils/fetch-wrapper';
 import { useRouter } from 'next/router';
+import { ValidationTextField } from '../styled/basics';
 
 export default function SignIn() {
   const { setLoggedInState } = useStore();
@@ -46,23 +47,23 @@ export default function SignIn() {
   return (
     <>
       <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-        <TextField
-          margin="normal"
-          required
-          fullWidth
-          id="name"
-          label="Dein Name"
-          name="name"
-          autoComplete="name"
-          autoFocus
-        />
+      <ValidationTextField
+              margin="normal"
+              fullWidth
+              id="name"
+              label="Dein Name"
+              name="name"
+              autoComplete="name"
+              autoFocus
+              sx={{mb:5}}
+            />
         <Button
           type="submit"
           fullWidth
           variant="contained"
-          sx={{ mt: 3, mb: 2, height: 100, fontSize: 30 }}
+          sx={{ mt: 3, mb: 2, height: 100, fontSize: 30, borderRadius:25 }}
         >
-          Los gehts!
+          Anmelden
         </Button>
       </Box>
     </>

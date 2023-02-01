@@ -21,7 +21,7 @@ export default class MyDocument extends Document {
           <meta name='mobile-web-app-capable' content='yes' />
           <meta name='msapplication-TileColor' content='#2B5797' />
           <meta name='msapplication-tap-highlight' content='no' />
-
+          <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 
           <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />
           <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png' />
@@ -29,7 +29,7 @@ export default class MyDocument extends Document {
           <link rel='mask-icon' href='/icons/safari-pinned-tab.svg' color='#5bbad5' />
           <link rel='shortcut icon' href='/favicon.ico' />
           <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500' />
-              
+          <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Anton:300,400,500' />
           <meta name='twitter:card' content='summary' />
           <meta name='twitter:url' content='https://einfachschach.de' />
           <meta name='twitter:title' content='Einfach Schach' />
@@ -41,7 +41,7 @@ export default class MyDocument extends Document {
           <meta property='og:site_name' content='Einfach Schach' />
           <meta property='og:url' content='https://einfachschach.de' />
           <meta property='og:image' content='https://einfachschach.de/icon-192x192.png' />
-
+      
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {this.props.emotionStyleTags}
         </Head>

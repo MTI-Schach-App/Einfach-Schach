@@ -63,6 +63,10 @@ export function toColor(chess: Chess): Color {
   return (chess.turn() === 'w') ? 'white' : 'black';
 }
 
+export function toGermanColor(turn: string): string {
+  return (turn === 'white') ? 'weiß' : 'schwarz';
+}
+
 export function playOtherSide(cg: Api, chess) {
   return (orig, dest) => {
     chess.move({from: orig, to: dest});

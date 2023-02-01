@@ -53,7 +53,6 @@ export default function LoginMenu() {
       </Typography>
 
       <GreenButton {...{buttonText:"QR CODE", onClick:qr}}/>
-      <GreenButton {...{buttonText:"GESICHT", onClick:face}}/>
       <GreenButton {...{buttonText:"NAME", onClick:legacy}}/>
         </div>
       </Box>

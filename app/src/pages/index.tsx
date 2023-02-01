@@ -2,10 +2,9 @@ import { useStore } from '../utils/store';
 import MainMenu from '../components/MainMenu';
 import LoginMenu from '../components/Login';
 import { useState } from 'react';
-import { Box, Container, CssBaseline, Divider } from '@mui/material';
+import { Box, Container, CssBaseline, Divider, Typography } from '@mui/material';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Button } from '@mui/material';
 
 import logo from '../../public/logo.png';
 import { useRouter } from 'next/router';
@@ -21,9 +20,11 @@ function IndexPage() {
   };
 
   const register = () => {
+    setLanding('land');
     router.push('/signup');
   };
 
+  console.log(store.loggedInUser.name)
   if (store.loggedInUser.name === 'None') {
     if (landing === 'land') {
       return (
@@ -31,12 +32,14 @@ function IndexPage() {
           <CssBaseline />
           <Box
             sx={{
-              marginTop: '15rem',
+              marginTop: '5rem',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center'
             }}
-          >
+          > <Typography variant="h3" component="h1" sx={{mb:5, fontFamily:'Anton'}} gutterBottom>
+          Einfach Schach
+        </Typography>
             <Link href="/">
               <Image
                 src={logo}
@@ -46,9 +49,9 @@ function IndexPage() {
                 style={{ marginBottom: 50 }}
               />
             </Link>
-            <Divider />
+            <Divider sx={{mb:3}} />
             <GreenButton {...{buttonText: 'Anmelden', onClick:login}}/>
-            <GreenButton {...{buttonText: 'Registrieren', onClick:register}}/>
+            <GreenButton {...{buttonText: 'Neues Konto', onClick:register, color: '#575757'}}/>
           </Box>
         </Container>
       );

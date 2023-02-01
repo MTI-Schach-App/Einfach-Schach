@@ -35,7 +35,10 @@ export default function TrainPage() {
     
   return (
     <>
-      <BackButton/>
+      <BackButton {...{
+      onClick:() => router.back(),
+      buttonText:'< Zurück'
+      }}/>
       <Container component="main" maxWidth="md">
         <Box sx={{ width: '100%', marginTop: '5rem' }}>
           <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>

@@ -24,7 +24,6 @@ export default function SuccessTrainingDialog({ open, setOpen, text, setSelected
     <div>
       <Dialog
         open={open}
-        onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >

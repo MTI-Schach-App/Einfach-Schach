@@ -53,7 +53,10 @@ function Settings() {
   if (showQR)
     return (
       <>
-      <BackButton />
+      <BackButton {...{
+      onClick:() => router.back(),
+      buttonText:'< Zurück'
+      }}/>
       <Container component="main" maxWidth="xs">
         <Box
           sx={{
@@ -83,7 +86,10 @@ function Settings() {
     );
   return (
     <>
-      <BackButton />
+      <BackButton {...{
+      onClick:() => router.back(),
+      buttonText:'< Zurück'
+      }}/>
 
       <Button
         sx={{
