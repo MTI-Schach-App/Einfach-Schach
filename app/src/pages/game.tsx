@@ -19,7 +19,7 @@ function FreePlay() {
   const size = useWindowSize();
   
   const cancelGame = () => {
-    fetchWrapper.post('api/game/set_game', {
+    if (loggedUser.id != 999999) fetchWrapper.post('api/game/set_game', {
       id: loggedUser.id,
       fen: defaultBoard
     });

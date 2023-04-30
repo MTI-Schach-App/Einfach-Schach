@@ -122,7 +122,9 @@ export default function TrainPlay({ width = 450, config, course, setSelectedCour
       user.chapterProgression[chapter.id].completed = true;
     }
     user.coursesFinishedTotal += 1;
-    fetchWrapper.post('/api/users/update', { ...user });
+    if (user.id != 999999) {
+    fetchWrapper.post('/api/users/update', { ...user })
+    }
     setUser(user);
   }
 

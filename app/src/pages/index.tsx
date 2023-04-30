@@ -24,6 +24,23 @@ function IndexPage() {
     router.push('/signup');
   };
 
+  const guest = () => {
+  store.setLoggedInState({
+  id: 999999,
+  name: "Gast",
+  displayName: "Gast",
+  level: 0,
+  ep:0,
+  currentGame: '',
+  dateUpdated: '0',
+  dateCreated: '0',
+  coursesFinishedTotal: 0,
+  wantsToClick: false,
+  animationSpeed: 2000,
+  chapterProgression: {}
+});
+  };
+
   console.log(store.loggedInUser.name)
   if (store.loggedInUser.name === 'None') {
     if (landing === 'land') {
@@ -52,6 +69,7 @@ function IndexPage() {
             <Divider sx={{mb:3}} />
             <GreenButton {...{buttonText: 'Anmelden', onClick:login}}/>
             <GreenButton {...{buttonText: 'Neues Konto', onClick:register, color: '#575757'}}/>
+            <GreenButton {...{buttonText: 'Als Gast spielen', onClick:guest}}/>
           </Box>
         </Container>
       );

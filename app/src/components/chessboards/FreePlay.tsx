@@ -67,7 +67,8 @@ function ChessgroundFree({
   }, [api, config]);
 
   function updateUser() {
-    fetchWrapper.post('api/game/set_game', { id: user.id, fen: chess.fen() });
+    if (user.id != 999999) {
+    fetchWrapper.post('api/game/set_game', { id: user.id, fen: chess.fen() });}
     const newUser = user;
     newUser.currentGame = chess.fen();
     setUser(newUser);
@@ -77,10 +78,13 @@ function ChessgroundFree({
     return (orig, dest) => {
       chess.move({from: orig, to: dest});
       if (chess.isCheckmate()) {
-        fetchWrapper.post('api/game/set_game', {
-          id: user.id,
-          fen: defaultBoard
-        });
+        if (user.id != 999999) {
+          fetchWrapper.post('api/game/set_game', {
+            id: user.id,
+            fen: defaultBoard
+          });
+        }  
+
         const newUser = user;
         newUser.currentGame = defaultBoard;
         setUser(newUser);
