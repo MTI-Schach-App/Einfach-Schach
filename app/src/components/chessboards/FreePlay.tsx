@@ -16,6 +16,7 @@ import "chessground/assets/chessground.cburnett.css";
 import SuccessDialog from '../modals/SuccessModal';
 import { Typography } from '@mui/material';
 import { defaultBoard } from '../../interfaces/constants';
+import PromotionDialog from '../modals/PromotionModal';
 
 interface Props {
   width?: number
@@ -29,6 +30,8 @@ function ChessgroundFree({
   const user = useStore((state) => state.loggedInUser);
   const setUser = useStore((state) => state.setLoggedInState);
   const [win, setWin] = useState(false);
+  const [promo, setPromo] = useState(false);
+  const [bauer, setBauer] = useState("z6");
 
   const ref = useRef<HTMLDivElement>(null);
   const chess = new Chess();
@@ -90,8 +93,25 @@ function ChessgroundFree({
         setUser(newUser);
         setWin(true);
         
+      
+      
       }
       else {
+
+        console.log(chess.board())
+          const ziellinie = chess.board()[5] //Final auf 0 ändern
+          console.log(ziellinie)
+          ziellinie.forEach(figur => {
+            if (figur && figur.type === "p" && figur.color === "w"){
+              setBauer(figur.square);
+              setPromo(true);
+            }
+            
+            }
+    
+          )
+
+
         setTimeout(() => {
           const moves = chess.moves({verbose:true});
           const move = firstMove ? moves[0] : moves[Math.floor(Math.random() * moves.length)] ;
@@ -120,6 +140,14 @@ function ChessgroundFree({
         open={win}
         setOpen={setWin}
         text={'Du hast den Gegner ins Matt gesetzt!'}
+      />
+      <PromotionDialog
+        open={promo}
+        setOpen={setPromo}
+        text={'Wähle eine Figur zur Umwandlung aus'}
+        chess={chess}
+        chessboard={api}
+        position={bauer}
       />
       <Typography
             variant="h4"
