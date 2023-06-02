@@ -7,28 +7,12 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useRouter } from 'next/router';
 import GreenButton from "../buttons/GenericButton"
-import { useState } from 'react';
-import { toColor, toDests } from '../../utils/helper';
 
-export default function PromotionDialog({ open, setOpen, text, chess, chessboard, position }) {
-  const router = useRouter();
-  const [auswahl, setAuswahl] = useState("none")
+export default function PromotionDialog({ open, setOpen, text, setAuswahl }) {
   const handleClose = () => {
-    chess.remove(position);
-    chess.put({type:auswahl, color:"w"},position);
-    console.log(chess.board())
-    chessboard.set({
-      fen: chess.fen(),
-        movable: {
-          color: toColor(chess),
-          dests: toDests(chess),
-         
-        }
-      })
     setOpen(false);
   };
-  console.log(auswahl)
-
+  
   return (
     <div>
       <Dialog
