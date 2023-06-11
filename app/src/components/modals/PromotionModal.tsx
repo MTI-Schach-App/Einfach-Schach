@@ -5,13 +5,18 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import { useRouter } from 'next/router';
-import GreenButton from "../buttons/GenericButton"
+import { useState } from 'react';
+import ChoicePromo from '../buttons/ChoicePromotionButton';
+
 
 export default function PromotionDialog({ open, setOpen, text, setAuswahl }) {
+  const [selected, setSelected] = useState("none");
+
   const handleClose = () => {
+    setAuswahl(selected);
     setOpen(false);
   };
+  
   
   return (
     <div>
@@ -24,14 +29,14 @@ export default function PromotionDialog({ open, setOpen, text, setAuswahl }) {
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             {text}
-            <GreenButton {...{buttonText:"Dame", onClick:() => {setAuswahl("q")}}}/>
-            <GreenButton {...{buttonText:"Turm", onClick:() => {setAuswahl("r")}}}/>
-            <GreenButton {...{buttonText:"Springer", onClick:() => {setAuswahl("n")}}}/>
-            <GreenButton {...{buttonText:"Läufer", onClick:() => {setAuswahl("b")}}}/>
+            <ChoicePromo {...{buttonText:"Dame", onClick:() => {setSelected("q")}, ausgewählt: (selected === "q")}}/>
+            <ChoicePromo {...{buttonText:"Turm", onClick:() => {setSelected("r")}, ausgewählt: (selected === "r")}}/>
+            <ChoicePromo {...{buttonText:"Springer", onClick:() => {setSelected("n")}, ausgewählt: (selected === "n")}}/>
+            <ChoicePromo {...{buttonText:"Läufer", onClick:() => {setSelected("b")}, ausgewählt: (selected === "b")}}/>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} autoFocus>
+          <Button onClick={handleClose} autoFocus disabled={(selected === "none")}>
             OK
           </Button>
         </DialogActions>
