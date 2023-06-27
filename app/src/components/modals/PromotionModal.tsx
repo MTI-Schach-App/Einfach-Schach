@@ -7,6 +7,11 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { useState } from 'react';
 import ChoicePromo from '../buttons/ChoicePromotionButton';
+import Image from 'next/image';
+import damesvg from '../../../public/dame.svg';
+import turmsvg from '../../../public/turm.svg';
+import springersvg from '../../../public/springer.svg';
+import laeufersvg from '../../../public/laeufer.svg';
 
 
 export default function PromotionDialog({ open, setOpen, text, setAuswahl }) {
@@ -29,10 +34,13 @@ export default function PromotionDialog({ open, setOpen, text, setAuswahl }) {
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             {text}
-            <ChoicePromo {...{buttonText:"Dame", onClick:() => {setSelected("q")}, ausgewählt: (selected === "q")}}/>
-            <ChoicePromo {...{buttonText:"Turm", onClick:() => {setSelected("r")}, ausgewählt: (selected === "r")}}/>
-            <ChoicePromo {...{buttonText:"Springer", onClick:() => {setSelected("n")}, ausgewählt: (selected === "n")}}/>
-            <ChoicePromo {...{buttonText:"Läufer", onClick:() => {setSelected("b")}, ausgewählt: (selected === "b")}}/>
+            <div style={{ textAlign: 'center' }}>
+      <p>
+            <ChoicePromo {...{buttonText:"Dame", onClick:() => {setSelected("q")}, ausgewählt: (selected === "q"), logo: damesvg}}/>
+            <ChoicePromo {...{buttonText:"Turm", onClick:() => {setSelected("r")}, ausgewählt: (selected === "r"), logo: turmsvg}}/>
+            <ChoicePromo {...{buttonText:"Springer", onClick:() => {setSelected("n")}, ausgewählt: (selected === "n"), logo: springersvg}}/>
+            <ChoicePromo {...{buttonText:"Läufer", onClick:() => {setSelected("b")}, ausgewählt: (selected === "b"), logo: laeufersvg}}/>
+      </p> </div>
           </DialogContentText>
         </DialogContent>
         <DialogActions>

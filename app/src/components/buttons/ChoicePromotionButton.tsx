@@ -1,7 +1,10 @@
 import { Button } from '@mui/material';
 import { red } from '@mui/material/colors';
+import Image from 'next/image';
 
 export type ButtonProps = {
+  logo: any;
+
   /** Text that will appear within the button */
   buttonText: string;
 
@@ -20,6 +23,7 @@ export default function ChoicePromo ({
   buttonText,
   color="#287233",
   ausgewählt=false,
+  logo,
 }: ButtonProps){
 
   let borderWidth = 0
@@ -36,7 +40,13 @@ export default function ChoicePromo ({
       sx={{ height: 100, width: 100, backgroundColor: color, border: borderWidth, borderColor: borderColor  }}
       onClick={onClick}
     >
-      {buttonText}
+                <Image
+                src={logo}
+                alt="logo by ben "
+                width="350px"
+                height="300px"
+                style={{ marginBottom: 50, backgroundColor:'red' }}
+              />
     </Button>
   );
 }
