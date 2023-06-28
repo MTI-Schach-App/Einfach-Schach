@@ -192,7 +192,7 @@ function ChessgroundFree({
       <PromotionDialog
         open={promo}
         setOpen={setPromo}
-        text={'Wähle eine Figur zur Umwandlung aus'}
+        text={'Dein Bauer hat das Ende des Spielfeldes erreicht! Du kannst jetzt Auswählen, durch welche Figur Du ihn ersetzen möchtest. Tippe die jeweilige Figur an und drücke anschließend auf “Bestätigen”.'}
         setAuswahl={setAuswahl}
       />
       <Typography

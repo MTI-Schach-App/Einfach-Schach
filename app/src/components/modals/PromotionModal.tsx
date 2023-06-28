@@ -45,7 +45,7 @@ export default function PromotionDialog({ open, setOpen, text, setAuswahl }) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} autoFocus disabled={(selected === "none")}>
-            OK
+            Bestätigen
           </Button>
         </DialogActions>
       </Dialog>

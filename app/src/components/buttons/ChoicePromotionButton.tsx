@@ -30,7 +30,7 @@ export default function ChoicePromo ({
   let borderColor = ""
   if (ausgewählt) {
     borderWidth = 10
-    borderColor = red[400]
+    borderColor = "#287233"[800]
   }
   
   return (
@@ -45,7 +45,7 @@ export default function ChoicePromo ({
                 alt="logo by ben "
                 width="350px"
                 height="300px"
-                style={{ marginBottom: 50, backgroundColor:'red' }}
+                style={{ marginBottom: 50, backgroundColor:'FAF4E7' }}
               />
     </Button>
   );
