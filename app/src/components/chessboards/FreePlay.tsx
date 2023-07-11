@@ -32,7 +32,7 @@ function ChessgroundFree({
   const [win, setWin] = useState(false);
   const [promo, setPromo] = useState(false);
   const [auswahl, setAuswahl] = useState("none")
-  const [bauer, setBauer] = useState("z6")
+  const [bauer, setBauer] = useState({from: "v4", to: "x4"})
   const [chess, setChess] = useState(new Chess());
 
   const ref = useRef<HTMLDivElement>(null);
@@ -83,11 +83,10 @@ function ChessgroundFree({
 
 
   if (auswahl != 'none') {
-    chess.put({type:auswahl as PieceSymbol, color:"w"},bauer as Square);
-    
-    setCG(api, chess);
-    //setPromo(false);
+    chess.move({from: bauer.from, to: bauer.to, promotion: auswahl})
+
     setTimeout(() => {
+      setCG(api, chess);
       const moves = chess.moves({verbose:true});
       const move = moves[Math.floor(Math.random() * moves.length)] ;
       //@ts-ignore
@@ -104,7 +103,7 @@ function ChessgroundFree({
       api.playPremove();
       updateUser();
     }, 1000);
-    setBauer('z6');
+    setBauer({from: "v4", to: "x4"});
     setAuswahl('none');
     
   }
@@ -127,8 +126,13 @@ function ChessgroundFree({
   function aiPlay(cg: Api, chess: Chess, delay: number, firstMove: boolean) {
     return (orig, dest) => {
       
-      console.log(promo,chess.board()[0])
-      chess.move({from: orig, to: dest});
+      const destFigure = chess.get(orig)
+      if (dest[1] === '8' && destFigure.color === 'w' && destFigure.type === 'p') {
+        setPromo(true);
+        setBauer({from: orig, to: dest})
+      }
+      else {
+        chess.move({from: orig, to: dest});
 
       if (chess.isCheckmate()) {
         if (user.id != 999999) {
@@ -148,43 +152,29 @@ function ChessgroundFree({
       
       else {
 
-          const ziellinie = chess.board()[5] //Final auf 0 ändern
-          let promo = false;
-
-          
-
-          ziellinie.forEach(figur => {
-              if (figur && figur.type === "p" && figur.color === "w"){
-                promo = true;
-                chess.remove(figur.square);
-                setPromo(true);
-                setBauer(figur.square)
-              }
+        setTimeout(() => {
+          const moves = chess.moves({verbose:true});
+          const move = firstMove ? moves[0] : moves[Math.floor(Math.random() * moves.length)] ;
+          //@ts-ignore
+          chess.move(move.san);
+          //@ts-ignore
+          cg.move(move.from, move.to);
+          cg.set({
+            turnColor: toColor(chess),
+            movable: {
+              color: toColor(chess),
+              dests: toDests(chess)
             }
-          )
-
-          if (!promo) {
-            setTimeout(() => {
-              const moves = chess.moves({verbose:true});
-              const move = firstMove ? moves[0] : moves[Math.floor(Math.random() * moves.length)] ;
-              //@ts-ignore
-              chess.move(move.san);
-              //@ts-ignore
-              cg.move(move.from, move.to);
-              cg.set({
-                turnColor: toColor(chess),
-                movable: {
-                  color: toColor(chess),
-                  dests: toDests(chess)
-                }
-              });
-              cg.playPremove();
-              updateUser();
-            }, delay);
-          }
+          });
+          cg.playPremove();
+          updateUser();
+        }, delay);
 
         
       }
+
+      }
+      
       
     };
   }
