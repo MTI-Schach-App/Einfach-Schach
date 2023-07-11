@@ -47,7 +47,8 @@ function FreePlay() {
           float: 'right',
           marginTop: 2,
           marginRight: 1,
-          backgroundColor: 'red'
+          backgroundColor: '#B12929',
+          width:'9rem', height:'3rem', fontSize:17, borderRadius: 5,
         }}
         onClick={cancelGame}
       >

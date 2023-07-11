@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 
-export type BackButtonProps = {
+export type ChangeButtonProps = {
   /** Text that will appear within the button */
   buttonText: string;
 
@@ -11,16 +11,16 @@ export type BackButtonProps = {
   onClick: () => void;
 };
 
-export default function BackButton({
+export default function ChangePage({
   onClick,
   buttonText,
-  color="#575757"
-}: BackButtonProps) {
+  color="#287233"
+}: ChangeButtonProps) {
   return (
     <Button
       variant="contained"
       aria-label={'Zurück'}
-      sx={{ marginTop: 2, marginLeft: 1, marginBottom: '1rem', width:'9rem', height:'3rem', fontSize:17, borderRadius: 5, backgroundColor: color }}
+      sx={{ marginTop: 1, marginLeft: 2, marginBottom: 2, backgroundColor: 'rgba(0, 0, 0, 0.01)', borderRadius: '50%', border: 2, borderColor:'#575757', height:90, width:90, color:'#575757', fontSize:30}}
       onClick={onClick}
     >
       {buttonText}

@@ -1,12 +1,23 @@
 import { useState, useEffect } from 'react';
-import { Course } from '../interfaces/training';
+import { Chapter, Course } from '../interfaces/training';
 import { Api } from 'chessground/api';
 import { Color, Key } from 'chessground/types';
 import { SQUARES, Chess, Move } from 'chess.js';
+import { User } from '../interfaces/user';
 
 interface windowSize {
   width: number;
   height: number;
+}
+
+export function paginate (arr, size) {
+  return arr.reduce((acc, val, i) => {
+    let idx = Math.floor(i / size)
+    let page = acc[idx] || (acc[idx] = [])
+    page.push(val)
+
+    return acc
+  }, [])
 }
 
 export function useWindowSize(): windowSize {
@@ -50,6 +61,8 @@ export function getMultipleRandomCourses(arr:Course[], num:number) {
 }
 
 
+
+
 export function toDests(chess: Chess): Map<Key, Key[]> {
   const dests = new Map();
   SQUARES.forEach(s => {
@@ -67,6 +80,10 @@ export function toGermanColor(turn: string): string {
   return (turn === 'white') ? 'weiß' : 'schwarz';
 }
 
+export function getColorForChapterChooser(user: User,chapter: Chapter): string {
+  return user.chapterProgression[chapter.id].completed ? "#287233" : '#575757';
+}
+
 export function playOtherSide(cg: Api, chess) {
   return (orig, dest) => {
     chess.move({from: orig, to: dest});
@@ -79,6 +96,3 @@ export function playOtherSide(cg: Api, chess) {
     });
   };
 }
-
-
-

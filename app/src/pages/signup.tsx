@@ -67,6 +67,7 @@ background: '#FAF4E7'}}> <CheckIcon sx={{color:'black', mt: 0.7}}/></div>
 import { useRouter } from 'next/router';
 import { defaultUserSchema } from '../interfaces/constants';
 import { ValidationTextField } from '../components/styled/basics';
+import BackButton from '../components/buttons/BackButton';
 
 export default function SignUp() {
   const {
@@ -270,6 +271,10 @@ export default function SignUp() {
   return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
+        <BackButton {...{
+      onClick:() => {router.push('/')},
+      buttonText:'< Zurück',
+      }}/>
         <Box
           sx={{
             marginTop: 20,
