@@ -30,7 +30,7 @@ export default function PromotionDialog({ open, setOpen, text, setAuswahl }) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">{'Bauernumwandlung'}</DialogTitle>
+        <DialogTitle id="alert-dialog-title" sx={{fontSize:30}}>{'Bauernumwandlung'}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             {text}
@@ -44,7 +44,7 @@ export default function PromotionDialog({ open, setOpen, text, setAuswahl }) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} autoFocus disabled={(selected === "none")}>
+          <Button onClick={handleClose} autoFocus disabled={(selected === "none")} variant='contained' sx={{margin: 2}}>
             Bestätigen
           </Button>
         </DialogActions>

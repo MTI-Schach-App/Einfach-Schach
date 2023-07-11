@@ -37,7 +37,7 @@ export default function ChoicePromo ({
     <Button
       variant="contained"
       aria-label={buttonText}
-      sx={{ height: 100, width: 100, backgroundColor: color, border: borderWidth, borderColor: borderColor  }}
+      sx={{ margin: 1, height: 100, width: 100, backgroundColor: color, border: borderWidth, borderColor: borderColor  }}
       onClick={onClick}
     >
                 <Image

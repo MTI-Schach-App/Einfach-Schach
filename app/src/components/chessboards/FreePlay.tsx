@@ -86,6 +86,7 @@ function ChessgroundFree({
     chess.put({type:auswahl as PieceSymbol, color:"w"},bauer as Square);
     
     setCG(api, chess);
+    //setPromo(false);
     setTimeout(() => {
       const moves = chess.moves({verbose:true});
       const move = moves[Math.floor(Math.random() * moves.length)] ;
@@ -103,8 +104,9 @@ function ChessgroundFree({
       api.playPremove();
       updateUser();
     }, 1000);
-    setBauer('z6')
+    setBauer('z6');
     setAuswahl('none');
+    
   }
 
   function setCG(cg: Api, chess: Chess, highlight: boolean = true) {
@@ -124,6 +126,8 @@ function ChessgroundFree({
 
   function aiPlay(cg: Api, chess: Chess, delay: number, firstMove: boolean) {
     return (orig, dest) => {
+      
+      console.log(promo,chess.board()[0])
       chess.move({from: orig, to: dest});
 
       if (chess.isCheckmate()) {
@@ -138,12 +142,16 @@ function ChessgroundFree({
         newUser.currentGame = defaultBoard;
         setUser(newUser);
         setWin(true);
+        
       
       }
+      
       else {
 
           const ziellinie = chess.board()[5] //Final auf 0 ändern
           let promo = false;
+
+          
 
           ziellinie.forEach(figur => {
               if (figur && figur.type === "p" && figur.color === "w"){
@@ -154,7 +162,6 @@ function ChessgroundFree({
               }
             }
           )
-          console.log(promo,chess.board()[5])
 
           if (!promo) {
             setTimeout(() => {
