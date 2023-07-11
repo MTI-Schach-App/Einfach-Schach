@@ -11,6 +11,8 @@ import {
   CssBaseline
  } from '@mui/material';
 import GreenButton from './buttons/GenericButton';
+import BackButton from './buttons/BackButton';
+import { useRouter } from 'next/router';
 
 const signInTypes = {
   qr: <QRSignIn />,
@@ -21,6 +23,7 @@ const signInTypes = {
 
 export default function LoginMenu() {
   const [loginType, setLoginType] = useState('init'|| <Button></Button>);
+  const router = useRouter();
   
   const qr = () => {
     setLoginType(signInTypes.qr);
@@ -37,6 +40,10 @@ export default function LoginMenu() {
     
       <Container component="main" maxWidth="sm">
       <CssBaseline />
+      <BackButton {...{
+      onClick:() => {router.push('/game')},
+      buttonText:'< Zurück',
+      }}/>
       <Box
         sx={{
           marginTop: '5rem',
@@ -46,6 +53,7 @@ export default function LoginMenu() {
         }}
       >
         <Divider />
+        
 
         <div>
       <Typography variant="h4" component="h3" gutterBottom>

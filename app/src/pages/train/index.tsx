@@ -59,22 +59,22 @@ export default function TrainPage() {
             alignItems: 'center'
           }}>
           <Typography
-                variant="h4"
+                variant="h3"
                 sx={{ textAlign: 'center', marginTop: -15, marginBottom: 1 }}
               >
                 {chapt.name}
           </Typography>
-          <Typography variant="h6" component="h1" gutterBottom>
+          <Typography sx={{marginTop:4, marginBottom:4}} variant="h5" component="h1" gutterBottom>
             {chapt.subtext}
           </Typography>
           <Image
                 src={logo}
                 alt="logo by ben "
-                width="350px"
-                height="300px"
+                width="400px"
+                height="400px"
                 style={{ marginBottom: 50 }}
               />
-                <GreenButton {...{buttonText:`Übung fortsetzen`, onClick:() => {router.push(`/train/${chapt.id}`)}}}/>
+                <GreenButton {...{buttonText:`Übungen fortsetzen`, onClick:() => {router.push(`/train/${chapt.id}`)}}}/>
             
         </Box>
       </Container></>
@@ -113,7 +113,7 @@ export default function TrainPage() {
                 variant="h4"
                 sx={{ textAlign: 'center', marginTop: -15, marginBottom: 1 }}
               >
-                Kapitelübersicht
+                Übersicht
           </Typography>
             {pages[page].map((chapter: Chapter) => (
                 <GreenButton {...{buttonText:`Kapitel ${chapter.id}`, onClick:() => {setSelectedChapter(chapter.id)}, color:(loggedUser.chapterProgression[chapter.id] && loggedUser.chapterProgression[chapter.id].completed) ? "#287233" : '#575757'}}/>

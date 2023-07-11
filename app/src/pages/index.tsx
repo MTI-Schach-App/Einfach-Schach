@@ -61,8 +61,8 @@ function IndexPage() {
               <Image
                 src={logo}
                 alt="logo by ben "
-                width="350px"
-                height="300px"
+                width="150px"
+                height="135px"
                 style={{ marginBottom: 50 }}
               />
             </Link>

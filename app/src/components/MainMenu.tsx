@@ -45,7 +45,7 @@ export default function MainMenu(store: UserState) {
     <BackButton {...{
       onClick:logout,
       buttonText:'Abmelden',
-      color:'#FF0000'
+      color:'#B12929'
       }}/>
       <Link href="/settings">
         <Fab

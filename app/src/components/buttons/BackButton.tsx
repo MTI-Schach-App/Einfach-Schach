@@ -14,13 +14,13 @@ export type BackButtonProps = {
 export default function BackButton({
   onClick,
   buttonText,
-  color="#287233"
+  color="#575757"
 }: BackButtonProps) {
   return (
     <Button
       variant="contained"
       aria-label={'Zurück'}
-      sx={{ marginTop: 1, marginLeft: 2, marginBottom: -4, backgroundColor: color }}
+      sx={{ marginTop: 2, marginLeft: 1, marginBottom: '1rem', width:'9rem', height:'3rem', fontSize:17, borderRadius: 5, backgroundColor: color }}
       onClick={onClick}
     >
       {buttonText}
