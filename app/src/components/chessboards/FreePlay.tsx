@@ -11,12 +11,13 @@ import { useStore } from '../../utils/store';
 import { fetchWrapper } from '../../utils/fetch-wrapper';
 
 import "chessground/assets/chessground.base.css";
-import "chessground/assets/chessground.brown.css";
+
 import "chessground/assets/chessground.cburnett.css";
 import SuccessDialog from '../modals/SuccessModal';
-import { Typography } from '@mui/material';
+import { Button, Fab, Typography } from '@mui/material';
 import { defaultBoard } from '../../interfaces/constants';
 import PromotionDialog from '../modals/PromotionModal';
+import UndoIcon from '@mui/icons-material/Undo';
 
 interface Props {
   width?: number
@@ -45,6 +46,7 @@ function ChessgroundFree({
   highlight: {
     check: true
   }}
+
   
   useEffect(() => {
     if (ref && ref.current && !api) {
@@ -123,13 +125,23 @@ function ChessgroundFree({
     });
   }
 
+  const rollBack = () => {
+    chess.undo();
+    chess.undo()
+    setCG(api, chess);
+  };
+
+  
+
   function aiPlay(cg: Api, chess: Chess, delay: number, firstMove: boolean) {
     return (orig, dest) => {
       
-      const destFigure = chess.get(orig)
+      
+      const destFigure = chess.get(orig);
+      
       if (dest[1] === '8' && destFigure.color === 'w' && destFigure.type === 'p') {
         setPromo(true);
-        setBauer({from: orig, to: dest})
+        setBauer({from: orig, to: dest});
       }
       else {
         chess.move({from: orig, to: dest});
@@ -192,12 +204,14 @@ function ChessgroundFree({
         text={'Dein Bauer hat das Ende des Spielfeldes erreicht! Du kannst jetzt Auswählen, durch welche Figur Du ihn ersetzen möchtest. Tippe die jeweilige Figur an und drücke anschließend auf “Bestätigen”.'}
         setAuswahl={setAuswahl}
       />
-      <Typography
-            variant="h4"
-            sx={{ textAlign: 'center', marginTop: -5, marginBottom: 1 }}
-          >
-            Am Zug: {toGermanColor(api?.state.turnColor)}
-      </Typography>
+      <Fab
+          color="primary"
+          onClick={rollBack}
+          aria-label="settings"
+          sx={{ float: 'right', marginTop:'-4rem', marginBottom:'3rem' }}
+        >
+          <UndoIcon fontSize="large"></UndoIcon>
+        </Fab>
 
       <div style={{ height: width, width: width }}>
         <div ref={ref} style={{ height: '100%', width: '100%', display: 'table' }} />
