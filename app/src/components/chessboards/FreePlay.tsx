@@ -18,6 +18,7 @@ import { Button, Fab, Typography } from '@mui/material';
 import { defaultBoard } from '../../interfaces/constants';
 import PromotionDialog from '../modals/PromotionModal';
 import UndoIcon from '@mui/icons-material/Undo';
+import TestPopUp from '../modals/CancellationModal';
 
 interface Props {
   width?: number
@@ -157,9 +158,7 @@ function ChessgroundFree({
         const newUser = user;
         newUser.currentGame = defaultBoard;
         setUser(newUser);
-        setWin(true);
-        
-      
+        setWin(true);      
       }
       
       else {
