@@ -4,7 +4,7 @@ import { Dialog, DialogContent } from '@mui/material';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContentText from '@mui/material/DialogContentText';
 
-export default function CancellationDialog({ open, setOpen, text, cancelGame}){
+export default function ConfirmationDialog({ open, setOpen, text, title, confirmFcn}){
     const handleClose = () => {
         setOpen(false);
     }
@@ -16,7 +16,7 @@ export default function CancellationDialog({ open, setOpen, text, cancelGame}){
                 aria-labelledby="cancellation-dialog-title"
                 aria-describedby="cancellation-dialog-description"
             >
-                <DialogTitle id="cancellation-dialog-title">{'Abbrechen der Partie'}</DialogTitle>
+                <DialogTitle id="cancellation-dialog-title">{title}</DialogTitle>
                 <DialogContent>
                   <DialogContentText id="cancellation-dialog-description">
                         {text}
@@ -25,11 +25,11 @@ export default function CancellationDialog({ open, setOpen, text, cancelGame}){
                 </DialogContent>
                 <DialogActions>
                     <div style={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
-                        <Button onClick={cancelGame} autoFocus>
-                            Ja, Abbrechen
+                        <Button onClick={confirmFcn} autoFocus>
+                            Ja, Fortfahren
                         </Button>
                         <Button onClick={handleClose} autoFocus>
-                            Nein, Fortfahren
+                            Nein, Zurück
                         </Button>
                     </div>                    
                 </DialogActions>                

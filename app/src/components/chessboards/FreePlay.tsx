@@ -18,7 +18,6 @@ import { Button, Fab, Typography } from '@mui/material';
 import { defaultBoard } from '../../interfaces/constants';
 import PromotionDialog from '../modals/PromotionModal';
 import UndoIcon from '@mui/icons-material/Undo';
-import TestPopUp from '../modals/CancellationModal';
 
 interface Props {
   width?: number
@@ -32,6 +31,7 @@ function ChessgroundFree({
   const user = useStore((state) => state.loggedInUser);
   const setUser = useStore((state) => state.setLoggedInState);
   const [win, setWin] = useState(false);
+  const [lose, setLose] = useState(false);
   const [promo, setPromo] = useState(false);
   const [auswahl, setAuswahl] = useState("none")
   const [bauer, setBauer] = useState({from: "v4", to: "x4"})
@@ -146,6 +146,7 @@ function ChessgroundFree({
       }
       else {
         chess.move({from: orig, to: dest});
+        console.log('white: ' + orig + ' -> ' + dest);
 
       if (chess.isCheckmate()) {
         if (user.id != 999999) {

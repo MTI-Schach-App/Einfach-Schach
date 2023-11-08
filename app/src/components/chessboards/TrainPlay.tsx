@@ -14,6 +14,7 @@ import { Chessground as ChessgroundApi } from 'chessground';
 import "chessground/assets/chessground.base.css";
 import "chessground/assets/chessground.brown.css";
 import "chessground/assets/chessground.cburnett.css";
+import PromotionDialog from '../modals/PromotionModal';
 
 interface TrainPlayProps {
   width?: number
@@ -31,9 +32,12 @@ export default function TrainPlay({ width = 450, config, course, setSelectedCour
   const [api, setApi] = useState<Api | null>(null);
   const [modal, setModal] = useState(false);
   const [win, setWin] = useState(false);
+  const [promo, setPromo] = useState(false);
+  const [auswahl, setAuswahl] = useState("none");
+  const [bauer, setBauer] = useState({from: "v4", to: "x4"})
   const user = useStore((state) => state.loggedInUser);
   const setUser = useStore((state) => state.setLoggedInState);
-  
+
 
   const ref = useRef<HTMLDivElement>(null);
   const chess = new Chess();
@@ -76,9 +80,19 @@ export default function TrainPlay({ width = 450, config, course, setSelectedCour
   console.log(course.moves)
 
   function trainPlay(cg: Api, chess: Chess, delay: number, firstMove: boolean) {
-    return (orig, dest) => {
-      if (orig+dest === legalMoves[currentLegal]) {
-        if (currentLegal+1 >= legalMoves.length) {
+
+    return (orig, dest) => {      
+
+      if (orig+dest === legalMoves[currentLegal]) {   
+
+        const destFigure = chess.get(orig);
+
+        if (dest[1] === '8' && destFigure.color === 'w' && destFigure.type === 'p') {
+          setPromo(true);
+          setBauer({from: orig, to: dest});
+        }
+
+        else if (currentLegal+1 >= legalMoves.length) {
           setWin(true);
           updateUserProgression();
           setCG(cg,chess,false);
@@ -96,14 +110,12 @@ export default function TrainPlay({ width = 450, config, course, setSelectedCour
             setCG(cg,chess,true);
             increaseLegal();
           }, delay);
-          }
-        
+        }        
       }
       else {
         setModal(true);
         setCG(cg,chess,true);
-      }
-      
+      }      
     };
   }
 
@@ -152,6 +164,12 @@ export default function TrainPlay({ width = 450, config, course, setSelectedCour
         open={modal}
         setOpen={setModal}
         text={'Probier es doch noch einmal'}
+      />
+      <PromotionDialog
+        open={promo}
+        setOpen={setPromo}
+        text={'Dein Bauer hat das Ende des Spielfeldes erreicht! Du kannst jetzt Auswählen, durch welche Figur Du ihn ersetzen möchtest. Tippe die jeweilige Figur an und drücke anschließend auf “Bestätigen”.'}
+        setAuswahl={setAuswahl}
       />
       <SuccessTrainingDialog
         open={win}

@@ -7,7 +7,7 @@ import BackButton from '../components/buttons/BackButton';
 import { fetchWrapper } from '../utils/fetch-wrapper';
 import ChessgroundFree from '../components/chessboards/FreePlay';
 import { defaultBoard } from '../interfaces/constants';
-import CancellationDialog from '../components/modals/CancellationModal';
+import ConfirmationDialog from '../components/modals/ConfirmationModal';
 
 function FreePlay() {
   const router = useRouter();
@@ -74,11 +74,12 @@ function FreePlay() {
           }}/>
         </Box>
       </Container>
-      <CancellationDialog
+      <ConfirmationDialog
         open={cancel}
         setOpen={setCancel}
         text={'Bist Du sicher, dass Du die Partie abbrechen möchtest?'}
-        cancelGame={cancelGame}
+        title={'Abbrechen der Partie'}
+        confirmFcn={cancelGame}
       />
     </>
   )
