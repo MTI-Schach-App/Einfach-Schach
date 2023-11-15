@@ -18,6 +18,8 @@ import { Button, Fab, Typography } from '@mui/material';
 import { defaultBoard } from '../../interfaces/constants';
 import PromotionDialog from '../modals/PromotionModal';
 import UndoIcon from '@mui/icons-material/Undo';
+import aiGetBestMove from '../../pages/ai';
+import DefeatDialog from '../modals/DefeatModal';
 
 interface Props {
   width?: number
@@ -165,10 +167,21 @@ function ChessgroundFree({
       else {
 
         setTimeout(() => {
-          const moves = chess.moves({verbose:true});
-          const move = firstMove ? moves[0] : moves[Math.floor(Math.random() * moves.length)] ;
+          const move = aiGetBestMove(chess, 2);
+          //const moves = chess.moves({verbose:true});
+          //const move = firstMove ? moves[0] : moves[Math.floor(Math.random() * moves.length)] ;
           //@ts-ignore
           chess.move(move.san);
+          console.log('black: ' + move.from + ' -> ' + move.to);
+
+          if (move.to[1] === '1' && move.piece === 'p') {
+            setTimeout(() => setBauer({from: orig, to: dest}), 100)
+          }
+
+          if(chess.isGameOver()) {
+            setLose(true);     
+          }
+
           //@ts-ignore
           cg.move(move.from, move.to);
           cg.set({
@@ -203,6 +216,11 @@ function ChessgroundFree({
         setOpen={setPromo}
         text={'Dein Bauer hat das Ende des Spielfeldes erreicht! Du kannst jetzt Auswählen, durch welche Figur Du ihn ersetzen möchtest. Tippe die jeweilige Figur an und drücke anschließend auf “Bestätigen”.'}
         setAuswahl={setAuswahl}
+      />
+      <DefeatDialog
+        open={lose}
+        setOpen={setLose}
+        text={'Du bist vom Gegner ins Matt gestetzt worden!'}
       />
       <Fab
           color="primary"
