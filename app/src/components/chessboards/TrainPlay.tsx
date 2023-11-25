@@ -12,7 +12,6 @@ import { toColor, toDests, toGermanColor } from '../../utils/helper';
 import { Chessground as ChessgroundApi } from 'chessground';
 
 import "chessground/assets/chessground.base.css";
-import "chessground/assets/chessground.brown.css";
 import "chessground/assets/chessground.cburnett.css";
 import PromotionDialog from '../modals/PromotionModal';
 
