@@ -134,7 +134,17 @@ function ChessgroundFree({
     setCG(api, chess);
   };
 
-  
+  const userReset = () =>{
+    if (user.id != 999999) {
+      fetchWrapper.post('api/game/set_game', {
+        id: user.id,
+        fen: defaultBoard
+      });
+    }  
+    const newUser = user;
+    newUser.currentGame = defaultBoard;
+    setUser(newUser);
+  }
 
   function aiPlay(cg: Api, chess: Chess, delay: number, firstMove: boolean) {
     return (orig, dest) => {
@@ -151,16 +161,7 @@ function ChessgroundFree({
         console.log('white: ' + orig + ' -> ' + dest);
 
       if (chess.isCheckmate()) {
-        if (user.id != 999999) {
-          fetchWrapper.post('api/game/set_game', {
-            id: user.id,
-            fen: defaultBoard
-          });
-        }  
-
-        const newUser = user;
-        newUser.currentGame = defaultBoard;
-        setUser(newUser);
+        userReset();
         setWin(true);      
       }
       
@@ -179,20 +180,22 @@ function ChessgroundFree({
           }
 
           if(chess.isGameOver()) {
+            userReset();
             setLose(true);     
           }
-
-          //@ts-ignore
-          cg.move(move.from, move.to);
-          cg.set({
-            turnColor: toColor(chess),
-            movable: {
-              color: toColor(chess),
-              dests: toDests(chess)
-            }
-          });
-          cg.playPremove();
-          updateUser();
+          else{
+             //@ts-ignore
+            cg.move(move.from, move.to);
+            cg.set({
+              turnColor: toColor(chess),
+              movable: {
+                color: toColor(chess),
+                dests: toDests(chess)
+              }
+            });
+            cg.playPremove();
+            updateUser();
+          }         
         }, delay);
 
         
