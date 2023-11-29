@@ -7,8 +7,11 @@ import GreenButton from './buttons/GenericButton';
 import BackButton from './buttons/BackButton';
 import { defaultUserSchema } from '../interfaces/constants';
 import { useStore } from '../utils/store';
+import ConfirmationDialog from './modals/ConfirmationModal';
+import { useState } from 'react';
 
 export default function MainMenu(store: UserState) {
+  const [confirm, setConfirmation] = useState(false);
   const user = store.loggedInUser;
   const {
     setLoggedInState,
@@ -43,7 +46,7 @@ export default function MainMenu(store: UserState) {
   return (
     <>
     <BackButton {...{
-      onClick:logout,
+      onClick:()=>setConfirmation(true),
       buttonText:'Abmelden',
       color:'#B12929'
       }}/>
@@ -82,6 +85,13 @@ export default function MainMenu(store: UserState) {
 
         </Box>
       </Container>
+      <ConfirmationDialog
+        open={confirm}
+        setOpen={setConfirmation}
+        confirmFcn={logout}
+        text={'Bist Du dir sicher, dass Du dich abmelden möchtest?'}
+        title={'Abmeldung'}
+      />
     </>
   );
 }

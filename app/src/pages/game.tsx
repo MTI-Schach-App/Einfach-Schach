@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Container, Box, Button } from '@mui/material';
 import { useWindowSize } from '../utils/helper';
 import { useStore } from '../utils/store';
@@ -6,9 +7,11 @@ import BackButton from '../components/buttons/BackButton';
 import { fetchWrapper } from '../utils/fetch-wrapper';
 import ChessgroundFree from '../components/chessboards/FreePlay';
 import { defaultBoard } from '../interfaces/constants';
+import ConfirmationDialog from '../components/modals/ConfirmationModal';
 
 function FreePlay() {
   const router = useRouter();
+  const [cancel, setCancel] = useState(false);
 
   const loggedUser = useStore((state) => state.loggedInUser);
   const setUser = useStore((state) => state.setLoggedInState);
@@ -50,7 +53,7 @@ function FreePlay() {
           backgroundColor: '#B12929',
           width:'9rem', height:'3rem', fontSize:17, borderRadius: 5,
         }}
-        onClick={cancelGame}
+        onClick={function(){return setCancel(true)}}
       >
         Aufgeben
       </Button>
@@ -71,6 +74,13 @@ function FreePlay() {
           }}/>
         </Box>
       </Container>
+      <ConfirmationDialog
+        open={cancel}
+        setOpen={setCancel}
+        text={'Bist Du sicher, dass Du die Partie abbrechen möchtest?'}
+        title={'Abbrechen der Partie'}
+        confirmFcn={cancelGame}
+      />
     </>
   )
 }
