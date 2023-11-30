@@ -60,7 +60,12 @@ export function getMultipleRandomCourses(arr:Course[], num:number) {
   return arr.slice(0, num);
 }
 
-
+export function getCourse(user:User, chapterId:any){
+  let state = 1;
+  if(typeof user.chapterProgression[chapterId] != 'undefined') 
+    state = user.chapterProgression[chapterId].coursesFinished + 1;
+  return state;
+}
 
 
 export function toDests(chess: Chess): Map<Key, Key[]> {
