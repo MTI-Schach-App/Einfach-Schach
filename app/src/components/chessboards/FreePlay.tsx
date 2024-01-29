@@ -20,7 +20,10 @@ import PromotionDialog from '../modals/PromotionModal';
 import UndoIcon from '@mui/icons-material/Undo';
 import aiGetBestMove from '../../pages/ai';
 import DefeatDialog from '../modals/DefeatModal';
+import { setAudioUndo, setAudioMove, setAudioStart, setAudioTurn, 
+  setAudioPromotion, setAudioSpecMove} from '../../utils/move_displayer';
 import { playMoveSound } from '../../utils/audio_player';
+import HiddenFieldForScreenReader from '../modals/AudioForScreenReaderModal';
 import { PieceHandler } from '../../utils/move_observer';
 
 interface Props {
@@ -44,6 +47,7 @@ function ChessgroundFree({
   const [pieceHandler, setPieceHandler] = useState(new PieceHandler());
   const [boardSoundOn, setBoardSoundOn] = useState(true);
   const [figureSoundOn, setFigureSoundOn] = useState(true);
+  const [fieldVisible, setfieldVisible] = useState(false);
 
   const ref = useRef<HTMLDivElement>(null);
   
@@ -95,6 +99,7 @@ function ChessgroundFree({
 
   if (auswahl != 'none') {
     chess.move({from: bauer.from, to: bauer.to, promotion: auswahl})
+    setTimeout(() => {setAudioPromotion('b', auswahl)}, 2100);
 
     setTimeout(() => {
       setCG(api, chess);
@@ -140,6 +145,7 @@ function ChessgroundFree({
     chess.undo();
     if(boardSoundOn) playMoveSound('undo');
     setCG(api, chess);
+    setAudioUndo();
   };
 
   const userReset = () =>{
@@ -158,6 +164,7 @@ function ChessgroundFree({
     if(startState) { 
       pieceHandler.setUp(document.querySelector('cg-board'));
       pieceHandler.eventHandling();
+      setAudioStart();
       setStartState(false);
     }
     pieceHandler.handleSound(figureSoundOn);
@@ -179,12 +186,15 @@ function ChessgroundFree({
         console.log('white: ' + orig + ' -> ' + dest);     
         if(typeof move.captured != 'undefined'){
           if(boardSoundOn) playMoveSound('capture');
+          setAudioMove(move.piece, move.to);
         } 
         else if(move.san == 'O-O') {
           if(boardSoundOn) playMoveSound('rochade');
+          setAudioSpecMove('rochade', 'w');
         }
         else {
           if(boardSoundOn) playMoveSound('normal');
+          setAudioMove(move.piece, move.to);
         }
 
       if(chess.isCheck()){
@@ -208,17 +218,21 @@ function ChessgroundFree({
           console.log('black: ' + move.from + ' -> ' + move.to);
           if(typeof move.captured != 'undefined'){
             if(boardSoundOn) playMoveSound('capture');
+            setAudioMove(move.piece, move.to);
           } 
           else if(move.san == 'O-O') {
             if(boardSoundOn) playMoveSound('rochade');
+            setAudioSpecMove('rochade', 'b');
           }
           else {
             if(boardSoundOn) playMoveSound('normal');
+            setAudioMove(move.piece, move.to);
           }
 
           if (move.to[1] === '1' && move.piece === 'p') {
             setTimeout(() => setBauer({from: orig, to: dest}), delay+100);
             setTimeout(() => {if(boardSoundOn) playMoveSound('promotion')}, delay+100);
+            setTimeout(() => {setAudioPromotion('b', auswahl)}, delay+100);
           }
 
           if(chess.isCheck()){
@@ -243,6 +257,7 @@ function ChessgroundFree({
             cg.playPremove();
             updateUser();
           } 
+          setTimeout(()=>{setAudioTurn(chess.turn())}, delay);
         }, delay+delay);        
 
         
@@ -250,7 +265,7 @@ function ChessgroundFree({
 
       }
       
-      
+    setTimeout(()=>{setAudioTurn(chess.turn())}, delay);  
     };
   }
   
@@ -289,6 +304,10 @@ function ChessgroundFree({
              onMouseDown={boardObserving}
              style={{ height: '100%', width: '100%', display: 'table' }}
         />
+        <HiddenFieldForScreenReader 
+          id_name={'audio_info'}
+          visibility={fieldVisible}
+        />
         <FormGroup>
           <div>
             <FormControlLabel
@@ -315,6 +334,18 @@ function ChessgroundFree({
                   >
                   </Switch>
             } label="Schachfigurengeräusche" aria-label="schachfigurengeräusche"/> 
+            <FormControlLabel control={
+                <Switch
+                  color="primary"
+                  onChange={()=>{
+                    if(!fieldVisible) setfieldVisible(true);
+                    else setfieldVisible(false);
+                  }}
+                  checked={fieldVisible}
+                >
+                </Switch>
+            } label="Verstecktes Feld" aria-label="sichtbarkeit des versteckten feldes  "/>
+          </div>
           
        </FormGroup>
       </div>
