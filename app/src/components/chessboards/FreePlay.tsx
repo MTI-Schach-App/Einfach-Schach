@@ -14,12 +14,14 @@ import "chessground/assets/chessground.base.css";
 
 import "chessground/assets/chessground.cburnett.css";
 import SuccessDialog from '../modals/SuccessModal';
-import { Button, Fab, Typography } from '@mui/material';
+import { Button, Fab, Typography, FormGroup, Switch, FormControlLabel } from '@mui/material';
 import { defaultBoard } from '../../interfaces/constants';
 import PromotionDialog from '../modals/PromotionModal';
 import UndoIcon from '@mui/icons-material/Undo';
 import aiGetBestMove from '../../pages/ai';
 import DefeatDialog from '../modals/DefeatModal';
+import { playMoveSound } from '../../utils/audio_player';
+import { PieceHandler } from '../../utils/move_observer';
 
 interface Props {
   width?: number
@@ -38,6 +40,10 @@ function ChessgroundFree({
   const [auswahl, setAuswahl] = useState("none")
   const [bauer, setBauer] = useState({from: "v4", to: "x4"})
   const [chess, setChess] = useState(new Chess());
+  const [startState, setStartState] = useState(true);
+  const [pieceHandler, setPieceHandler] = useState(new PieceHandler());
+  const [boardSoundOn, setBoardSoundOn] = useState(true);
+  const [figureSoundOn, setFigureSoundOn] = useState(true);
 
   const ref = useRef<HTMLDivElement>(null);
   
@@ -130,7 +136,9 @@ function ChessgroundFree({
 
   const rollBack = () => {
     chess.undo();
-    chess.undo()
+    if(boardSoundOn) playMoveSound('undo');
+    chess.undo();
+    if(boardSoundOn) playMoveSound('undo');
     setCG(api, chess);
   };
 
@@ -146,6 +154,15 @@ function ChessgroundFree({
     setUser(newUser);
   }
 
+  const boardObserving = () =>{  
+    if(startState) { 
+      pieceHandler.setUp(document.querySelector('cg-board'));
+      pieceHandler.eventHandling();
+      setStartState(false);
+    }
+    pieceHandler.handleSound(figureSoundOn);
+  }
+
   function aiPlay(cg: Api, chess: Chess, delay: number, firstMove: boolean) {
     return (orig, dest) => {
       
@@ -155,13 +172,28 @@ function ChessgroundFree({
       if (dest[1] === '8' && destFigure.color === 'w' && destFigure.type === 'p') {
         setPromo(true);
         setBauer({from: orig, to: dest});
+        setTimeout(() => {if(boardSoundOn) playMoveSound('promotion')}, delay+1000);
       }
       else {
-        chess.move({from: orig, to: dest});
-        console.log('white: ' + orig + ' -> ' + dest);
+        const move = chess.move({from: orig, to: dest});
+        console.log('white: ' + orig + ' -> ' + dest);     
+        if(typeof move.captured != 'undefined'){
+          if(boardSoundOn) playMoveSound('capture');
+        } 
+        else if(move.san == 'O-O') {
+          if(boardSoundOn) playMoveSound('rochade');
+        }
+        else {
+          if(boardSoundOn) playMoveSound('normal');
+        }
+
+      if(chess.isCheck()){
+        setTimeout(() => {if(boardSoundOn) playMoveSound('check')}, delay+200);
+      }
 
       if (chess.isCheckmate()) {
         userReset();
+        if(boardSoundOn) playMoveSound('won');        
         setWin(true);      
       }
       
@@ -174,13 +206,28 @@ function ChessgroundFree({
           //@ts-ignore
           chess.move(move.san);
           console.log('black: ' + move.from + ' -> ' + move.to);
+          if(typeof move.captured != 'undefined'){
+            if(boardSoundOn) playMoveSound('capture');
+          } 
+          else if(move.san == 'O-O') {
+            if(boardSoundOn) playMoveSound('rochade');
+          }
+          else {
+            if(boardSoundOn) playMoveSound('normal');
+          }
 
           if (move.to[1] === '1' && move.piece === 'p') {
-            setTimeout(() => setBauer({from: orig, to: dest}), 100)
+            setTimeout(() => setBauer({from: orig, to: dest}), delay+100);
+            setTimeout(() => {if(boardSoundOn) playMoveSound('promotion')}, delay+100);
+          }
+
+          if(chess.isCheck()){
+            setTimeout(() => {if(boardSoundOn) playMoveSound('check')}, delay+200);
           }
 
           if(chess.isGameOver()) {
             userReset();
+            if(boardSoundOn) playMoveSound('lost');            
             setLose(true);     
           }
           else{
@@ -195,8 +242,8 @@ function ChessgroundFree({
             });
             cg.playPremove();
             updateUser();
-          }         
-        }, delay);
+          } 
+        }, delay+delay);        
 
         
       }
@@ -225,17 +272,51 @@ function ChessgroundFree({
         setOpen={setLose}
         text={'Du bist vom Gegner ins Matt gestetzt worden!'}
       />
+       
+
       <Fab
           color="primary"
           onClick={rollBack}
           aria-label="settings"
-          sx={{ float: 'right', marginTop:'-4rem', marginBottom:'3rem' }}
+          sx={{ float: 'right', marginBottom:'3rem' }}
         >
           <UndoIcon fontSize="large"></UndoIcon>
         </Fab>
 
       <div style={{ height: width, width: width }}>
-        <div ref={ref} style={{ height: '100%', width: '100%', display: 'table' }} />
+             onFocus={boardObserving} 
+             onTouchStart={boardObserving}
+             onMouseDown={boardObserving}
+             style={{ height: '100%', width: '100%', display: 'table' }}
+        />
+        <FormGroup>
+          <div>
+            <FormControlLabel
+            control={
+                <Switch
+                  color="primary"
+                  checked={boardSoundOn}
+                  onChange={()=>{
+                    if(!boardSoundOn) setBoardSoundOn(true);
+                    else setBoardSoundOn(false);
+                  }}
+                >
+                </Switch>
+            } label="Schachbrettgeräusche" aria-label="schachbrettgeräusche"/> 
+            <FormControlLabel
+              control={
+                  <Switch
+                    color="primary"
+                    checked={figureSoundOn}
+                    onChange={()=>{
+                      if(!figureSoundOn) setFigureSoundOn(true);
+                      else setFigureSoundOn(false);
+                    }}
+                  >
+                  </Switch>
+            } label="Schachfigurengeräusche" aria-label="schachfigurengeräusche"/> 
+          
+       </FormGroup>
       </div>
     </>
     
@@ -243,3 +324,5 @@ function ChessgroundFree({
 }
 
 export default ChessgroundFree;
+
+//audio displayer -> promotion working?
