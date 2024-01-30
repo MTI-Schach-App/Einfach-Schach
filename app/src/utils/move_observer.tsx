@@ -47,7 +47,6 @@ export class PieceHandler {
         textField.style.top = matrix.f + 'px';  
         textField.style.left = matrix.e + 'px';  
         textField.style.zIndex = '2';
-        textField.style.backgroundColor = 'blue';
         textField.style.opacity = '0.4';
         textField.id = child['cgKey'];
         (child as HTMLElement).id = child['cgKey'];

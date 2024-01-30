@@ -18,7 +18,7 @@ import { Button, Fab, Typography, FormGroup, Switch, FormControlLabel } from '@m
 import { defaultBoard } from '../../interfaces/constants';
 import PromotionDialog from '../modals/PromotionModal';
 import UndoIcon from '@mui/icons-material/Undo';
-import aiGetBestMove from '../../pages/ai';
+import aiGetBestMove from '../../utils/ai';
 import DefeatDialog from '../modals/DefeatModal';
 import { setAudioUndo, setAudioMove, setAudioStart, setAudioTurn, 
   setAudioPromotion, setAudioSpecMove} from '../../utils/move_displayer';
@@ -299,10 +299,10 @@ function ChessgroundFree({
         </Fab>
 
       <div style={{ height: width, width: width }}>
+      <div ref={ref} style={{ height: '100%', width: '100%', display: 'table' }}
              onFocus={boardObserving} 
              onTouchStart={boardObserving}
              onMouseDown={boardObserving}
-             style={{ height: '100%', width: '100%', display: 'table' }}
         />
         <HiddenFieldForScreenReader 
           id_name={'audio_info'}
@@ -312,6 +312,7 @@ function ChessgroundFree({
           <div>
             <FormControlLabel
             control={
+              //@ts-ignore
                 <Switch
                   color="primary"
                   checked={boardSoundOn}
@@ -324,6 +325,7 @@ function ChessgroundFree({
             } label="Schachbrettgeräusche" aria-label="schachbrettgeräusche"/> 
             <FormControlLabel
               control={
+                //@ts-ignore
                   <Switch
                     color="primary"
                     checked={figureSoundOn}
@@ -335,6 +337,7 @@ function ChessgroundFree({
                   </Switch>
             } label="Schachfigurengeräusche" aria-label="schachfigurengeräusche"/> 
             <FormControlLabel control={
+              //@ts-ignore
                 <Switch
                   color="primary"
                   onChange={()=>{
