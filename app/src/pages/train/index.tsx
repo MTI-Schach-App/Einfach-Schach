@@ -14,6 +14,7 @@ import ChangePage from '../../components/buttons/ChangePageButton';
 import { AppsOutageSharp } from '@mui/icons-material';
 import logo from '../../../public/chaptPlaceholder.png';
 import Image from 'next/image';
+import ProgressButton from '../../components/buttons/ProgressButton';
 
 
 export default function TrainPage() {
@@ -69,12 +70,12 @@ export default function TrainPage() {
           </Typography>
           <Image
                 src={logo}
-                alt="logo by ben "
+                alt="Logo der App (abgebildet: Springer und Turm)"//"logo by ben "
                 width="400px"
                 height="400px"
                 style={{ marginBottom: 50 }}
               />
-                <GreenButton {...{buttonText:`Übungen fortsetzen`, onClick:() => {router.push(`/train/${chapt.id}`)}}}/>
+                <GreenButton {...{buttonText:(typeof loggedUser.chapterProgression[chapt.id] != 'undefined' ? 'Übungen fortsetzen' : 'Übung anfangen'), onClick:() => {router.push(`/train/${chapt.id}`)}}}/>
             
         </Box>
       </Container></>
@@ -116,7 +117,13 @@ export default function TrainPage() {
                 Übersicht
           </Typography>
             {pages[page].map((chapter: Chapter) => (
-                <GreenButton {...{buttonText:`Kapitel ${chapter.id}`, onClick:() => {setSelectedChapter(chapter.id)}, color:(loggedUser.chapterProgression[chapter.id] && loggedUser.chapterProgression[chapter.id].completed) ? "#287233" : '#575757'}}/>
+                //<GreenButton {...{buttonText:`Kapitel ${chapter.id}`, onClick:() => {setSelectedChapter(chapter.id)}, color:(loggedUser.chapterProgression[chapter.id] && loggedUser.chapterProgression[chapter.id].completed) ? "#287233" : '#575757'}}/>
+              <ProgressButton{...{
+                  buttonText:`${chapter.id}: ${chapter.name}`, 
+                  onClick:() => {setSelectedChapter(chapter.id)}, 
+                  num1: typeof loggedUser.chapterProgression[chapter.id] != 'undefined' ? loggedUser.chapterProgression[chapter.id].coursesFinished : 0,
+                  num2: chapter.courses.length
+               }}/>
             ))
           }
         </Box>

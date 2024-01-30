@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useWindowSize, getMultipleRandomCourses } from '../../utils/helper';
+import { useWindowSize, getMultipleRandomCourses, getCourse } from '../../utils/helper';
 import { Container, Box, CircularProgress, Button, Divider, Typography } from '@mui/material';
 import TrainPlay from '../../components/chessboards/TrainPlay';
 import axios from 'axios';
@@ -14,10 +14,10 @@ import Image from 'next/image';
 import success from '../../../public/success.png';
 import LongPressButton from '../../components/buttons/LongPressButton';
 
-function buildBoards(chapter:Chapter,size, setSelectedCourse): Record<number,any> {
+function buildBoards(chapter:Chapter,size, setSelectedCourse, completed): Record<number,any> {
   let chapterChooser: Record<number,any> = {0:null};
 
-  const courses = getMultipleRandomCourses(chapter.courses,10);
+  const courses = completed ? getMultipleRandomCourses(chapter.courses,10) : chapter.courses.sort();
   
   courses.forEach((course, index) => {
     let prop = {
@@ -45,11 +45,17 @@ function buildBoards(chapter:Chapter,size, setSelectedCourse): Record<number,any
 function TrainIdPage() {
   const router = useRouter();
   const loggedUser = useStore((state) => state.loggedInUser);
-  const [selectedCourse,setSelectedCourse] = useState(1);
 
   const size = useWindowSize();
 
-  const { id } = router.query;
+  let { id } = router.query;
+
+  id = id ? id.toString() : '1';
+
+  const [selectedCourse,setSelectedCourse] = 
+    (typeof loggedUser.chapterProgression[parseInt(id.toString())] != 'undefined' &&
+     loggedUser.chapterProgression[parseInt(id.toString())].completed ? 
+     useState(1) : useState(getCourse(loggedUser, id)));
 
   const { data: data } = useSWR(
     ['/api/training/all'],
@@ -74,7 +80,8 @@ function TrainIdPage() {
       </Container>
     );
   }
-  const renderedBoards = buildBoards(data.chapter,size,setSelectedCourse);
+  const renderedBoards = buildBoards(data.chapter,size,setSelectedCourse,
+    (typeof loggedUser.chapterProgression[parseInt(id.toString())] != 'undefined' && loggedUser.chapterProgression[parseInt(id.toString())].completed ?  true : false));
   
   if (selectedCourse>=Object.keys(renderedBoards).length) {
 

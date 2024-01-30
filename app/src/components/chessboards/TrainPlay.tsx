@@ -14,6 +14,7 @@ import { Chessground as ChessgroundApi } from 'chessground';
 import "chessground/assets/chessground.base.css";
 import "chessground/assets/chessground.cburnett.css";
 import PromotionDialog from '../modals/PromotionModal';
+import ProgressBar from '../progress/ProgressBar';
 
 interface TrainPlayProps {
   width?: number
@@ -121,7 +122,10 @@ export default function TrainPlay({ width = 450, config, course, setSelectedCour
   function updateUserProgression() {
     
     if (Object.keys(user.chapterProgression).includes(chapter.id.toString())) {
-      user.chapterProgression[chapter.id].coursesFinished += 1;
+      user.chapterProgression[chapter.id].coursesFinished = 
+      typeof user.chapterProgression[chapter.id] != 'undefined' && typeof user.chapterProgression[chapter.id].completed ?
+      user.chapterProgression[chapter.id].coursesFinished+1 : 
+      user.chapterProgression[chapter.id].coursesFinished;
     }
     else {
       user.chapterProgression[chapter.id] = {
@@ -129,7 +133,7 @@ export default function TrainPlay({ width = 450, config, course, setSelectedCour
         coursesFinished: 1,
       }
     }
-    if (user.chapterProgression[chapter.id].coursesFinished >= 10) {
+    if (user.chapterProgression[chapter.id].coursesFinished == chapter.courses.length) {
       user.chapterProgression[chapter.id].completed = true;
     }
     user.coursesFinishedTotal += 1;
@@ -185,6 +189,15 @@ export default function TrainPlay({ width = 450, config, course, setSelectedCour
       </Typography>
       
       <div style={{ height: width, width: width }}>
+        <ProgressBar
+          column={
+            (typeof user.chapterProgression[chapter.id] != 'undefined' && user.chapterProgression[chapter.id].completed ?
+            10 : chapter.courses.length)}
+          progress={
+            (typeof user.chapterProgression[chapter.id] != 'undefined' && !user.chapterProgression[chapter.id].completed ?
+            user.chapterProgression[chapter.id].coursesFinished : index-1)
+          }
+        />
         <div ref={ref} style={{ height: '100%', width: '100%', display: 'table' }} />
       </div>
     </>
