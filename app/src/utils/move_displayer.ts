@@ -1,96 +1,77 @@
-//audio output for start
-export function setAudioStart(){
-    if(document.querySelector('#audio_info') != null) 
-        document.querySelector('#audio_info').innerHTML = 'Weiß beginnt!';
+const TYPES = {
+    'p' : 'bauer',
+    'b' : 'läufer',
+    'r' : 'turm',
+    'n' : 'springer',
+    'q' : 'königin',
+    'k' : 'könig'
 }
-
-//audio output for turn
-export function setAudioTurn(c:string){
-    let color = c == 'w' ? 'Weiß' : 'Schwarz';
-
-    let text = `${color} ist am Zug.`
-    
-    if(document.querySelector('#audio_info') != null) 
-        document.querySelector('#audio_info').innerHTML = text;
+const getPiece = (piece : string) =>{
+    return TYPES[piece];
 }
-
-//audio output for generell moves
-export function setAudioMove(t:string, destination:string){
-
-    let type = '';
-    if(t == 'p') type =    'Bauer'
-    if(t == 'n') type = 'Springer'
-    if(t == 'b') type =   'Läufer'
-    if(t == 'r') type =     'Turm'
-    if(t == 'q') type =  'Königin'
-    if(t == 'k') type =    'König'
-
-    let text = `${type} auf ${destination}`;
-
-    if(document.querySelector('#audio_info') != null) 
-        document.querySelector('#audio_info').innerHTML = text;
+const PROMOTION = {
+    'b' : 'ein läufer',
+    'r' : 'ein turm',
+    'n' : 'ein springer',
+    'q' : 'eine königin',
 }
-//audio output for special moves
-export function setAudioSpecMove(move:string, c:string){
-    let color = c == 'w' ? 'Weiß' : 'Schwarz';
-    
-    if(document.querySelector('#audio_info') != null) 
-        document.querySelector('#audio_info').innerHTML = `${color} führt ${move} durch.`;    
+const getPromotionPiece = (type : string) =>{
+    return PROMOTION[type];
 }
-
-//audio output for promotion
-export function setAudioPromotion(c:string, p:string){
-    let color = c == 'w' ? 'Weiß' : 'Schwarz';
-
-    let text = c == 'w' ? '' : 'Achtung! ';
-
-    let piece = '';
-    if(p == 'n') piece = 'einen Springer'
-    if(p == 'b') piece =   'einen Läufer'
-    if(p == 'r') piece =     'einen Turm'
-    if(p == 'q') piece =   'eine Königin'
-
-    text += `${color} erhält ${piece}`;
-
-    if(document.querySelector('#audio_info') != null) 
-        document.querySelector('#audio_info').innerHTML = text;    
+const COLOR = {
+    'b' : 'schwarz',
+    'w' : 'weiß'
 }
-
-//audio output for undoing a move
-export function setAudioUndo(){
-    if(document.querySelector('#audio_info') != null) 
-        document.querySelector('#audio_info').innerHTML = 'Ein Zug zurück.';    
+const getColor = (type : string) =>{
+    return COLOR[type];
 }
+declare type HiddenWindowProps = {
+    //type of call
+    type : string,
 
-//change system -> slimer, more simple design
+    //color of piece
+    color? : string,
 
-export function setAudioInfo(str: string) {
+    //piece 
+    piece? : string,
+
+    //destination of move
+    destination? : string
+
+}
+export function callHiddenWindow({
+    type,
+    color,
+    piece,
+    destination
+}: HiddenWindowProps){
     let text = '';
-    if(str === 'error'){
-        text = 'Ein Fehler ist aufgetreten.'+ 
-        'Das Schachbrett muss ausgewählt sein, um Modi nutzen zu können.' +
-        'Für weitere Informationen, klicke i';
+    switch(type){
+        case 'start': text = 'weiß beginnt';
+        break;
+        case 'turn': text = `${getColor(color)} ist am zug`;
+        break;
+        case 'undo': text = 'ein zug zurück'
+        break;
+        case 'promotion': text = `${getColor(color)} erhält ${getPromotionPiece(piece)}`;
+        break;
+        case 'rochade': text = `${getColor(color)} führt eine rochade durch`;
+        break;
+        case 'normal' : text = `${getPiece(piece)} auf ${destination}`;
+        break;
+        case 'capture' : text = piece === 'q' ? `${getColor(color)}e ${getPiece(piece)} geschlagen` : `${getColor(color)}er ${getPiece(piece)} geschlagen`;
+        break;
+        case 'check' : text = `${getColor(color)} ist Schach gesetzt worden`;
+        break;
+        case 'won' : text = `Hurrah. Du hast gewonnen!`;
+        break;
+        case 'lose' : text = `Du hast leider verloren.`;
+        break;
+    } 
+    if(document.getElementById('audio_info') != null){
+        return(
+            document.getElementById('audio_info').innerHTML = text
+        )
     }
-    if(str === 'info'){
-        text = 'Um das Schachbrett auszuwählen, klicke b ' +
-               'Um den Modus "Beobachten" auszuwählen, klicke w ' +
-               'Um den Modus "Aktion" auszuwählen, klicke a ' +
-               'Sobald du einen Modus gewählt hast, klicke p um eine Schachfigur auszuwählen, '+
-               'klicke Shift+p, um eine vorherige Schachfigur auszuwählen.' +
-               'Zum Bestätigen, klicke Enter.';
-               //add zug zurück, historie
-    }
-    if(str === 'board') text = 'Schachbrett ausgewählt';
-    if(str === 'watch') text = '"Beobachten" ausgewählt';
-    if(str === 'action') text = '"Aktion" ausgewählt';
-    if(text != '' && document.querySelector('#audio_feedback') != null) 
-        document.querySelector('#audio_feedback').innerHTML = text;    
-}
-
-export function setAudioFeedback(str: string, selected?: string) {
-    let text = '';
-    if(selected === 'selected') text = `${str} ausgewählt`;
-    else text = str;
-    if(document.querySelector('#audio_feedback') != null) 
-        document.querySelector('#audio_feedback').innerHTML = text; 
+    
 }

@@ -1,4 +1,6 @@
 //generell sounds
+const start_sound          = require('../sounds/pieces_on_board.mp3');
+
 const norm_move_sound      = require('../sounds/normMove.mp3');
 
 const promotion_sound      = require('../sounds/promotion.mp3');
@@ -13,6 +15,10 @@ const undo_sound           = require('../sounds/undo.mp3');
 
 export function playMoveSound(sound:string){
     switch(sound){
+        case 'start':
+            new Audio(start_sound).play();
+            new Audio(start_sound).play();
+        break;
         case 'normal':
             new Audio(norm_move_sound).play();
         break;
@@ -51,26 +57,44 @@ const king_sound           = require('../sounds/King.mp3');
 
 export function playTypeSound(sound:string){
     switch(sound){
-        case 'bishop':
+        case 'b':
             new Audio(bishop_sound).play();
         break;
-        case 'pawn':
+        case 'p':
             new Audio(pawn_sound).play();
         break;
-        case 'knight':
+        case 'n':
             new Audio(knight_sound).play();
         break;
-        case 'queen':
+        case 'q':
             new Audio(queen_sound).play();
         break;
-        case 'rook':
+        case 'r':
             new Audio(rook_sound).play();
         break;
-        case 'king':
+        case 'k':
             new Audio(king_sound).play();
         break;
     }
 }
 
-//sound for board when clicked on
-//signal sound
+const board_ready_sound         = require('../sounds/board_ready.mp3');
+const moves_ready_sound         = require('../sounds/moves_ready.mp3');
+const pieces_ready_sound        = require('../sounds/pieces_ready.mp3');
+
+//sound for signals
+export function playSignalSound(sound:string){
+    switch(sound){
+        case 'board':
+            new Audio(board_ready_sound).play();
+            break;
+        case 'action':
+            new Audio(moves_ready_sound).play();
+            break;
+        case 'normal':
+            new Audio(pieces_ready_sound).play();
+            break;
+    }
+}
+
+
