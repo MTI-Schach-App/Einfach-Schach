@@ -16,7 +16,6 @@ export default function ProgressBar({
     ProgressProps) {
   
     let arr = Array.from({length: column}, (_,i) => i+1);
-    console.log(column);
    
     return(
         <div>
