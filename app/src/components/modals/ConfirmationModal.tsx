@@ -25,7 +25,7 @@ export default function ConfirmationDialog({ open, setOpen, text, title, confirm
                 </DialogContent>
                 <DialogActions>
                     <div style={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
-                        <Button onClick={confirmFcn} autoFocus>
+                        <Button onClick={confirmFcn} autoFocus sx={{backgroundColor: '#B12929', borderRadius: 2.5, color: 'white', "&:hover":{backgroundColor: '#8f1e1e'}}}>
                             Ja, Fortfahren
                         </Button>
                         <Button onClick={handleClose} autoFocus>

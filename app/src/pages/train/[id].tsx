@@ -48,7 +48,9 @@ function TrainIdPage() {
 
   const size = useWindowSize();
 
-  const { id } = router.query;
+  let { id } = router.query;
+
+  id = id ? id.toString() : '1';
 
   const [selectedCourse,setSelectedCourse] = 
     (typeof loggedUser.chapterProgression[parseInt(id.toString())] != 'undefined' &&

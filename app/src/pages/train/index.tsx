@@ -44,7 +44,7 @@ export default function TrainPage() {
   }
 
   if (selectedChapter != 0) {
-    const chapt : Chapter = chapters[selectedChapter];
+    const chapt : Chapter = chapters[selectedChapter-1];
     return (
       <>
       <BackButton {...{
