@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useRef, useState } from 'react';
 import { Chessground as ChessgroundApi } from 'chessground';
 
@@ -18,7 +16,7 @@ import { Button, Fab, Typography, FormGroup, Switch, FormControlLabel, Stack, Li
 import { defaultBoard } from '../../interfaces/constants';
 import PromotionDialog from '../modals/PromotionModal';
 import UndoIcon from '@mui/icons-material/Undo';
-import aiGetBestMove from '../../pages/ai';
+import aiGetBestMove from '../../utils/ai';
 import DefeatDialog from '../modals/DefeatModal';
 import { callHiddenWindow } from '../../utils/move_displayer';
 import { playMoveSound, playSignalSound, playTypeSound } from '../../utils/audio_player';
