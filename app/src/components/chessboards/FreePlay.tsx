@@ -150,14 +150,20 @@ function ChessgroundFree({
     chess.undo(); 
     if(boardSound) playMoveSound('undo');
     setChess(chess);  
+    setTimeout(()=>{setReadyToRender(false), setActionState(false)}, user.animationSpeed);
 
     chess.undo();
     if(boardSound) playMoveSound('undo');
     setChess(chess);    
+    setTimeout(()=>{setReadyToRender(false), setActionState(false)}, user.animationSpeed);
 
     callHiddenWindow({type:'undo'});
 
     setCG(api, chess);
+    updateUser();
+    setTimeout(()=>{
+      setReadyToRender(true), setActionState(false);
+      if(boardSound) playSignalSound('normal')}, user.animationSpeed+800);
   };
   const TYPES = {
     'p' : 'Bauer',
@@ -171,31 +177,31 @@ const COLOR = {
     'w' : 'Weiß',
     'b' : 'Schwarz'
 }
-  const getHistory = () =>{
-      const historyList = chess.history({ verbose: true });
-      let text = '';
-      if(historyList.length > 0){
-        if(historyList.length > 10){
-          for(let i = historyList.length-10-1; i < historyList.length-1; i++){
-            text += typeof historyList[i]['captured'] != 'undefined' ? 
-            `${COLOR[historyList[i]['color']]}: ${TYPES[historyList[i]['piece']]} von ${historyList[i]['from']} auf ${historyList[i]['to']},  ${TYPES[historyList[i]['captured']]} geschlagen<br>` : 
-            `${COLOR[historyList[i]['color']]}: ${TYPES[historyList[i]['piece']]} von ${historyList[i]['from']} auf ${historyList[i]['to']} <br>`; 
-          }
-        }
-        else{
-          historyList.forEach((elem) => {
-              text += typeof elem['captured'] != 'undefined' ? 
-              `${COLOR[elem['color']]}: ${TYPES[elem['piece']]} von ${elem['from']} auf ${elem['to']},  ${TYPES[elem['captured']]} geschlagen<br>`: 
-              `${COLOR[elem['color']]}: ${TYPES[elem['piece']]} von ${elem['from']} auf ${elem['to']} <br>`; 
-            })
+const getHistory = () =>{
+    const historyList = chess.history({ verbose: true });
+    let text = '';
+    if(historyList.length > 0){
+      if(historyList.length > 10){
+        for(let i = historyList.length-10-1; i < historyList.length-1; i++){
+          text += typeof historyList[i]['captured'] != 'undefined' ? 
+          `${COLOR[historyList[i]['color']]}: ${TYPES[historyList[i]['piece']]} von ${historyList[i]['from']} auf ${historyList[i]['to']},  ${TYPES[historyList[i]['captured']]} geschlagen<br>` : 
+          `${COLOR[historyList[i]['color']]}: ${TYPES[historyList[i]['piece']]} von ${historyList[i]['from']} auf ${historyList[i]['to']} <br>`; 
         }
       }
       else{
-        text = 'Keine Zughistorie vorhanden.'
+        historyList.forEach((elem) => {
+            text += typeof elem['captured'] != 'undefined' ? 
+            `${COLOR[elem['color']]}: ${TYPES[elem['piece']]} von ${elem['from']} auf ${elem['to']},  ${TYPES[elem['captured']]} geschlagen<br>`: 
+            `${COLOR[elem['color']]}: ${TYPES[elem['piece']]} von ${elem['from']} auf ${elem['to']} <br>`; 
+          })
       }
-      document.getElementById('audio_info').innerHTML = text;
-      document.getElementById('history').innerHTML = text;
-  }
+    }
+    else{
+      text = 'Keine Zughistorie vorhanden.'
+    }
+    document.getElementById('audio_info').innerHTML = text;
+    document.getElementById('history').innerHTML = text;
+}
 
   const userReset = () =>{
     if (user.id != 999999) {
@@ -391,6 +397,14 @@ const COLOR = {
         setOpen={setLose}
         text={'Du bist vom Gegner ins Matt gestetzt worden!'}
       />
+      <Fab
+        color="primary"
+        onClick={rollBack}
+        aria-label="zug zurück setzen"
+        sx={{ float: 'right', marginBottom:'3rem' }}
+        >
+        <UndoIcon fontSize="large"></UndoIcon>
+      </Fab>
 
       <div style={{ height: width, width: width, marginBottom: '-100%' }}>
         <div ref={ref} style={{ height: '100%', width: '100%', display: 'table' }}/>
@@ -704,18 +718,5 @@ const COLOR = {
     </>
   );
 }
-
-/* DOES NOT WORK IN CURRENT VERSION
-
-    <Fab
-    color="primary"
-    onClick={rollBack}
-    aria-label="zug zurück setzen"
-    sx={{ float: 'right', marginBottom:'3rem' }}
-    >
-    <UndoIcon fontSize="large"></UndoIcon>
-    </Fab>
-
-*/
 
 export default ChessgroundFree;
