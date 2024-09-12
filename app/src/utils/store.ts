@@ -15,7 +15,10 @@ export const useStore = create<UserState>((set) => ({
     coursesFinishedTotal: 0,
     wantsToClick: true,
     animationSpeed: 2000,
-    chapterProgression: {}
+    chapterProgression: {},
+    blindMode: false,
+    boardSound: false,
+    figureSound: false
   },
   setLoggedInState: (user: User) => {
     set(() => ({

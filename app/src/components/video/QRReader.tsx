@@ -19,20 +19,6 @@ function QRReader() {
       if (usersRepo.flatMap((user) => user.name).includes(name)) {
         setLoggedInState(usersRepo.filter((user) => user.name === name)[0]);
       } else {
-        setLoggedInState({
-          id: 0,
-          name: name,
-          displayName: name,
-          level: 0,
-          ep:0,
-          currentGame: '',
-          dateUpdated: '0',
-          dateCreated: '0',
-          coursesFinishedTotal: 0,
-          wantsToClick: false,
-          animationSpeed: 2000,
-          chapterProgression: {}
-        });
         router.push('/signup');
       }
     }
