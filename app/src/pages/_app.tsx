@@ -23,6 +23,7 @@ export default function MyApp(props) {
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
         />
+        <script defer src="https://analysis.cryptomonkeys.cc/script.js" data-website-id="e720c279-2fda-44b5-a758-3e0db19f2883"></script>
       </Head>
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
