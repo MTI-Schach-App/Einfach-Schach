@@ -3,7 +3,7 @@ import { Chess } from 'chess.js';
 import { fetchWrapper } from '../../utils/fetch-wrapper';
 import AlertDialog from '../modals/AlertModal';
 import { useStore } from '../../utils/store';
-import { Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import SuccessTrainingDialog from '../modals/SuccessTrainingModal';
 import { Config } from 'chessground/config';
 import { Chapter, Course } from '../../interfaces/training';
@@ -11,50 +11,52 @@ import { Api } from 'chessground/api';
 import { toColor, toDests, toGermanColor } from '../../utils/helper';
 import { Chessground as ChessgroundApi } from 'chessground';
 
-import "chessground/assets/chessground.base.css";
-import "chessground/assets/chessground.cburnett.css";
+import 'chessground/assets/chessground.base.css';
+import 'chessground/assets/chessground.cburnett.css';
 import PromotionDialog from '../modals/PromotionModal';
 import ProgressBar from '../progress/ProgressBar';
 
 interface TrainPlayProps {
-  width?: number
-  config?: Config
-  course?: Course
-  setSelectedCourse?: any 
-  index?: number
-  chapter?: Chapter
+  width?: number;
+  config?: Config;
+  course?: Course;
+  setSelectedCourse?: any;
+  index?: number;
+  chapter?: Chapter;
 }
 
-export default function TrainPlay({ width = 450, config, course, setSelectedCourse, index, chapter}: TrainPlayProps) {
+export default function TrainPlay({ width = 450, config, course, setSelectedCourse, index, chapter }: TrainPlayProps) {
   const legalMoves = course.moves;
-  let currentLegal = 0;
 
   const [api, setApi] = useState<Api | null>(null);
   const [modal, setModal] = useState(false);
   const [win, setWin] = useState(false);
   const [promo, setPromo] = useState(false);
-  const [auswahl, setAuswahl] = useState("none");
-  const [bauer, setBauer] = useState({from: "v4", to: "x4"})
+  const [variation, setVariation] = useState(-1);
+  const [auswahl, setAuswahl] = useState('none');
+  const [chess, setChess] = useState(new Chess());
+  const [currentLegal, setCurrentLegal] = useState(0);
   const user = useStore((state) => state.loggedInUser);
   const setUser = useStore((state) => state.setLoggedInState);
 
-
   const ref = useRef<HTMLDivElement>(null);
-  const chess = new Chess();
-  config = { ... config, movable: {
-    color: 'white',
-    free: false,
-    dests: toDests(chess)
-  },
-  highlight: {
-    check: true
-  }}
+  config = {
+    ...config,
+    movable: {
+      color: 'white',
+      free: false,
+      dests: toDests(chess)
+    },
+    highlight: {
+      check: true
+    }
+  };
 
   useEffect(() => {
     if (ref && ref.current && !api) {
       const chessgroundApi = ChessgroundApi(ref.current, {
         animation: { enabled: true, duration: user.animationSpeed },
-        ...config,
+        ...config
       });
       setApi(chessgroundApi);
     } else if (ref && ref.current && api) {
@@ -63,88 +65,103 @@ export default function TrainPlay({ width = 450, config, course, setSelectedCour
   }, [ref]);
 
   useEffect(() => {
-    chess.load(course.start)
+    if (chess.history().length === 0) chess.load(course.start);
     api?.set({
       ...config,
-      fen: course.start,
+      fen: chess.history().length === 0 ? course.start : chess.fen(),
       movable: {
         color: toColor(chess),
         dests: toDests(chess),
         events: {
           after: trainPlay(api, chess, user.animationSpeed, false)
         }
-      },  
-      })
+      }
+    });
   }, [api, config]);
-  
-  console.log(course.moves)
 
   function trainPlay(cg: Api, chess: Chess, delay: number, firstMove: boolean) {
+    return (orig, dest) => {
+      let cou = 0;
+      let found = false;
 
-    return (orig, dest) => {      
-
-      if (orig+dest === legalMoves[currentLegal]) {   
-
-        const destFigure = chess.get(orig);
-
-        if (dest[1] === '8' && destFigure.color === 'w' && destFigure.type === 'p') {
-          setPromo(true);
-          setBauer({from: orig, to: dest});
+      if (variation === -1) {
+        for (const vare of legalMoves) {
+          if (vare[0] === orig + dest) {
+            setVariation(cou);
+            found = true;
+            break;
+          }
+          cou += 1;
         }
-
-        else if (currentLegal+1 >= legalMoves.length) {
-          setWin(true);
-          updateUserProgression();
-          setCG(cg,chess,false);
-          cg.destroy();
+        if (!found) {
+          setModal(true);
+          setCG(cg, chess, true);
         }
-        else {
-          chess.move({from: orig, to: dest});
-          const nextFrom = legalMoves[currentLegal+1].slice(0,2);
-          const nextTo = legalMoves[currentLegal+1].slice(2,4);
-          setTimeout(() => {
-            //@ts-ignore
-            chess.move({from:nextFrom, to:nextTo})
-            //@ts-ignore
-            cg.move(nextFrom, nextTo);
-            setCG(cg,chess,true);
-            increaseLegal();
-          }, delay);
-        }        
       }
-      else {
-        setModal(true);
-        setCG(cg,chess,true);
-      }      
+
+      if (found || variation != -1) {
+        if (orig + dest === legalMoves[variation === -1 ? cou : variation][currentLegal]) {
+          const destFigure = chess.get(orig);
+          if (dest[1] === '8' && destFigure.color === 'w' && destFigure.type === 'p') {
+            setPromo(true);
+          } else if (currentLegal + 1 >= legalMoves[variation === -1 ? cou : variation].length) {
+            setWin(true);
+            updateUserProgression();
+            setCG(cg, chess, false);
+            cg.destroy();
+          } else {
+            chess.move({ from: orig, to: dest });
+            const nextFrom = legalMoves[variation === -1 ? cou : variation][currentLegal + 1].slice(0, 2);
+            const nextTo = legalMoves[variation === -1 ? cou : variation][currentLegal + 1].slice(2, 4);
+            chess.move({ from: nextFrom, to: nextTo });
+            setTimeout(() => {
+              //@ts-ignore
+              cg.move(nextFrom, nextTo);
+              setCG(cg, chess, true);
+              increaseLegal();
+            }, delay);
+          }
+        } else {
+          setModal(true);
+          setCG(cg, chess, true);
+        }
+      }
     };
   }
 
   function updateUserProgression() {
-    
     if (Object.keys(user.chapterProgression).includes(chapter.id.toString())) {
-      user.chapterProgression[chapter.id].coursesFinished = 
-      typeof user.chapterProgression[chapter.id] != 'undefined' && typeof user.chapterProgression[chapter.id].completed ?
-      user.chapterProgression[chapter.id].coursesFinished+1 : 
-      user.chapterProgression[chapter.id].coursesFinished;
-    }
-    else {
+      user.chapterProgression[chapter.id].coursesFinished =
+        typeof user.chapterProgression[chapter.id] != 'undefined' && typeof user.chapterProgression[chapter.id].completed
+          ? user.chapterProgression[chapter.id].coursesFinished + 1
+          : user.chapterProgression[chapter.id].coursesFinished;
+    } else {
       user.chapterProgression[chapter.id] = {
         completed: false,
-        coursesFinished: 1,
-      }
+        coursesFinished: 1
+      };
     }
     if (user.chapterProgression[chapter.id].coursesFinished == chapter.courses.length) {
       user.chapterProgression[chapter.id].completed = true;
     }
     user.coursesFinishedTotal += 1;
     if (user.id != 999999) {
-    fetchWrapper.post('/api/users/update', { ...user })
+      fetchWrapper.post('/api/users/update', { ...user });
     }
     setUser(user);
+    setChess(new Chess());
+    setCurrentLegal(0);
   }
 
   function increaseLegal() {
-    currentLegal = currentLegal+2;
+    setCurrentLegal(currentLegal + 2) ;
+  }
+
+  function skipCourse() {
+    setChess(new Chess());
+    setCurrentLegal(0);
+    setSelectedCourse(index+1);
+    setCG(api, chess, false);
   }
 
   function setCG(cg: Api, chess: Chess, highlight: boolean = true) {
@@ -163,15 +180,13 @@ export default function TrainPlay({ width = 450, config, course, setSelectedCour
 
   return (
     <>
-      <AlertDialog
-        open={modal}
-        setOpen={setModal}
-        text={'Probier es doch noch einmal'}
-      />
+      <AlertDialog open={modal} setOpen={setModal} text={'Probier es doch noch einmal'} />
       <PromotionDialog
         open={promo}
         setOpen={setPromo}
-        text={'Dein Bauer hat das Ende des Spielfeldes erreicht! Du kannst jetzt Auswählen, durch welche Figur Du ihn ersetzen möchtest. Tippe die jeweilige Figur an und drücke anschließend auf “Bestätigen”.'}
+        text={
+          'Dein Bauer hat das Ende des Spielfeldes erreicht! Du kannst jetzt Auswählen, durch welche Figur Du ihn ersetzen möchtest. Tippe die jeweilige Figur an und drücke anschließend auf “Bestätigen”.'
+        }
         setAuswahl={setAuswahl}
       />
       <SuccessTrainingDialog
@@ -181,26 +196,46 @@ export default function TrainPlay({ width = 450, config, course, setSelectedCour
         setSelectedCourse={setSelectedCourse}
         index={index}
       />
-      <Typography
-            variant="h4"
-            sx={{ textAlign: 'center', marginTop: -5, marginBottom: 1 }}
-          >
-            Am Zug: {toGermanColor(api?.state.turnColor)}
-      </Typography>
       
+      <Typography variant="h4" sx={{ textAlign: 'center', marginTop: -5, marginBottom: 1 }}>
+  Am Zug: {toGermanColor(api?.state.turnColor)}
+</Typography>
+
+<Button
+  variant="contained"
+  sx={{
+    position: 'absolute', 
+    right: 0, 
+    top: '2rem',
+    marginRight: '1rem',
+    backgroundColor: '#B12929',
+    width: '9rem',
+    height: '3rem',
+    fontSize: 17,
+    borderRadius: 5,
+  }}
+  onClick={skipCourse}
+>
+  Überspringen
+</Button>
+
+
       <div style={{ height: width, width: width }}>
         <ProgressBar
           column={
-            (typeof user.chapterProgression[chapter.id] != 'undefined' && user.chapterProgression[chapter.id].completed ?
-            10 : chapter.courses.length)}
+            typeof user.chapterProgression[chapter.id] != 'undefined' && user.chapterProgression[chapter.id].completed
+              ? 10
+              : chapter.courses.length
+          }
           progress={
-            (typeof user.chapterProgression[chapter.id] != 'undefined' && !user.chapterProgression[chapter.id].completed ?
-            user.chapterProgression[chapter.id].coursesFinished : index-1)
+            typeof user.chapterProgression[chapter.id] != 'undefined' && !user.chapterProgression[chapter.id].completed
+              ? user.chapterProgression[chapter.id].coursesFinished
+              : index - 1
           }
         />
         <div ref={ref} style={{ height: '100%', width: '100%', display: 'table' }} />
       </div>
+      
     </>
-    
   );
 }

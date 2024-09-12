@@ -99,7 +99,7 @@ export default function TrainPage() {
   return (
     <>
       <BackButton {...{
-      onClick:() => router.back(),
+      onClick:() => router.push('/'),
       buttonText:'< Zurück'
       }}/>
       <Container component="main" maxWidth="md">

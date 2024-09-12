@@ -1,20 +1,27 @@
-from email.policy import default
-from operator import truediv
-from tkinter import E
 import chess.pgn
 
 import click
-import time, io, json, os
-#pgn = open("matt1.pgn", encoding="utf-8")
+import io, json, os
 
 def readTraining(pgn):
     game = chess.pgn.read_game(pgn)
     board = game.board()
     start = board.fen()
     moves = [] 
-    for move in game.mainline_moves():
-        moves.append(str(move))
-        board.push(move)
+    print(game.variations)
+    if len(game.variations) > 0:
+        for index, variation in enumerate(game.variations):
+            moves.append([])
+            moves[index].append(str(variation.move))
+            crawling = True
+            while crawling:
+                print(index,variation.move, variation.end(), variation.next())
+                nxt = variation.next()
+                if nxt != None:
+                    moves[index].append(str(nxt))
+                else:
+                    crawling = False
+            
     
     return start,board.fen(),moves
 
@@ -43,7 +50,7 @@ def cleanKapitel(verbose):
 
 
 
-        pgns = saml.split('[Event "')
+        pgns = saml.split('[Variant "')
 
         sammlung_json = []
 
@@ -52,7 +59,7 @@ def cleanKapitel(verbose):
 
                 if verbose: print(index,pgn)
 
-                start,end,moves = readTraining(io.StringIO('[Event "'+pgn))
+                start,end,moves = readTraining(io.StringIO('[Variant "'+pgn))
                 sammlung_json.append(
                 {
                     "id":index,

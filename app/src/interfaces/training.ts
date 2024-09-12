@@ -2,7 +2,7 @@ export interface Course {
   id: number;
   start: string;
   end: string;
-  moves: string[];
+  moves: string[][];
 }
 
 export interface Chapter {
