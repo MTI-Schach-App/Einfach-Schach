@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 import logo from '../../public/logo.png';
 import { useRouter } from 'next/router';
-import GreenButton from '../components/buttons/GenericButton';
+import GenericButton from '../components/buttons/GenericButton';
 
 function IndexPage() {
   const store = useStore();
@@ -37,7 +37,10 @@ function IndexPage() {
   coursesFinishedTotal: 0,
   wantsToClick: false,
   animationSpeed: 2000,
-  chapterProgression: {}
+  chapterProgression: {},
+  blindMode: false,
+  figureSound: true,
+  boardSound: false
 });
   };
 
@@ -67,9 +70,9 @@ function IndexPage() {
               />
             </Link>
             <Divider sx={{mb:3}} />
-            <GreenButton {...{buttonText: 'Anmelden', onClick:login}}/>
-            <GreenButton {...{buttonText: 'Neues Konto', onClick:register, color: '#575757'}}/>
-            <GreenButton {...{buttonText: 'Als Gast spielen', onClick:guest}}/>
+            <GenericButton {...{buttonText: 'Anmelden', onClick:login}}/>
+            <GenericButton {...{buttonText: 'Neues Konto', onClick:register, color: '#575757'}}/>
+            <GenericButton {...{buttonText: 'Als Gast spielen', onClick:guest}}/>
           </Box>
         </Container>
       );

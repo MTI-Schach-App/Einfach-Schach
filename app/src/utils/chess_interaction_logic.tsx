@@ -20,15 +20,14 @@ const getColor = (str : string) =>{
 }
 
 declare type ChessPiece = {
-    variant: number,
     action : () => void,
-    size?: number,
     color: string;
     type: string;
     cgKey: any;
     role?: string;
     aria_roledescription?: string;
     focus: boolean;
+    blind: boolean;
 };
 
 const createLabelPiece = (type : string, color : string, cgKey : string) =>{
@@ -38,61 +37,40 @@ const createLabelPiece = (type : string, color : string, cgKey : string) =>{
 }
 
 export function ChessPiece ({
-    variant,
     action,
-    size,
     color,
     type,
     cgKey,
     role='application',
     aria_roledescription= createLabelPiece(type, color, cgKey),
-    focus
+    focus,
+    blind
 }: ChessPiece){   
     const tabIndex = focus ? 0 : 1;
-    if(variant != 2){
-        return(
-            <td
-                onClick={action}
-                onKeyPress={action}
-                role={role}
-                aria-roledescription={aria_roledescription}
-                tabIndex={tabIndex}
-                {...{'t': type, 'c': color, 'cgKey': cgKey}}
-                style={{backgroundColor: 'red',
-                        cursor: 'pointer'}}
-            >
-            </td>
-        );
-    }
-    else{
-        return(
-            <ListItem style={{margin: 0, padding: '2px'}}>
-                <div                   
-                    onClick={action}
-                    onKeyPress={action}
-                    role={role}
-                    aria-roledescription={aria_roledescription}
-                    tabIndex={tabIndex}
-                    {...{'t': type, 'c': color, 'cgKey': cgKey}}
-                    style={{backgroundColor: 'red', height: size, width: size,
-                            padding: 0, cursor: 'pointer'}}
-                ></div>
-            </ListItem>
-        );
-    }
-    
+    return(
+        <td
+            onClick={action}
+            onKeyPress={action}
+            role={role}
+            aria-roledescription={aria_roledescription}
+            tabIndex={tabIndex}
+            {...{'t': type, 'c': color, 'cgKey': cgKey}}
+            style={{backgroundColor: blind ? 'red' : 'none',
+                    cursor: 'pointer'}}
+        >
+        </td>
+    );    
 }
 
 declare type MoveSquare = {
-    variant: number,
     action : () => void,
-    size?: number,
     capture?: boolean;
     normal?: boolean;
     selected?: boolean;
     cgKey: any;
     role?: string;
     aria_roledescription?: string;
+    blind: boolean;
 };
 
 const createLabelMove = (capture : boolean, normal : boolean, selected : boolean, cgKey : any) =>{
@@ -102,45 +80,28 @@ const createLabelMove = (capture : boolean, normal : boolean, selected : boolean
 }
 
 export function MoveSquare ({
-    variant,
     action,
-    size,
     capture,
     normal,
     selected,
     cgKey,
     role='application',
     aria_roledescription= createLabelMove(capture, normal, selected, cgKey),
+    blind
 }: MoveSquare){
-    if(variant != 2){
-        return(        
-            <td 
-                onClick={action}
-                onKeyPress={action}
-                tabIndex={0}
-                role={role}
-                aria-roledescription={aria_roledescription}
-                {...{'cgKey': cgKey}}
-                style={{backgroundColor: 'green', 
-                        cursor: 'pointer'}}
-                >
-            </td>
-        );
-    }
-    else{
-        return(
-            <ListItem style={{margin:0, padding: '2px'}}>
-                <div
-                    onClick={action}
-                    onKeyPress={action}
-                    tabIndex={0}
-                    role={role}
-                    aria-roledescription={aria_roledescription}
-                    {...{'cgKey': cgKey}}
-                    style={{backgroundColor: 'green', height: size, width: size,
-                            cursor: 'pointer'}}
-                ></div>
-            </ListItem>
-        );      
-    }    
+    
+    return(        
+        <td 
+            onClick={action}
+            onKeyPress={action}
+            tabIndex={0}
+            role={role}
+            aria-roledescription={aria_roledescription}
+            {...{'cgKey': cgKey}}
+            style={{backgroundColor: blind ? 'green' : 'none', 
+                    cursor: 'pointer'}}
+            >
+        </td>
+    );
+    
 } 

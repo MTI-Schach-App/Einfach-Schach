@@ -1,5 +1,3 @@
-import { Course } from './training';
-
 export interface User {
   id: number;
   name: string;
@@ -13,6 +11,9 @@ export interface User {
   ep: number;
   chapterProgression: Record<number,UserChapterProgression>;
   coursesFinishedTotal: number;
+  blindMode: boolean;
+  boardSound: boolean;
+  figureSound: boolean;
 }
 
 export interface UserChapterProgression {

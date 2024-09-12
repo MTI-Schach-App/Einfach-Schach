@@ -5,6 +5,8 @@ import {
   Divider,
   FormControl,
   FormLabel,
+  FormControlLabel,
+  Switch,
 } from '@mui/material';
 import { useStore } from '../utils/store';
 import { useRouter } from 'next/router';
@@ -17,10 +19,12 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import React from 'react';
 
-
 function Settings() {
   const { setLoggedInState, loggedInUser } = useStore();
   const [showQR, setShowQR] = useState(false);
+  const [boardSound, setBoardSound] = useState(loggedInUser.boardSound || false);
+  const [figureSound, setFigureSound] = useState(loggedInUser.figureSound || false);
+  const [blindMode, setBlindMode] = useState(loggedInUser.blindMode || false);
 
   const printRef = useRef();
   const router = useRouter();
@@ -30,22 +34,26 @@ function Settings() {
     const data = new FormData(event.currentTarget);
     const click = data.get('click');
     const speed = data.get('speed').toString();
-    const newUser = loggedInUser;
+    const newUser = {
+      ...loggedInUser,
+      wantsToClick: click === 'true',
+      animationSpeed: parseInt(speed),
+      boardSound,
+      figureSound,
+      blindMode,
+    };
 
-    loggedInUser.wantsToClick = click === 'true';
-    newUser.animationSpeed = parseInt(speed);
-    await fetchWrapper.post('api/users/update', newUser);
     setLoggedInState(newUser);
+    if (newUser.id != 999999) await fetchWrapper.post('api/users/update', newUser);
     router.push('/');
   };
 
   const ComponentToPrint = React.forwardRef((props, ref) => {
     return (
-      // @ts-ignore
-      <div ref={ref}>
-        <QRCode
-          value={loggedInUser.name}
-        />
+      <div
+        //@ts-ignore 
+        ref={ref}>
+        <QRCode value={loggedInUser.name} />
       </div>
     );
   });
@@ -53,43 +61,26 @@ function Settings() {
   if (showQR)
     return (
       <>
-      <BackButton {...{
-      onClick:() => router.back(),
-      buttonText:'< Zurück'
-      }}/>
-      <Container component="main" maxWidth="xs">
-        <Box
-          sx={{
-            marginTop: '10rem',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center'
-          }}
-        >
-          <ComponentToPrint ref={printRef} />
-          <ReactToPrint
-            trigger={() => (
-              <Button
-                fullWidth
-                sx={{ marginTop: 5, height: 100, fontSize: 30 }}
-                variant="contained"
-              >
-                Ausdrucken!
-              </Button>
-            )}
-            content={() => printRef.current}
-          />
-        </Box>
-      </Container>
+        <BackButton onClick={() => router.back()} buttonText="< Zurück" />
+        <Container component="main" maxWidth="xs">
+          <Box sx={{ marginTop: '10rem', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <ComponentToPrint ref={printRef} />
+            <ReactToPrint
+              trigger={() => (
+                <Button fullWidth sx={{ marginTop: 5, height: 100, fontSize: 30 }} variant="contained">
+                  Ausdrucken!
+                </Button>
+              )}
+              content={() => printRef.current}
+            />
+          </Box>
+        </Container>
       </>
-      
     );
+
   return (
     <>
-      <BackButton {...{
-      onClick:() => router.back(),
-      buttonText:'< Zurück'
-      }}/>
+      <BackButton onClick={() => router.back()} buttonText="< Zurück" />
 
       <Button
         sx={{
@@ -97,49 +88,21 @@ function Settings() {
           marginTop: 2,
           backgroundColor: 'blue',
           fontSize: 15,
-          float: 'right'
+          float: 'right',
         }}
         variant="contained"
         onClick={() => setShowQR(true)}
       >
-        meinen QR Code anzeigen
+        Meinen QR Code anzeigen
       </Button>
-      <Container component="main" maxWidth="sm">
-        <Box
-          sx={{
-            marginTop: 15,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center'
-          }}
-        >
-          <Divider />
-          <Box
-            component="form"
-            onSubmit={handleSubmit}
-            noValidate
-            sx={{ margin: 5 }}
-          >
-            <FormControl fullWidth sx={{ marginBottom: 5 }}>
-              <FormLabel id="click">
-                Möchtest du die Figuren Klicken oder Ziehen?
-              </FormLabel>
-              <Select
-                labelId="click"
-                id="click"
-                defaultValue={loggedInUser.wantsToClick.toString()}
-                name="click"
-                label="Möchtest du die Figuren Klicken oder Ziehen?"
-              >
-                <MenuItem value={'true'}>Klicken</MenuItem>
-                <MenuItem value={'false'}>Ziehen</MenuItem>
-              </Select>
-            </FormControl>
 
-            <FormControl fullWidth>
-              <FormLabel id="Zuggeschwindigkeit-simple-select-label">
-                Zuggeschwindigkeit
-              </FormLabel>
+      <Container component="main" maxWidth="sm">
+        <Box sx={{ marginTop: 15, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Divider />
+          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ margin: 5 }}>
+
+            <FormControl fullWidth sx={{ marginBottom: 5 }}>
+              <FormLabel id="Zuggeschwindigkeit-simple-select-label">Zuggeschwindigkeit</FormLabel>
               <Select
                 labelId="Zuggeschwindigkeit-simple-select-label"
                 id="Zuggeschwindigkeit-simple-select"
@@ -153,12 +116,49 @@ function Settings() {
               </Select>
             </FormControl>
 
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
+            <FormControl fullWidth sx={{ marginBottom: 5 }}>
+              <FormControlLabel
+                control={
+                  <Switch
+                    name='boardSound'
+                    checked={boardSound}
+                    onChange={(e) => setBoardSound(e.target.checked)}
+                    color="primary"
+                  />
+                }
+                label="Schachbrettgeräusche"
+              />
+            </FormControl>
+
+            <FormControl fullWidth sx={{ marginBottom: 5 }}>
+              <FormControlLabel
+                control={
+                  <Switch
+                  name='figureSound'
+                    checked={figureSound}
+                    onChange={(e) => setFigureSound(e.target.checked)}
+                    color="primary"
+                  />
+                }
+                label="Schachfigurengeräusche"
+              />
+            </FormControl>
+
+            <FormControl fullWidth sx={{ marginBottom: 5 }}>
+              <FormControlLabel
+                control={
+                  <Switch
+                  name='blindMode'
+                    checked={blindMode}
+                    onChange={(e) => setBlindMode(e.target.checked)}
+                    color="primary"
+                  />
+                }
+                label="Blinden Modus"
+              />
+            </FormControl>
+
+            <Button type="submit" fullWidth variant="contained" sx={{ marginTop: 5, height: 100, fontSize: 30, borderRadius: 15 }}>
               Speichern
             </Button>
           </Box>

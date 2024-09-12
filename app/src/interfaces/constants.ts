@@ -14,5 +14,8 @@ export const defaultUserSchema : User = {
     coursesFinishedTotal: 0,
     wantsToClick: false,
     animationSpeed: 2000,
-    chapterProgression: {}
+    chapterProgression: {},
+    blindMode: false,
+    figureSound: false,
+    boardSound: false
   }
