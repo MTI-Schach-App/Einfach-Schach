@@ -1,0 +1,150 @@
+﻿[Event "?"]
+[Site "?"]
+[Date "2024.09.13"]
+[Round "?"]
+[White "1"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "6k1/8/8/8/4p3/5P2/8/6K1 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2024.09.13"]
+
+{[#]} 1. fxe4 *
+
+[Event "?"]
+[Site "?"]
+[Date "2024.09.13"]
+[Round "?"]
+[White "2"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "6k1/8/8/8/3p4/2P5/8/6K1 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2024.09.13"]
+
+{[#]} 1. cxd4 *
+
+[Event "?"]
+[Site "?"]
+[Date "2024.09.13"]
+[Round "?"]
+[White "3"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "8/k7/8/4N1n1/K4P2/8/8/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2024.09.13"]
+
+{[#]} 1. fxg5 *
+
+[Event "?"]
+[Site "?"]
+[Date "2024.09.13"]
+[Round "?"]
+[White "4"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "8/k7/8/5p2/K3PP1p/7P/8/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2024.09.13"]
+
+{[#]} 1. exf5 *
+
+[Event "?"]
+[Site "?"]
+[Date "2024.09.13"]
+[Round "?"]
+[White "5"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "8/8/8/2p2p2/3P1P2/k5p1/6P1/1K6 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2024.09.13"]
+
+{[#]} 1. dxc5 *
+
+[Event "?"]
+[Site "?"]
+[Date "2024.09.13"]
+[Round "?"]
+[White "6"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "1k6/6p1/K5PP/1p3p2/1P3P2/8/8/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2024.09.13"]
+
+{[#]} 1. hxg7 *
+
+[Event "?"]
+[Site "?"]
+[Date "2024.09.13"]
+[Round "?"]
+[White "7"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "7k/6p1/7p/8/3b1p2/4P2P/4B1P1/7K w - - 0 0"]
+[PlyCount "1"]
+[SourceVersionDate "2024.09.13"]
+
+{[#]} 1. exd4 (1. exf4) *
+
+[Event "?"]
+[Site "?"]
+[Date "2024.09.13"]
+[Round "?"]
+[White "8"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "rnbqk2r/ppp1bppp/4pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2024.09.13"]
+
+{[#]} 1. cxd5 *
+
+[Event "?"]
+[Site "?"]
+[Date "2024.09.13"]
+[Round "?"]
+[White "9"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "r1bqk1nr/pp1nbppp/2p1p3/3p4/2P1P3/2NP4/PP3PPP/R1BQKBNR w KQkq - 0 1"]
+[PlyCount "3"]
+[SourceVersionDate "2024.09.13"]
+
+{[#]} 1. cxd5 (1. exd5 exd5 2. cxd5) 1... cxd5 2. exd5 *
+
+[Event "?"]
+[Site "?"]
+[Date "2024.09.13"]
+[Round "?"]
+[White "10"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "r1bqkb1r/pp3ppp/2n1pn2/3pP3/3N4/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2024.09.13"]
+
+{[#]} 1. exf6 *
+

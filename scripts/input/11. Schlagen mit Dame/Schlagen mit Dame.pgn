@@ -1,0 +1,135 @@
+﻿[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "1"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "r6k/7p/8/8/8/7P/6QK/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Qxa8+ *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "2"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "k6r/p7/8/8/8/P7/KQ6/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Qxh8+ *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "3"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "1k6/1p3b2/8/8/8/P7/K4Q2/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Qxf7 *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "4"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "2n5/6p1/5k2/8/8/7P/2Q4K/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Qxc8 *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "5"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "8/pkp5/4Q3/1p6/1P6/P6r/8/6K1 w - - 0 0"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Qxh3 *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "6"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "rnbqkb1r/pppp1ppp/4p3/8/4P1n1/2NP4/PPP2PPP/R1BQKBNR w KQkq - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Qxg4 *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "7"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "r1bqkbnr/ppp2ppp/2np4/4p3/2B1P3/5Q2/PPPP1PPP/RNB1K1NR w KQkq - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Qxf7# *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "9"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "rnbq1b1r/ppp2kpp/5n2/4p3/4P3/5N2/PPP2PPP/RNBQK2R w KQ - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Qxd8 *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "10"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "r1bq1rk1/pppn1ppp/4pn2/PN1p4/QbPP4/3BPN2/1P3PPP/R1B1R1K1 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Qxb4 *
+

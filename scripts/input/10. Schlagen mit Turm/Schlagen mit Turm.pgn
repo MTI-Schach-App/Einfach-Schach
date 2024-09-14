@@ -1,0 +1,151 @@
+﻿[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "1"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "6k1/8/8/5p2/8/p7/5R2/6K1 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Rxf5 *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "2"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "1k6/8/8/2R4p/3p4/8/8/1K6 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Rxh5 *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "3"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "1k6/7p/8/7R/7K/8/8/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Rxh7 *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "4"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "1k6/q6R/6P1/8/7K/8/P5R1/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Rxa7 *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "5"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "8/1k4K1/6P1/8/1n4R1/7p/8/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Rxb4+ *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "6"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "8/1K4k1/1P6/8/1R4r1/p7/8/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Rxg4+ *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "7"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "5r1k/R5Rp/8/8/1p6/1P4P1/P3rPK1/8 w - - 0 1"]
+[PlyCount "1"]
+[EventDate "2023.??.??"]
+[SourceVersionDate "2023.03.11"]
+
+{[%evp 0,1,29997,29998]} {[#]} 1. Rxh7+ *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "8"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "1r5k/p5R1/1p4PK/5P2/8/8/8/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Rxa7 *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "9"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "k5r1/1p3R2/1K4p1/P1P5/8/8/8/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Rxb7 *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "10"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "6rk/8/p6p/P5RP/1P4K1/8/8/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Rxg8+ *
+

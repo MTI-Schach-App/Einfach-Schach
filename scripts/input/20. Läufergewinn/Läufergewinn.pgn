@@ -1,0 +1,156 @@
+﻿[Event "188 Fesselung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Läufergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/p2bRpkp/2r2np1/3pQ3/p2P4/P4BNP/1q3PP1/6K1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e7d7","",10]} 1. Rxd7 *
+
+[Event "189 Gefangen"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Läufergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "4R3/1r3p1p/p1R3pk/2pN2b1/8/r3PPP1/5P2/6K1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","f3f4","",10]} 1. f4 $18 *
+
+[Event "190 Doppelangriff"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Läufergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r4r2/pp1R1ppk/1q2p2p/4P3/1P1b4/P1N5/4QPPP/R5K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e2e4","",10,"e2d3","",0]} 1. Qe4+ ({èëè} 1. Qd3+) 1...
+Kg8 2. Qxd4 $18 ({èëè} 2. Rxd4) *
+
+[Event "191 Abzug"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Läufergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2r1r1k1/pp1b1q1p/4p3/4bpB1/5N2/P2P2QP/1P4P1/R4R1K w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","g5f6","",10]} 1. Bf6+ Kf8 2. Bxe5 $18 *
+
+[Event "192 Spieß"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Läufergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "rnb1kb1r/pp2pppp/4n3/8/1pq1P3/5N2/PB1PNPPP/R2Q1K1R w kq - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","a1c1","",10]} 1. Rc1 Qxa2 2. Rxc8+ $18 *
+
+[Event "193"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Läufergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "R3b1k1/1r2rpp1/2p4p/8/2B5/1P4P1/2P2P2/4RK2 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","a8e8","",10]} 1. Rxe8+ Rxe8 2. Rxe8+ $18 *
+
+[Event "194 Doppelangriff"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Läufergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r4r2/1b2bp2/pp5k/2p5/3p1PQ1/1P2P3/P1PP2PP/R5K1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","g4d7","",10]} 1. Qd7 *
+
+[Event "195 Abzug"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Läufergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/1p3kp1/p1p4p/P2bp3/8/2Q2BP1/1P2PPKP/3q4 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e2e4","",10]} 1. e4 $18 *
+
+[Event "196"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Läufergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "4r2k/1pR3pP/2b3Qq/p7/8/8/P4P2/5NK1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","c7c6","",10]} 1. Rxc6 Qxg6+ (1... bxc6 2. Qxe8+ $18) 2.
+Rxg6 $18 *
+
+[Event "197 Fesselung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Läufergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "1krq3r/ppp2b1p/2n2bp1/4p3/6NP/P1N5/1PP1QPP1/K1R2B1R w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e2f3","",10]} 1. Qf3 $18 *
+
+[Event "198 Gefangen"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Läufergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2r2rk1/1p2qp2/1p2b1pp/3pN3/2pP1P2/4b3/PPQ3PP/RB3R1K w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","c2c3","",10]} 1. Qc3 $18 *
+

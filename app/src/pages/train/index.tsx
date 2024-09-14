@@ -69,7 +69,7 @@ export default function TrainPage() {
             {chapt.subtext}
           </Typography>
           <Image
-                src={logo}
+                src={'/training/'+chapt.name+'.png'}
                 alt="Logo der App (abgebildet: Springer und Turm)"//"logo by ben "
                 width="400px"
                 height="400px"

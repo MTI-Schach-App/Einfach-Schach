@@ -1,0 +1,423 @@
+﻿[Event "D+T+L Magnet-Matt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Schwarz am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "5rk1/1p2q1pp/1pp4r/2b2p2/2P5/P1B2P2/1P1Q2PP/2R2R1K b - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","h6h2","",10]} 1... Rxh2+ 2. Kxh2 Qh4# *
+
+[Event "D+T+L Hinlenkung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Schwarz am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2kr3r/pp1n2p1/2p1p1p1/2b5/2P5/1P3RqP/PB2Q1P1/RN5K b - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","h8h3","",10]} 1... Rxh3+ 2. gxh3 Qg1# *
+
+[Event "D+T Hinlenkung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Schwarz am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2b1k3/8/p1pp2P1/2p3P1/5K2/2Q4r/PPP1q1R1/6R1 b - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","h3f3","",10]} 1... Rf3+ 2. Qxf3 Qe5# *
+
+[Event "D+T Hinlenkung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Schwarz am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2b1k3/8/p1pp2P1/2p3P1/5K2/2Q4r/PPP1q1R1/6R1 b - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","h3f3","",10]} 1... Rf3+ 2. Qxf3 Qe5# *
+
+[Event "D Solo Hinlenkung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Schwarz am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r4n1k/ppB3pp/8/8/2Qq2b1/3B1r2/PPP3PK/R6R b - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","f3h3","",10]} 1... Rh3+ 2. gxh3 Qf2# *
+
+[Event "D+B Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Schwarz am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "1k6/p4p2/1pp2R2/4p3/PK6/1P1P4/8/q1N4Q b - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","a7a5","",10]} 1... a5+ 2. Kc4 Qd4# *
+
+[Event "D+T+S Stützmatt, Treppenmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Schwarz am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "k5r1/8/1pqB3p/p2nPQ2/3P3P/7K/3P2N1/8 b - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d5f4","",10]} 1... Nf4+ 2. Nxf4 (2. Qxf4 Qxg2#) 2... Qh1#
+*
+
+[Event "D+L Hinlenkung, D+B Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Schwarz am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "3b2k1/1p3pp1/3Bb3/pP1pp2p/P1q5/2N1P1P1/1Q3PKP/8 b - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e6h3","",10]} 1... Bh3+ 2. Kxh3 (2. Kf3 Qg4#) 2... Qf1# *
+
+[Event "D+T Magnet-Matt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Schwarz am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r5k1/p1p3pp/1p1ppn1r/2P2p2/3Pq3/1QB1P3/PP4RP/6RK b - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","h6h2","",10]} 1... Rxh2+ 2. Kxh2 Qh4# *
+
+[Event "D+B Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Schwarz am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r5k1/ppp3pp/8/1NbP2q1/2P3p1/3Q2P1/PP5K/3R1R2 b - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","g5h5","",10,"g5h6","",0]} 1... Qh5+ ({èëè} 1... Qh6+) 2.
+Kg2 Qh3# *
+
+[Event "D+S Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Schwarz am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/p1P3pp/4p1k1/1Q3n2/1P6/P5P1/5RKP/3q4 b - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","f5e3","",10]} 1... Ne3+ 2. Kh3 Qg4# *
+
+[Event "D+T Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Schwarz am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2r3k1/p3Q1p1/8/5p2/3Pp3/1P2P1q1/P3K3/4R2R b - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","g3g2","",10]} 1... Qg2+ 2. Kd1 Qc2# *
+
+[Event "D+B Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Schwarz am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "rn2r2k/p4pR1/2pb1p2/1p1b3P/3P3P/2PBB3/1PKQNP2/q2R4 b - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d5b3","",10]} 1... Bb3+ 2. Kxb3 Qa4# *
+
+[Event "D+L Batterie, Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Weiß am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "k3rb1R/1bQn2p1/p2RNq2/8/8/4B3/PPP2p2/2K5 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d6a6","",10]} 1. Rxa6+ Bxa6 2. Qa7# *
+
+[Event "D-Solo"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Weiß am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r1b2Nk1/p2nbrp1/1qn1p2p/1p1pP3/2pP4/P1P2N2/1P1B1KPP/RQ5R w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","b1h7","",10]} 1. Qh7+ Kxf8 2. Qh8# *
+
+[Event "D+S Stützmatt, Fesselung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Weiß am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "1kb4r/1p1r1pp1/pQ1ppnn1/N5q1/N3P2b/P4P2/1PPR4/1K1R1B2 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","a5c6","",10]} 1. Nc6+ Ka8 2. Qa7# *
+
+[Event "D+T Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Weiß am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r1b3k1/pq5p/4p1pQ/5p2/8/3R4/PPP2PPP/6K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d3d8","",10]} 1. Rd8+ Kf7 2. Qf8# *
+
+[Event "D+B Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Weiß am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r5r1/p2q1p1k/1pn1p1p1/2ppP1P1/3P1Qp1/2P5/PP1N2P1/5RK1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","f4h2","",10]} 1. Qh2+ Kg7 2. Qh6# *
+
+[Event "D-Solo"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Weiß am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r2rq3/1R3p2/n2p4/P1pPpPk1/2Q1P1Pp/P6P/8/1R4K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","c4c1","",10]} 1. Qc1+ Kf6 2. Qh6# *
+
+[Event "T+L Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Weiß am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r1b3k1/ppp2p2/1q6/4B1rB/8/8/PPP2P1P/2KR2NR w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d1d8","",10]} 1. Rd8+ Kh7 2. Rh8# *
+
+[Event "T+T Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Weiß am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2r1kr2/pR2n3/6q1/P7/3p1p2/P1p3P1/7P/4R1K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e1e7","",10]} 1. Rexe7+ Kd8 2. Rbd7# *
+
+[Event "T+S Stützmatt, Arabisches Matt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Weiß am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r1bk1r2/pR4p1/3p4/2p3p1/3N4/8/P1P2PPP/6K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d4c6","",10]} 1. Nc6+ Ke8 2. Re7# *
+
+[Event "T+L Abzug"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Weiß am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r4r1k/5p1p/7B/p7/1q4R1/8/5P1P/6K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","h6g7","",10]} 1. Bg7+ Kg8 2. Bd4# *
+
+[Event "T+L Abzug"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Weiß am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "4R3/5pkp/p1nB1qp1/1pP3N1/8/7P/PP3PP1/6K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d6f8","",10]} 1. Bf8+ Kg8 2. Bh6# *
+
+[Event "D+T+S Stützmatt, Arabisches Matt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Weiß am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r4kr1/1p1b2pR/p2Np3/4P1Q1/1q6/8/PPP5/2K5 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","g5f6","",10]} 1. Qf6+ gxf6 2. Rf7# *
+
+[Event "T+T Treppenmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Weiß am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2r3k1/5p2/q5p1/p3p1P1/1p2Pp2/1P6/1PP4R/1K5R w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","h2h8","",10]} 1. Rh8+ Kg7 2. R1h7# *
+
+[Event "T-Solo"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Weiß am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/1p2RR2/p5k1/3p2p1/3r1P2/1P4K1/P1r5/8 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","f4f5","",10]} 1. f5+ Kh5 2. Rh7# *
+
+[Event "D+T Treppenmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Weiß am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "4rr1k/p4pb1/5R1p/1p2q3/3p4/3P2R1/PP1Q2BP/7K w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d2h6","",10]} 1. Qxh6+ (1. Rxh6+ $2 Kg8) 1... Bxh6 2.
+Rxh6# *
+
+[Event "T+L Grundreihenmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Weiß am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2b1Rrk1/1q3ppp/p2p3B/2nN1P2/8/1B4b1/1PP2PPP/3R2K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d5f6","",10]} 1. Nf6+ gxf6 2. Rxf8# *
+
+[Event "T+S Linienmatt, Ablenkung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 2"]
+[Black "Weiß am Zug"]
+[Result "*"]
+[SetUp "1"]
+[FEN "1n4rk/6pp/8/p1P1R3/2r3PN/6K1/P4P2/4R3 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","h4g6","",10]} 1. Ng6+ hxg6 2. Rh1# *
+

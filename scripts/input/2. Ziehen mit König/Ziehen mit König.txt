@@ -1,0 +1,1 @@
+Der König zieht 1 Feld in jede beliebige Richtung. Dabei darf auf dem Feld keine eigene Figur stehen. Ziehe mit dem König!

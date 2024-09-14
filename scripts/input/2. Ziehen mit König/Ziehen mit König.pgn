@@ -1,0 +1,30 @@
+﻿[Event "?"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "1"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "7k/8/8/8/8/8/8/6K1 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2024.09.13"]
+
+{[#]} 1. Kg2 (1. Kf2) (1. Kh2) (1. Kh1) (1. Kf1) *
+
+[Event "?"]
+[Site "?"]
+[Date "2024.09.13"]
+[Round "?"]
+[White "2"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "8/3k4/8/8/8/3K4/8/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2024.09.13"]
+
+{[#]} 1. Kc4 (1. Kd4) (1. Ke4) (1. Ke3) (1. Ke2) (1. Kd2) (1. Kc2) (1. Kc3) *
+

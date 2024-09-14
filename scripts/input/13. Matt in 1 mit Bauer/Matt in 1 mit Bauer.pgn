@@ -1,0 +1,174 @@
+﻿[Event "55 K+B Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Bauer"]
+[Result "*"]
+[SetUp "1"]
+[FEN "kbK5/p7/pP6/8/8/8/8/8 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. b7# *
+
+[Event "56 Fesselung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Bauer"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/8/7p/5K1k/7r/7R/6P1/8 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. g4# *
+
+[Event "57 B+B Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Bauer"]
+[Result "*"]
+[SetUp "1"]
+[FEN "6R1/kp2qp2/p4p2/PP6/3r4/2P3P1/1K6/8 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. b6# *
+
+[Event "58 K+B Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Bauer"]
+[Result "*"]
+[SetUp "1"]
+[FEN "5b1r/6kb/8/6KP/8/8/B7/8 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. h6# *
+
+[Event "59 K+B Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Bauer"]
+[Result "*"]
+[SetUp "1"]
+[FEN "6r1/p1R5/5pk1/6P1/5PK1/4r3/8/8 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. f5# *
+
+[Event "60 L+B Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Bauer"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r3b2b/4B1kq/6pp/ppn1nP2/8/1BP4P/PP6/1K2R3 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. f6# *
+
+[Event "?"]
+[Site "?"]
+[Date "2022.10.16"]
+[Round "?"]
+[White "Aufgabe 8"]
+[Black "?"]
+[Result "1-0"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "6k1/6P1/5PK1/8/8/8/8/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2022.10.16"]
+
+{[#]} 1. f7# 1-0
+
+[Event "?"]
+[Site "?"]
+[Date "2022.10.16"]
+[Round "?"]
+[White "Aufgabe 9"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "8/8/6pp/7k/5P2/7K/6P1/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2022.10.16"]
+
+{[#]} 1. g4# *
+
+[Event "?"]
+[Site "?"]
+[Date "2022.10.16"]
+[Round "?"]
+[White "Aufgabe 10"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "8/8/7R/2k5/2P5/2K3p1/1P4r1/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2022.10.16"]
+
+{[#]} 1. b4# *
+
+[Event "?"]
+[Site "?"]
+[Date "2022.10.16"]
+[Round "?"]
+[White "Aufgabe 10"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "8/1p4R1/2k3P1/2p5/2K5/7r/8/8 b - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2022.10.16"]
+
+{[#]} 1... b5# *
+
+[Event "?"]
+[Site "?"]
+[Date "2022.10.16"]
+[Round "?"]
+[White "Aufgabe 11"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "7k/2b4p/6PP/8/2B5/8/6K1/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2022.10.16"]
+
+{[#]} 1. g7# *
+
+[Event "?"]
+[Site "?"]
+[Date "2022.10.16"]
+[Round "?"]
+[White "Aufgabe 12"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "1k6/4N3/PK6/8/8/5B2/7q/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2022.10.16"]
+
+{[#]} 1. a7# *
+

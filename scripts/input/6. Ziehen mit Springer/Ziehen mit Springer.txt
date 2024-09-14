@@ -1,0 +1,1 @@
+Der Springer zieht / "springt" 2 Felder in jede Richtung und anschließend 1 Feld zur jeweiligen Seite. Die Zugweise ähnelt einem "L". Der Springer darf über andere Figuren Springen. Ziehe mit dem Springer!

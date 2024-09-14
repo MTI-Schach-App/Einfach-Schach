@@ -1,0 +1,409 @@
+﻿[Event "241 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/8/2k5/K7/7R/8/8/2q5 w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","h4c4","",10]} 1. Rc4+ Qxc4 $11 *
+
+[Event "242 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "6K1/8/6kq/8/8/8/8/5R2 w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","f1f6","",10]} 1. Rf6+ Kxf6 $11 *
+
+[Event "243 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/4r2b/4P2K/8/3N3k/8/8/8 w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d4f5","",10]} 1. Nf5+ Bxf5 $11 *
+
+[Event "244 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/8/8/8/8/k7/3q4/KQ6 w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","b1d3","",10]} 1. Qd3+ Qxd3 $11 *
+
+[Event "245 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "5r2/8/8/8/6R1/6pK/5k2/8 w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","g4f4","",10]} 1. Rf4+ Rxf4 $11 *
+
+[Event "246 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/8/8/3Kbk2/B7/8/8/1q6 w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","a4c2","",10]} 1. Bc2+ Qxc2 $11 *
+
+[Event "247 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/2Q2p2/4p3/p7/P5k1/4q3/8/7K w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","c7g3","",10]} 1. Qg3+ Qxg3 $11 (1... Kxg3 $11) *
+
+[Event "248 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/8/1q6/8/8/K7/4Q3/1k4q1 w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e2d1","",10]} 1. Qd1+ Qxd1 $11 *
+
+[Event "249 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/8/1pk5/1p6/1K4B1/8/8/7q w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","g4f3","",10]} 1. Bf3+ Qxf3 $11 *
+
+[Event "250 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "1K6/8/8/kp6/4b3/8/1Q6/4q1b1 w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","b2c3","",10]} 1. Qc3+ Qxc3 $11 *
+
+[Event "251 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "7k/6q1/8/4Q2K/7P/8/8/1q6 w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e5b8","",10,"e5e8","?",0]} 1. Qb8+ $1 (1. Qe8+ {?} Qg8 (
+1... Kh7 {?} 2. Qg8+ $11) 2. Qe5+ Kh7 3. Qe7+ Qg7 4. Qe4+ Qg6+ {!} 5. Qxg6+
+Qxg6#) 1... Qxb8 $11 *
+
+[Event "252 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/8/8/p6p/7P/3q2PK/2rk4/5Q2 w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","f1e1","",10]} 1. Qe1+ Kxe1 $11 *
+
+[Event "253 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Schwarz"]
+[Result "*"]
+[SetUp "1"]
+[FEN "1Q6/8/2r5/3k4/1K6/8/8/4R3 b - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","c6b6","",10]} 1... Rb6+ 2. Qxb6 $11 *
+
+[Event "254 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Schwarz"]
+[Result "*"]
+[SetUp "1"]
+[FEN "4qk2/8/Q4P2/1p2p3/1P2P2B/P6K/5P2/8 b - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e8e6","",10]} 1... Qe6+ 2. Qxe6 $11 *
+
+[Event "255 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Schwarz"]
+[Result "*"]
+[SetUp "1"]
+[FEN "K2k4/B7/1p6/1P1Np3/8/8/8/6qb w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","a7b6","",10]} 1. Bxb6+ Qxb6 $11 *
+
+[Event "256 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Schwarz"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/8/1kp5/p1q5/P7/8/5BK1/8 w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","g2h1","",10,"f2c5","",0]} 1. Kh1 $1 (1. Bxc5+ $2 Kxc5 $19
+) 1... Qxf2 $11 *
+
+[Event "257 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Schwarz"]
+[Result "*"]
+[SetUp "1"]
+[FEN "6q1/8/2PQ4/8/2P5/1K6/8/7k b - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","g8g3","",10]} 1... Qg3+ 2. Qxg3 $11 *
+
+[Event "259 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Schwarz"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/8/8/8/6p1/4rkP1/7P/1R4K1 b - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e3e1","",10]} 1... Re1+ 2. Rxe1 $11 *
+
+[Event "260 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Schwarz"]
+[Result "*"]
+[SetUp "1"]
+[FEN "6Q1/8/2r5/8/7k/p7/P1P2N2/6K1 b - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","c6g6","",10]} 1... Rg6+ 2. Qxg6 $11 *
+
+[Event "261 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Schwarz"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/8/1P6/7p/7k/5PR1/1r4PK/8 b - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","b2g2","",10]} 1... Rxg2+ 2. Rxg2 $11 *
+
+[Event "262 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Schwarz"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2Q5/8/8/k1K5/8/3r4/4N3/8 b - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d3c3","",10]} 1... Rc3+ 2. Nxc3 $11 *
+
+[Event "263 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Schwarz"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/1B6/8/5k2/4p3/4p3/1p2K3/1r6 w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+1. Bxe4+ Kxe4 $11 *
+
+[Event "264 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Schwarz"]
+[Result "*"]
+[SetUp "1"]
+[FEN "6R1/P7/8/5P2/7p/7k/r7/6K1 b - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","a2g2","",10]} 1... Rg2+ 2. Rxg2 $11 *
+
+[Event "265 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Schwarz"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/8/4R3/8/5b2/8/3k1nKp/8 w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e6e2","",10]} 1. Re2+ Kxe2 $11 *
+
+[Event "266 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Schwarz"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/5p2/4pk2/3pn3/5p2/5P1K/2r5/6Q1 w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","g1g5","",10]} 1. Qg5+ Kxg5 $11 *
+
+[Event "267 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Schwarz"]
+[Result "*"]
+[SetUp "1"]
+[FEN "5Q2/kp6/p7/P7/2p1p3/4q3/8/7K w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","f8f2","",10]} 1. Qf2 Qxf2 $11 *
+
+[Event "268 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Schwarz"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/8/8/8/2p5/2R5/K7/3q3k w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","c3c1","",10]} 1. Rc1 Qxc1 $11 *
+
+[Event "269 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Schwarz"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r4k2/3rbp2/4p2K/4P2P/6Q1/3p2p1/8/8 w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","g4g8","",10]} 1. Qg8+ Kxg8 $11 *
+
+[Event "270 Patt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Remis"]
+[Black "Schwarz"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/6k1/r5p1/6K1/p7/8/8/R7 w - - 0 1"]
+[PlyCount "2"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","a1a4","",10]} 1. Rxa4 Rxa4 $11 *
+

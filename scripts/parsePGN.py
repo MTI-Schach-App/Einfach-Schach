@@ -1,28 +1,28 @@
 import chess.pgn
 
 import click
-import io, json, os
+import io, json, os, shutil
 
 def readTraining(pgn):
     game = chess.pgn.read_game(pgn)
     board = game.board()
     start = board.fen()
     moves = [] 
-    print(game.variations)
     if len(game.variations) > 0:
         for index, variation in enumerate(game.variations):
             moves.append([])
             moves[index].append(str(variation.move))
             crawling = True
+            nxt = variation
             while crawling:
-                print(index,variation.move, variation.end(), variation.next())
-                nxt = variation.next()
-                if nxt != None:
-                    moves[index].append(str(nxt))
-                else:
+                nxt2 = nxt.next()
+                if nxt2 != None:
+                    #print(nxt2.move)
+                    moves[index].append(str(nxt2.move))
+                    nxt = nxt2
+                else: 
                     crawling = False
-            
-    
+        
     return start,board.fen(),moves
 
 def sortByIndex(val):
@@ -47,10 +47,10 @@ def cleanKapitel(verbose):
             saml = e.read()
         with open(f"input/{chapter}/{name}.txt", encoding="utf-8") as e:
             desc = e.readlines()
+        
+        shutil.copy(f"input/{chapter}/{name}.png",f"../app/public/training/{name}.png")
 
-
-
-        pgns = saml.split('[Variant "')
+        pgns = saml.split('[Event "')
 
         sammlung_json = []
 
@@ -59,7 +59,7 @@ def cleanKapitel(verbose):
 
                 if verbose: print(index,pgn)
 
-                start,end,moves = readTraining(io.StringIO('[Variant "'+pgn))
+                start,end,moves = readTraining(io.StringIO('[Event "'+pgn))
                 sammlung_json.append(
                 {
                     "id":index,
@@ -78,14 +78,12 @@ def cleanKapitel(verbose):
             }
         ) 
 
-
-        with open(f"output/sammlung_kapitel{kapitel}.json","w+") as f:
-            json.dump(sammlung_json,f,indent=4)
-
-
     with open(f"output/training.json","w+") as h:
         json.dump(collection,h,indent=4)
-        
+
+    os.remove(f"../app/src/data/training.json")
+    shutil.copy(f"output/training.json",f"../app/src/data/training.json")
+
     print('Training erfolgreich erstellt!')
 
 

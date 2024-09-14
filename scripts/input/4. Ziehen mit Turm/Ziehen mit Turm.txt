@@ -1,0 +1,1 @@
+Der Turm zieht in geraden Linien in jede Richtung. Er darf nur soweit ziehen bis Figuren in seinem Weg stehen. Ziehe mit dem Turm!

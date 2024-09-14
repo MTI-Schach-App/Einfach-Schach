@@ -1,0 +1,151 @@
+﻿[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "1"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "6k1/8/8/5p2/5P2/8/7B/6K1 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Bg3 *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "2"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "8/1k6/8/2p5/2Pp4/3P4/B7/1K6 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Bb3 *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "3"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "8/7B/4k1Pp/7P/4K3/1p6/8/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Bg8+ *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "4"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "8/B7/pP1k4/K7/3p4/3P2p1/8/8 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Bb8+ *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "7"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "8/1q6/8/8/4k3/7P/4K3/5B2 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Bg2+ *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "8"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "8/6q1/8/1p6/1P1k4/B7/3K4/2R5 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Bb2+ *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "9"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "8/2p4k/2P1N3/3B4/2K5/5P2/8/1q6 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Be4+ *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "10"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "3k1B2/1Kp2pN1/2Pp1P2/8/8/8/8/7r w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2023.03.11"]
+
+{[#]} 1. Be7# *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "5"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "8/5p2/2kb3p/8/1p5P/1P4P1/1B3P2/6K1 w - - 0 1"]
+[PlyCount "1"]
+[SourceVersionDate "2024.09.13"]
+
+{[#]} 1. Bh8 (1. Bg7) (1. Bf6) (1. Bd4) (1. Bc1) (1. Ba1) (1. Be5) (1. Ba3) *
+
+[Event "?"]
+[Site "?"]
+[Date "2023.03.11"]
+[Round "?"]
+[White "6"]
+[Black "?"]
+[Result "*"]
+[Annotator "Vilen"]
+[SetUp "1"]
+[FEN "4k3/5p2/4p3/8/3B4/5P2/4P3/5K2 w - - 0 0"]
+[PlyCount "1"]
+[SourceVersionDate "2024.09.13"]
+
+{[#]} 1. Bc5 (1. Bb6) (1. Ba7) (1. Bc3) (1. Bb2) (1. Ba1) (1. Be5) (1. Bf6) (1.
+Bg7) (1. Bh8) (1. Be3) (1. Bf2) (1. Bg1) *
+

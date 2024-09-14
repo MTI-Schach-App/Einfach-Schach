@@ -1,0 +1,1 @@
+Der Läufer zieht in schrägen Linien in jede Richtung. Er darf nur soweit ziehen bis Figuren in seinem Weg stehen. Dabei behält er immer seine Feldfarbe. Ziehe mit dem Läufer!

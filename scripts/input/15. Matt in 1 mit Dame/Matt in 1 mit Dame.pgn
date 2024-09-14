@@ -1,0 +1,252 @@
+﻿[Event "13 D+K Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Dame"]
+[Result "*"]
+[SetUp "1"]
+[FEN "5k2/p7/5K2/8/8/8/Q7/8 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","a2f7","",10]} 1. Qf7# *
+
+[Event "14 D+K Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Dame"]
+[Result "*"]
+[SetUp "1"]
+[FEN "5qk1/Q7/6K1/8/8/8/8/8 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","a7h7","",10]} 1. Qh7# *
+
+[Event "15 D-Solo"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Dame"]
+[Result "*"]
+[SetUp "1"]
+[FEN "Q7/8/5pkp/8/4rqPK/8/8/8 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","a8g8","",10]} 1. Qg8# *
+
+[Event "16 Batterie"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Dame"]
+[Result "*"]
+[SetUp "1"]
+[FEN "4qrk1/5ppp/8/8/8/7P/1Q4PK/B7 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","b2g7","",10]} 1. Qxg7# *
+
+[Event "17 D+B Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Dame"]
+[Result "*"]
+[SetUp "1"]
+[FEN "kr6/7Q/1P6/8/2K5/8/8/8 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","h7a7","",10]} 1. Qa7# *
+
+[Event "18 D-Solo"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Dame"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/7K/Q7/4q3/8/7p/7p/7k w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","a6f1","",10]} 1. Qf1# *
+
+[Event "19 D+K Epaulettenmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Dame"]
+[Result "*"]
+[SetUp "1"]
+[FEN "7Q/8/8/8/4q3/3k4/1K2p3/8 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","h8c3","",10]} 1. Qc3# *
+
+[Event "20 D+B Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Dame"]
+[Result "*"]
+[SetUp "1"]
+[FEN "1Q6/8/6p1/7p/6kP/6P1/5K2/q7 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","b8c8","",10]} 1. Qc8# *
+
+[Event "21 Treppenmatt*"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Dame"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2r1R3/pbq2k1p/1p4pP/3pp3/B7/P1Q5/1P3PP1/6K1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Qf3# *
+
+[Event "22 D-Solo"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Dame"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2n2k2/p4pp1/Pp5r/1B4Q1/1q1p4/6Pp/1P3P1P/6K1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Qd8# *
+
+[Event "23 D+B Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Dame"]
+[Result "*"]
+[SetUp "1"]
+[FEN "7r/1p1R3p/p3pkp1/Q7/2r1q2P/2P5/P4PP1/6K1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Qg5# *
+
+[Event "24 D+L+K Stützmatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Dame"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2Q5/8/8/1K1k4/8/p7/8/B5q1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Qc6# *
+
+[Event "25 Fesselung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Dame"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r1b1k2r/4bppp/p1p2q2/8/8/8/PPPQ1P1P/2KRR3 w kq - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Qd8# *
+
+[Event "26 Treppenmatt*"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Dame"]
+[Result "*"]
+[SetUp "1"]
+[FEN "q4rb1/3Q3r/6k1/8/Ppp5/1n2B1P1/1P5P/4RRK1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Qg4# *
+
+[Event "27 Schäfermatt"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Dame"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r1bqkbnr/1ppp1ppp/p1n5/4p3/2B1P3/5Q2/PPPP1PPP/RNB1K1NR w KQkq - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Qxf7# *
+
+[Event "28 D+S Fesselung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Dame"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2rqk2N/1p3r2/4b2p/p5pQ/P2B4/8/1P3PPP/4R1K1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Qxf7# *
+
+[Event "29 D+S"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Dame"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r1bq2nr/pppnp1bp/3p1kp1/6N1/3PP3/8/PPP2PPP/RNBQK2R w KQ - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Qf3# *
+
+[Event "30 D+L*"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Dame"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r1bqr3/pppnbk1p/2p2ppB/8/3P4/5Q2/PPP1NPPP/R3K2R w KQ - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Qb3# *
+

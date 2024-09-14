@@ -1,0 +1,1 @@
+Die Dame zieht in schrägen und geraden Linien in jede Richtung. Sie darf nur soweit ziehen bis Figuren in seinem Weg stehen. Sie ist die stärkste Schachfigur und vereint die Zugweise des Turm und Läufers. Ziehe mit der Dame!

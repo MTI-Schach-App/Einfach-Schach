@@ -1,0 +1,168 @@
+﻿[Event "43"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Springer"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/8/8/8/p7/kn6/8/NK6 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Nc2# *
+
+[Event "44"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Springer"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/8/8/8/8/8/5K1p/5N1k w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Ng3# *
+
+[Event "45 T+S "]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Springer"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r3kb1r/pp1R1p1p/2p1pp2/8/2q1N3/4B3/PPP2PPP/R5K1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Nxf6# *
+
+[Event "46 S+S"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Springer"]
+[Result "*"]
+[SetUp "1"]
+[FEN "4k3/1N1nn3/4N2K/8/8/8/8/8 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Nd6# *
+
+[Event "47 "]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Springer"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r2r1k2/q1p2Pp1/5R1p/4N3/pP1P4/P2pP3/6PP/R5K1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Ng6# *
+
+[Event "48 T+S"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Springer"]
+[Result "*"]
+[SetUp "1"]
+[FEN "3bkr2/R6p/4N3/4n3/6Pq/2P4P/7K/8 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Ng7# *
+
+[Event "49 Ersticktes"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Springer"]
+[Result "*"]
+[SetUp "1"]
+[FEN "krr5/pp6/8/8/N7/1K6/8/R7 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Nb6# *
+
+[Event "50 Ersticktes"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Springer"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r1bqr2k/ppp1b1pn/7p/2P1N3/3P4/1B6/PP4PP/5RK1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Ng6# *
+
+[Event "51 T+S Anastasia"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Springer"]
+[Result "*"]
+[SetUp "1"]
+[FEN "5rk1/1p3pp1/p1b3q1/5N2/4P3/2P2P2/PP6/2K4R w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Ne7# *
+
+[Event "52 *"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Springer"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/5Np1/p7/4qp2/2K1kn2/4b3/8/8 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Ng5# *
+
+[Event "53 Abzug"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Springer"]
+[Result "*"]
+[SetUp "1"]
+[FEN "5rkr/1b4b1/3p2pp/p2Np3/PpB3Pq/1P6/2P4P/3R1RK1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Nf6# *
+
+[Event "54 L+S Libellen"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Matt in 1"]
+[Black "Springer"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2r2rk1/p2qbp1p/1p2b3/5Np1/8/2B5/1P4PP/5RK1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+1. Nh6# *
+

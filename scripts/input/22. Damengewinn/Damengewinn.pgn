@@ -1,0 +1,409 @@
+﻿[Event "199 Abzug"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "5r1k/pp4b1/1n1r1p2/2p1pNp1/2P1P3/1P3qB1/P3R3/3Q2K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%evp 0,3,818,835,884,835]} {[%tqu "En","","","","e2h2","",10]} 1. Rh2+ Kg8 2.
+Qxf3 $18 *
+
+[Event "200 Spieß"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "5Q2/5p1p/5kp1/3P4/3q4/7P/5rPK/8 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","f8h8","",10]} 1. Qh8+ Ke7 2. Qxd4 $18 *
+
+[Event "201 Ablenkung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "5qk1/6np/4p3/4P3/3PB3/5QP1/6K1/r7 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e4h7","",10]} 1. Bxh7+ Kxh7 2. Qxf8 $18 *
+
+[Event "202 Abzug"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "rn3bnr/pbp2kpp/1p2p3/8/2Pq4/2NB4/PP3PPP/R1BQK2R w KQ - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d3g6","",10]} 1. Bg6+ Kxg6 2. Qxd4 $18 *
+
+[Event "203 Ablenkung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r1b2k2/pppn1rq1/3p2BQ/3p4/3P4/8/PPP2PPP/R3R1K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e1e8","",10]} 1. Re8+ Kxe8 2. Qxg7 $18 *
+
+[Event "204 Ablenkung Fesselung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "4Qqk1/5pp1/p4b1p/1p6/1P6/P6P/B4PP1/6K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","a2f7","",10]} 1. Bxf7+ Kh7 2. Qxf8 $18 *
+
+[Event "206 Abzug"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2r5/p2k1p2/4pP1b/1p1pP3/1P1q3p/P1R5/1Q4KP/4B3 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","c3c7","",10]} 1. Rc7+ Rxc7 2. Qxd4 $18 *
+
+[Event "207 Abzug"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "rnb4r/pp2bkpp/2p2pn1/q3P2Q/5p2/P7/1BPP2PP/RN2K1NR w KQ - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e5e6","",10]} 1. e6+ Bxe6 2. Qxa5 $18 *
+
+[Event "208 Ablenkung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "1kb5/1pq4p/6p1/8/8/1P4Q1/P4B1P/6K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","f2a7","",10]} 1. Ba7+ Kxa7 2. Qxc7 $18 *
+
+[Event "209 Fesselung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r6r/1p1kbQp1/p3q3/3p3p/8/3B4/P2B1PPP/6K1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d3f5","",10]} 1. Bf5 *
+
+[Event "210 Doppelangriff"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[Annotator "Bartels,Sebastian"]
+[SetUp "1"]
+[FEN "3r1k1r/1b3pp1/5b1p/p1q1N3/1p6/3B4/PPPBQ1PP/4R2K w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e5d7","",10]} 1. Nd7+ Kg8 2. Nxc5 *
+
+[Event "211 Ablenkung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r1bqkb1r/p3pp1p/2p2np1/4p3/2B5/2N5/PPP2PPP/R1BQK2R w KQkq - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","c4f7","",10]} 1. Bxf7+ Kxf7 2. Qxd8 *
+
+[Event "212 Doppelangriff"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "3k4/7p/R7/1p6/8/6B1/3q2PP/7K w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","a6d6","",10]} 1. Rd6+ Qxd6 2. Bxd6 $18 *
+
+[Event "213 Abzug"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "1r4k1/3qbp1p/4R1p1/4p1P1/2p1P1Q1/2P1B1P1/5PK1/8 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e6g6","",10]} 1. Rxg6+ hxg6 2. Qxd7 $18 *
+
+[Event "214 Spieß"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r7/3qp1b1/n1p1k1p1/pp5p/2nPN3/P5Q1/1PP3PP/2BR3K w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","g3h3","",10]} 1. Qh3+ Kf7 2. Qxd7 $18 *
+
+[Event "215 Ablenkung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r2r4/pp3nkp/2p2qp1/5p2/2PN4/1P5P/PQ3PP1/R1K2R2 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d4e6","",10]} 1. Ne6+ Kg8 2. Qxf6 $18 *
+
+[Event "216 Fesselung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "rnb1kbnr/ppp1pppp/2q5/8/8/2N5/PPPP1PPP/R1BQKBNR w KQkq - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","f1b5","",10]} 1. Bb5 *
+
+[Event "229 Gefangen"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r4r1k/4N1pp/p1b2p2/1pnp1Nq1/6P1/2B5/PP3P1P/3QR1K1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","c3d2","",10]} 1. Bd2 $18 *
+
+[Event "230 Doppelangriff Umwandlung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/5P1k/4q3/8/8/8/5KP1/8 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","f7f8N","",10]} 1. f8=N+ Kg7 2. Nxe6+ $18 *
+
+[Event "231 Ablenkung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "4r1k1/pp5p/2p3pQ/8/3P4/4q2P/PP4P1/5R1K w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","f1f8","",10]} 1. Rf8+ Rxf8 2. Qxe3 $18 *
+
+[Event "232 Doppelangriff Fesselung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r1bk1b1r/p1pp2pp/2p2p2/2q3B1/3N4/2P5/PP3PPP/R2QR1K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d4e6","",10]} 1. Ne6+ Ke8 2. Nxc5+ $18 *
+
+[Event "233 Fesselung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r6r/p2bk1p1/2pq1p1n/4n2p/4P3/1BN1B2P/PPP2QP1/6KR w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e3c5","",10]} 1. Bc5 $18 *
+
+[Event "234"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r2q1rk1/1p1b1p1p/p4Q2/3N1p2/8/8/PPP3PP/R6K w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d5e7","",10]} 1. Ne7+ Qxe7 2. Qxe7 $18 *
+
+[Event "235 Gefangen"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r1bqr1k1/1p1nb1pp/p7/3p1p2/3PnB2/3BPN2/PPQ2PPP/2R2RK1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","f4c7","Alekhin - Rubinstein, San Remo 1931",10]} 1. Bc7
+$18 {Alekhin - Rubinstein, San Remo 1931} *
+
+[Event "236 Hinlenkung Fesselung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2b1k2r/r2p3p/p1qQpp2/8/5P1P/3R4/P3BKP1/8 w k - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e2h5","",10]} 1. Bh5+ Kd8 2. Qxc6 $18 *
+
+[Event "237 Gefangen"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "1R6/q4ppk/p1r1p2p/2p5/P7/N5P1/4BP1P/1R4K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","b1b7","",10]} 1. R1b7 Qxb7 2. Rxb7 $18 *
+
+[Event "238 Abzug"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "rnbqkb1r/pppp1ppp/5n2/4N3/8/8/PPPPQPPP/RNB1KB1R w KQkq - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e5c6","",10]} 1. Nc6+ $18 *
+
+[Event "239 Fesselung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "3k3r/pp2qQp1/8/3p1B1p/8/8/P2B1PPP/6K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d2g5","",10]} 1. Bg5 Qxg5 2. Qd7# *
+
+[Event "240 Doppelangriff Fesselung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Damengewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "6k1/5n2/2N2r1p/1p1q1p2/1P2r1p1/4P1P1/5PQP/2R3K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","c6e7","",10]} 1. Ne7+ Rxe7 2. Qxd5 $18 *
+

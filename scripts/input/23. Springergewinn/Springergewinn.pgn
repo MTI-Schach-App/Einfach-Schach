@@ -1,0 +1,182 @@
+﻿[Event "175 Doppelangriff"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Springergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "rnbqkb1r/p3pppp/1p6/2p5/4n2B/2P2N2/PP2PPPP/RN1QKB1R w KQkq - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d1a4","",10]} 1. Qa4+ Bd7 2. Qxe4 *
+
+[Event "176 Fesselung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Springergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "5rk1/1p3n1p/1R1p1qp1/2nP1p2/2P2p2/4Q2P/2B3P1/4R1K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e3c5","",10]} 1. Qxc5 dxc5 2. Rxf6 *
+
+[Event "177 Fesselung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Springergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "5n2/p6k/1p5p/4B1p1/P1B1n3/2P5/6PP/6K1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","c4d3","",10]} 1. Bd3 *
+
+[Event "178 Doppelangriff"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Springergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r2qkb1r/ppp2ppp/3Pb3/7n/5p2/5N2/PPPPQ1PP/RNB1KB1R w KQkq - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","e2b5","",10]} 1. Qb5+ c6 2. Qxh5 *
+
+[Event "179 Doppelangriff"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Springergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r3k2r/ppp1bppp/4b3/3qP3/4n3/3B4/PP3PPP/RNBQ1RK1 w kq - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d1a4","",10]} 1. Qa4+ Bd7 2. Qxe4 *
+
+[Event "180 Doppelangriff Fesselung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Springergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r4k1r/pb5p/4p1p1/2n1P3/qp3N2/8/PP3PPP/R2Q1RK1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","f4e6","",10]} 1. Nxe6+ Ke8 2. Nxc5 *
+
+[Event "181 Doppelangriff"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Springergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "5r1k/5pp1/7p/8/2n5/P4P1P/1P4PK/6Q1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","g1c5","",10]} 1. Qc5 Rb8 2. Qxc4 *
+
+[Event "182 Doppelangriff"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Springergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r1b2rk1/1pq1b1pp/p4n2/2P2p2/1n1P4/4P1P1/PB1N1PBP/R2Q1RK1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d1b3","",10]} 1. Qb3+ Kh8 2. Qxb4 *
+
+[Event "183 Spieß"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Springergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2R5/1k1r4/pn3pp1/7p/3r3P/6B1/5PP1/1R4K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","c8b8","",10]} 1. Rb8+ Ka7 2. R8xb6 *
+
+[Event "184 Fesselung"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Springergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "2r2rk1/pb1qp2p/1p1p4/4n2n/2PQ1p2/1PN2P2/P1N1B1PP/2RR2K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d4e5","",10]} 1. Qxe5 dxe5 2. Rxd7 *
+
+[Event "185 Doppelangriff"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Springergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "8/pb1n4/6k1/2pp1p2/5PP1/1P2P1K1/P2r4/1BR5 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","b1f5","",10]} 1. Bxf5+ Kf6 2. Bxd7 *
+
+[Event "186 Gefangen"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Springergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r4k2/p1n4n/1p2p2p/3pP3/2pP2Q1/2P5/PP4PP/6K1 w - - 0 1"]
+[PlyCount "1"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","g4g6","",10]} 1. Qg6 *
+
+[Event "187 Doppelangriff"]
+[Site "?"]
+[Date "????.??.??"]
+[Round "?"]
+[White "Springergewinn"]
+[Black "Weiß"]
+[Result "*"]
+[SetUp "1"]
+[FEN "r1b5/ppp1nkpp/8/b7/3P4/4p2P/PPP3P1/R2Q2K1 w - - 0 1"]
+[PlyCount "3"]
+[EventType "tourn"]
+
+{[%tqu "En","","","","d1h5","",10]} 1. Qh5+ Ke6 2. Qxa5 *
+

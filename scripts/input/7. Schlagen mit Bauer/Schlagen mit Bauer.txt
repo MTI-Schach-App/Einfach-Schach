@@ -1,0 +1,1 @@
+Der Bauer kann eine gegnerische Figur schlagen, wenn sie schäg 1 Feld entfernt steht. Schlage mit dem Bauer
