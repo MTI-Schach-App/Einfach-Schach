@@ -51,7 +51,6 @@ export default function TrainPlay({ width = 450, config, course, setSelectedCour
       check: true
     }
   };
-
   useEffect(() => {
     if (ref && ref.current && !api) {
       const chessgroundApi = ChessgroundApi(ref.current, {
@@ -83,7 +82,6 @@ export default function TrainPlay({ width = 450, config, course, setSelectedCour
     return (orig, dest) => {
       let cou = 0;
       let found = false;
-
       if (variation === -1) {
         for (const vare of legalMoves) {
           if (vare[0] === orig + dest) {
@@ -151,6 +149,7 @@ export default function TrainPlay({ width = 450, config, course, setSelectedCour
     setUser(user);
     setChess(new Chess());
     setCurrentLegal(0);
+    setVariation(-1);
   }
 
   function increaseLegal() {
@@ -162,6 +161,7 @@ export default function TrainPlay({ width = 450, config, course, setSelectedCour
     setCurrentLegal(0);
     setSelectedCourse(index+1);
     setCG(api, chess, false);
+    setVariation(-1);
   }
 
   function setCG(cg: Api, chess: Chess, highlight: boolean = true) {
