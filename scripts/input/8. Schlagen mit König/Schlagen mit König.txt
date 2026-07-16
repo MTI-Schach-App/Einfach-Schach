@@ -1,1 +1,1 @@
-Der König kann eine gegnerische Figur schlagen, wenn sie in seiner Richweite ist und ungeschützt steht.
+Der König kann eine gegnerische Figur schlagen, wenn sie in seiner Richweite von einem Feld ist und ungeschützt steht.
