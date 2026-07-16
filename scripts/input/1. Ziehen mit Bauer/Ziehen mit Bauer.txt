@@ -1,1 +1,1 @@
-Der Bauer zieht 1 Feld zum Mitspieler. Bauern bewegen sich nur in eine Richtung. Sie ziehen gerade aus und schlagen schräg. Steht einem Bauer jemand im Weg, kann er nicht ziehen. Ziehe mit dem Bauer!
+Der Bauer zieht 1 Feld zum Mitspieler. Bauern bewegen sich nur in eine Richtung. Wenn er auf seiner Ausgangsposition steht, kann er 2 Felder auf einmal ziehen. Sie ziehen gerade aus und schlagen schräg. Steht einem Bauer jemand im Weg, kann er nicht ziehen. Ziehe mit dem Bauer!
